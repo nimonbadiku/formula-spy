@@ -1,0 +1,25 @@
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  background: rgba(22, 43, 70, 0.05);
+  border-radius: var(--radius-md);
+}
+
+.tabs__item {
+  flex: 1;
+  border: none;
+  background: transparent;
+  border-radius: 13px;
+  padding: 11px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tabs__item--active {
+  background: var(--surface-solid);
+  color: var(--text);
+  box-shadow: 0 6px 16px -10px rgba(28, 53, 92, 0.5);
+}

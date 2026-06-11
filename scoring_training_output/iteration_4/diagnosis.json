@@ -1,0 +1,195 @@
+{
+  "iteration": 4,
+  "generatedAt": "2026-06-11T01:01:50.440Z",
+  "summary": {
+    "avgAbsError": 18.61,
+    "avgError": -17.24,
+    "overratedCount": 3,
+    "underratedCount": 50,
+    "correctCount": 17,
+    "stabilized": false
+  },
+  "diagnoses": [
+    {
+      "id": "harsh_surfactant_underrating",
+      "module": "cleanserHarshness.ts",
+      "severity": "high",
+      "affectedCount": 6,
+      "avgError": -28.75,
+      "description": "6 shampoos with harsh surfactants scored 28.8 points below expected. STRONG_DRY_SCALP_PENALTY (0.78) or STRONG_DAMAGED_PENALTY (0.82) may be too harsh, reducing even oily-hair profiles unnecessarily.",
+      "proposedFix": "Raise STRONG_DRY_SCALP_PENALTY from 0.78 to 0.84. Raise STRONG_DAMAGED_PENALTY from 0.82 to 0.87."
+    },
+    {
+      "id": "silicone_overrating",
+      "module": "builtupAnalysis.ts",
+      "severity": "medium",
+      "affectedCount": 2,
+      "avgError": 12.39,
+      "description": "2 silicone-heavy products scored 12.4 points above expected. Buildup risk penalties for heavy silicones may be insufficient for curly/coily profiles.",
+      "proposedFix": "In builtupAnalysis.ts: increase buildup score weight for 'Silicone' category ingredients on curlPattern=curly/coily profiles. Consider adding a 0.90 multiplier for 2+ silicones."
+    },
+    {
+      "id": "low_porosity_silicone_underrating",
+      "module": "advancedProfileModifiers.ts / molecularWeightHeuristics.ts",
+      "severity": "high",
+      "affectedCount": 5,
+      "avgError": -20.59,
+      "description": "5 low-porosity profiles with silicones scored 20.6 points below expected. Low-porosity penalty for silicones may be stacking excessively (molecular weight + buildup + advanced profile = triple penalty).",
+      "proposedFix": "The MULTI_PENALTY_FLOOR=0.35 in scoreFormulation.ts should catch this. If still underrating, raise MULTI_PENALTY_FLOOR from 0.35 to 0.40 for Silicone category."
+    },
+    {
+      "id": "scalp_sensitivity_overpenalty",
+      "module": "advancedProfileModifiers.ts / cleanserHarshness.ts",
+      "severity": "low",
+      "affectedCount": 16,
+      "avgError": -25.74,
+      "description": "16 sensitive-scalp profiles underrated by 25.7 pts. Scalp sensitivity may be stacking with cleanser harshness penalties.",
+      "proposedFix": "Ensure MILD_SENSITIVE_SCALP_BONUS (1.08) in cleanserHarshness.ts is actually offsetting the scalp sensitivity penalty from advancedProfileModifiers.ts. Consider adding an explicit cap: max combined scalp penalty = ×0.75."
+    }
+  ],
+  "patterns": {
+    "byProductCategory": [
+      {
+        "key": "mask",
+        "count": 10,
+        "avgError": -25.34
+      },
+      {
+        "key": "shampoo",
+        "count": 9,
+        "avgError": -19.58
+      },
+      {
+        "key": "styling_gel",
+        "count": 5,
+        "avgError": -19.45
+      },
+      {
+        "key": "conditioner",
+        "count": 9,
+        "avgError": -19.04
+      },
+      {
+        "key": "co_wash",
+        "count": 7,
+        "avgError": -17.81
+      },
+      {
+        "key": "leave_in",
+        "count": 10,
+        "avgError": -16.88
+      },
+      {
+        "key": "gentle_shampoo",
+        "count": 11,
+        "avgError": -14.36
+      },
+      {
+        "key": "serum",
+        "count": 9,
+        "avgError": -6.39
+      }
+    ],
+    "byHairType": [
+      {
+        "key": "4C",
+        "count": 8,
+        "avgError": -24.59
+      },
+      {
+        "key": "1B",
+        "count": 3,
+        "avgError": -21.8
+      },
+      {
+        "key": "2A",
+        "count": 3,
+        "avgError": -20.95
+      },
+      {
+        "key": "2C",
+        "count": 4,
+        "avgError": -20.36
+      },
+      {
+        "key": "4A",
+        "count": 9,
+        "avgError": -17.75
+      },
+      {
+        "key": "3A",
+        "count": 7,
+        "avgError": -17.58
+      },
+      {
+        "key": "2B",
+        "count": 8,
+        "avgError": -16.86
+      },
+      {
+        "key": "4B",
+        "count": 5,
+        "avgError": -16.62
+      },
+      {
+        "key": "3C",
+        "count": 9,
+        "avgError": -16.19
+      },
+      {
+        "key": "1C",
+        "count": 2,
+        "avgError": -15.23
+      },
+      {
+        "key": "1A",
+        "count": 7,
+        "avgError": -12.06
+      },
+      {
+        "key": "3B",
+        "count": 5,
+        "avgError": -7.86
+      }
+    ],
+    "byPorosity": [
+      {
+        "key": "high",
+        "count": 31,
+        "avgError": -18.88
+      },
+      {
+        "key": "low",
+        "count": 15,
+        "avgError": -16.21
+      },
+      {
+        "key": "med",
+        "count": 24,
+        "avgError": -15.78
+      }
+    ],
+    "byScalpCondition": [
+      {
+        "key": "sensitive",
+        "count": 17,
+        "avgError": -23.42
+      },
+      {
+        "key": "normal",
+        "count": 10,
+        "avgError": -18.17
+      },
+      {
+        "key": "oily",
+        "count": 19,
+        "avgError": -17.63
+      },
+      {
+        "key": "dry",
+        "count": 24,
+        "avgError": -12.18
+      }
+    ]
+  }
+}

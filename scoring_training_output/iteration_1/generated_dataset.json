@@ -1,0 +1,4371 @@
+{
+  "iteration": 1,
+  "generatedAt": "2026-06-11T01:01:28.500Z",
+  "profileCount": {
+    "profile_001": {
+      "id": "profile_001",
+      "hairType": "2A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_002": {
+      "id": "profile_002",
+      "hairType": "2B",
+      "scalpCondition": "dry",
+      "goals": [
+        "moisture",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "shampoo",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_003": {
+      "id": "profile_003",
+      "hairType": "2A",
+      "scalpCondition": "oily",
+      "goals": [
+        "frizz control",
+        "volume",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_004": {
+      "id": "profile_004",
+      "hairType": "3B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_005": {
+      "id": "profile_005",
+      "hairType": "4C",
+      "scalpCondition": "dry",
+      "goals": [
+        "frizz control",
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_006": {
+      "id": "profile_006",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_007": {
+      "id": "profile_007",
+      "hairType": "2C",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "shine",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_008": {
+      "id": "profile_008",
+      "hairType": "1B",
+      "scalpCondition": "oily",
+      "goals": [
+        "curl definition",
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_009": {
+      "id": "profile_009",
+      "hairType": "1C",
+      "scalpCondition": "dry",
+      "goals": [
+        "curl definition",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_010": {
+      "id": "profile_010",
+      "hairType": "3B",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "hair_oil_serum",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_011": {
+      "id": "profile_011",
+      "hairType": "4C",
+      "scalpCondition": "normal",
+      "goals": [
+        "frizz control",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_012": {
+      "id": "profile_012",
+      "hairType": "1A",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_013": {
+      "id": "profile_013",
+      "hairType": "4A",
+      "scalpCondition": "oily",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_014": {
+      "id": "profile_014",
+      "hairType": "3B",
+      "scalpCondition": "normal",
+      "goals": [
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_015": {
+      "id": "profile_015",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_016": {
+      "id": "profile_016",
+      "hairType": "2C",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_017": {
+      "id": "profile_017",
+      "hairType": "2A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_018": {
+      "id": "profile_018",
+      "hairType": "1A",
+      "scalpCondition": "dry",
+      "goals": [
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_019": {
+      "id": "profile_019",
+      "hairType": "1B",
+      "scalpCondition": "dry",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_020": {
+      "id": "profile_020",
+      "hairType": "4C",
+      "scalpCondition": "normal",
+      "goals": [
+        "curl definition",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "co_wash",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_021": {
+      "id": "profile_021",
+      "hairType": "4C",
+      "scalpCondition": "oily",
+      "goals": [
+        "curl definition",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "styling_product",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_022": {
+      "id": "profile_022",
+      "hairType": "3C",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "volume",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_023": {
+      "id": "profile_023",
+      "hairType": "3A",
+      "scalpCondition": "oily",
+      "goals": [
+        "moisture",
+        "volume",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_024": {
+      "id": "profile_024",
+      "hairType": "4B",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "styling_product",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_025": {
+      "id": "profile_025",
+      "hairType": "3B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture",
+        "curl definition",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_026": {
+      "id": "profile_026",
+      "hairType": "2C",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine",
+        "volume",
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_027": {
+      "id": "profile_027",
+      "hairType": "1B",
+      "scalpCondition": "oily",
+      "goals": [
+        "shine",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "shampoo",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_028": {
+      "id": "profile_028",
+      "hairType": "1C",
+      "scalpCondition": "dry",
+      "goals": [
+        "protein treatment",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_029": {
+      "id": "profile_029",
+      "hairType": "4C",
+      "scalpCondition": "normal",
+      "goals": [
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "shampoo",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_030": {
+      "id": "profile_030",
+      "hairType": "1C",
+      "scalpCondition": "oily",
+      "goals": [
+        "shine",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_031": {
+      "id": "profile_031",
+      "hairType": "2A",
+      "scalpCondition": "oily",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_032": {
+      "id": "profile_032",
+      "hairType": "4B",
+      "scalpCondition": "normal",
+      "goals": [
+        "repair",
+        "moisture",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_033": {
+      "id": "profile_033",
+      "hairType": "1C",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_034": {
+      "id": "profile_034",
+      "hairType": "3B",
+      "scalpCondition": "oily",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_035": {
+      "id": "profile_035",
+      "hairType": "4A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "styling_product",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_036": {
+      "id": "profile_036",
+      "hairType": "1C",
+      "scalpCondition": "dry",
+      "goals": [
+        "moisture",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_037": {
+      "id": "profile_037",
+      "hairType": "2A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_038": {
+      "id": "profile_038",
+      "hairType": "1A",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine",
+        "repair",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_039": {
+      "id": "profile_039",
+      "hairType": "3C",
+      "scalpCondition": "dry",
+      "goals": [
+        "volume",
+        "shine",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_040": {
+      "id": "profile_040",
+      "hairType": "3C",
+      "scalpCondition": "dry",
+      "goals": [
+        "protein treatment",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_041": {
+      "id": "profile_041",
+      "hairType": "4A",
+      "scalpCondition": "dry",
+      "goals": [
+        "frizz control",
+        "volume",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_042": {
+      "id": "profile_042",
+      "hairType": "4A",
+      "scalpCondition": "normal",
+      "goals": [
+        "repair",
+        "moisture",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_043": {
+      "id": "profile_043",
+      "hairType": "3B",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "curl definition",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_044": {
+      "id": "profile_044",
+      "hairType": "3C",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "scalp health",
+        "repair",
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_045": {
+      "id": "profile_045",
+      "hairType": "3A",
+      "scalpCondition": "dry",
+      "goals": [
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_046": {
+      "id": "profile_046",
+      "hairType": "2C",
+      "scalpCondition": "dry",
+      "goals": [
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_047": {
+      "id": "profile_047",
+      "hairType": "2B",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "hair_oil_serum",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_048": {
+      "id": "profile_048",
+      "hairType": "4A",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "co_wash",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_049": {
+      "id": "profile_049",
+      "hairType": "3A",
+      "scalpCondition": "oily",
+      "goals": [
+        "shine",
+        "scalp health",
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "co_wash",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_050": {
+      "id": "profile_050",
+      "hairType": "2B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "curl definition",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_051": {
+      "id": "profile_051",
+      "hairType": "2A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_052": {
+      "id": "profile_052",
+      "hairType": "1A",
+      "scalpCondition": "normal",
+      "goals": [
+        "curl definition",
+        "repair",
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "damaged",
+        "oiliness": "normal",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_053": {
+      "id": "profile_053",
+      "hairType": "2C",
+      "scalpCondition": "oily",
+      "goals": [
+        "frizz control",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_054": {
+      "id": "profile_054",
+      "hairType": "2B",
+      "scalpCondition": "dry",
+      "goals": [
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_055": {
+      "id": "profile_055",
+      "hairType": "4B",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_056": {
+      "id": "profile_056",
+      "hairType": "3C",
+      "scalpCondition": "oily",
+      "goals": [
+        "shine",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "co_wash",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_057": {
+      "id": "profile_057",
+      "hairType": "1A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "styling_product",
+        "curlPattern": "straight",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_058": {
+      "id": "profile_058",
+      "hairType": "3C",
+      "scalpCondition": "oily",
+      "goals": [
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_059": {
+      "id": "profile_059",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "curl definition",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_060": {
+      "id": "profile_060",
+      "hairType": "1C",
+      "scalpCondition": "oily",
+      "goals": [
+        "protein treatment",
+        "scalp health",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_061": {
+      "id": "profile_061",
+      "hairType": "2B",
+      "scalpCondition": "dry",
+      "goals": [
+        "moisture",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_062": {
+      "id": "profile_062",
+      "hairType": "3B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "frizz control",
+        "volume",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_063": {
+      "id": "profile_063",
+      "hairType": "1C",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "straight",
+        "scalpSensitivity": true,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_064": {
+      "id": "profile_064",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_065": {
+      "id": "profile_065",
+      "hairType": "2A",
+      "scalpCondition": "dry",
+      "goals": [
+        "shine",
+        "volume",
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "shampoo",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_066": {
+      "id": "profile_066",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "frizz control",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_067": {
+      "id": "profile_067",
+      "hairType": "3A",
+      "scalpCondition": "oily",
+      "goals": [
+        "protein treatment",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "styling_product",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_068": {
+      "id": "profile_068",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine",
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "co_wash",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    },
+    "profile_069": {
+      "id": "profile_069",
+      "hairType": "2A",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "hair_oil_serum",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      }
+    },
+    "profile_070": {
+      "id": "profile_070",
+      "hairType": "4B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      }
+    }
+  },
+  "testCases": [
+    {
+      "id": "case_001",
+      "profileId": "profile_001",
+      "productId": "product_001",
+      "hairType": "2A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Moisturizing Shampoo #1",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Cetearyl Alcohol, Quaternium-91, Coco Glucoside, Caprylyl Glycol, Simmondsia Chinensis Seed Oil, Cyclopentasiloxane, Hydrolyzed Rice Protein, Sodium PCA, Disodium EDTA, Lactic Acid, Sodium Hydroxide, Chlorphenesin, C12-15 Alkyl Benzoate, Shea Butter, Aqua, Fragrance, Phenoxyethanol, Ethylhexylglycerin, Parfum, Caprylic/Capric Triglyceride, Sodium Chloride, Methylisothiazolinone, Tocopherol, Potassium Sorbate, Pantolactone, Cetyl Esters, Squalane, Isopropyl Myristate, Citric Acid, Butyrospermum Parkii Butter, Sodium Benzoate",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Rice Protein"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane"
+        ],
+        "oils": [
+          "Simmondsia Chinensis Seed Oil"
+        ]
+      },
+      "expectedScore": 52
+    },
+    {
+      "id": "case_002",
+      "profileId": "profile_002",
+      "productId": "product_002",
+      "hairType": "2B",
+      "scalpCondition": "dry",
+      "goals": [
+        "moisture",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "shampoo",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Moisturizing Shampoo #2",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Sorbitol, Stearamidopropyl Dimethylamine, Stearyl Alcohol, Hydrolyzed Keratin, Dimethiconol, Hydroxyethylcellulose, Caprylyl Glycol, Simmondsia Chinensis Seed Oil, Aqua, Fragrance, Methylisothiazolinone, Cetyl Esters, Lactic Acid, Caprylic/Capric Triglyceride, Sodium Chloride, Tocopherol, Chlorphenesin, Phenoxyethanol, Butyrospermum Parkii Butter, Isopropyl Myristate, Sodium Benzoate, Potassium Sorbate, C12-15 Alkyl Benzoate, Citric Acid, Ethylhexylglycerin, Sodium Hydroxide, Disodium EDTA, Parfum, Squalane, Shea Butter, Pantolactone",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Sorbitol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Simmondsia Chinensis Seed Oil"
+        ]
+      },
+      "expectedScore": 73
+    },
+    {
+      "id": "case_003",
+      "profileId": "profile_003",
+      "productId": "product_003",
+      "hairType": "2A",
+      "scalpCondition": "oily",
+      "goals": [
+        "frizz control",
+        "volume",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Growth Serum #3",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Sorbitol, Isopropyl Alcohol, Cocos Nucifera Oil, Cyclopentasiloxane, Cetyl Alcohol, Hydroxyethylcellulose, Parfum, Isopropyl Myristate, Tocopherol, Aqua, Citric Acid, Potassium Sorbate, Butyrospermum Parkii Butter, Disodium EDTA, Sodium Hydroxide, Squalane, Sodium Benzoate, Pantolactone, Fragrance, Methylisothiazolinone, Caprylic/Capric Triglyceride, Phenoxyethanol, Chlorphenesin",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Sorbitol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane"
+        ],
+        "oils": [
+          "Cocos Nucifera Oil"
+        ]
+      },
+      "expectedScore": 50
+    },
+    {
+      "id": "case_004",
+      "profileId": "profile_004",
+      "productId": "product_004",
+      "hairType": "3B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": true
+      },
+      "productName": "Protein Mask #4",
+      "productCategory": "mask",
+      "productType": "deep_conditioner_mask",
+      "inci": "Water, Cetearyl Alcohol, Cetrimonium Chloride, Hydrolyzed Quinoa, Polyquaternium-10, Squalane, Rosa Canina Fruit Oil, Aloe Barbadensis Leaf Juice, Ethylhexylglycerin, Lactic Acid, Cetyl Esters, Butyrospermum Parkii Butter, Potassium Sorbate, C12-15 Alkyl Benzoate, Caprylyl Glycol, Tocopherol, Fragrance, Sodium Chloride, Parfum, Methylisothiazolinone, Isopropyl Myristate, Phenoxyethanol, Sodium Hydroxide, Pantolactone, Chlorphenesin, Sodium Benzoate, Disodium EDTA, Caprylic/Capric Triglyceride, Citric Acid, Shea Butter, Aqua",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Quinoa"
+        ],
+        "humectants": [
+          "Aloe Barbadensis Leaf Juice"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": [
+          "Rosa Canina Fruit Oil"
+        ]
+      },
+      "expectedScore": 82
+    },
+    {
+      "id": "case_005",
+      "profileId": "profile_005",
+      "productId": "product_005",
+      "hairType": "4C",
+      "scalpCondition": "dry",
+      "goals": [
+        "frizz control",
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Leave-In Conditioner #5",
+      "productCategory": "styling_gel",
+      "productType": "styling_product",
+      "inci": "Water, VP/VA Copolymer, Propylene Glycol, Phenoxyethanol, Cetrimonium Chloride, Cyclomethicone, Hydrolyzed Collagen, Sodium Hydroxide, Chlorphenesin, Citric Acid, Squalane, Methylisothiazolinone, Ethylhexylglycerin, Sodium Chloride, Parfum, Cetyl Esters, Potassium Sorbate, Pantolactone, Aqua, Fragrance, Sodium Benzoate, Caprylyl Glycol, C12-15 Alkyl Benzoate, Lactic Acid, Butyrospermum Parkii Butter, Tocopherol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Collagen"
+        ],
+        "humectants": [
+          "Propylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclomethicone"
+        ],
+        "oils": []
+      },
+      "expectedScore": 63
+    },
+    {
+      "id": "case_006",
+      "profileId": "profile_006",
+      "productId": "product_006",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Conditioning Co-Wash #6",
+      "productCategory": "conditioner",
+      "productType": "rinse_out_conditioner",
+      "inci": "Water, Cetearyl Alcohol, Cetrimonium Chloride, Sodium Benzoate, Cyclopentasiloxane, Hydrolyzed Wheat Protein, Rosa Canina Fruit Oil, Sodium PCA, Amodimethicone, Polyquaternium-11, Sodium Hydroxide, Caprylic/Capric Triglyceride, Methylisothiazolinone, Parfum, Chlorphenesin, Isopropyl Myristate, Lactic Acid, Phenoxyethanol, C12-15 Alkyl Benzoate, Aqua, Ethylhexylglycerin, Pantolactone, Tocopherol, Fragrance, Citric Acid",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane",
+          "Amodimethicone"
+        ],
+        "oils": [
+          "Rosa Canina Fruit Oil"
+        ]
+      },
+      "expectedScore": 60
+    },
+    {
+      "id": "case_007",
+      "profileId": "profile_007",
+      "productId": "product_007",
+      "hairType": "2C",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "shine",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Repair Conditioner #7",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Glycerin, Behentrimonium Methosulfate, Rosa Canina Fruit Oil, Chlorphenesin, Cyclomethicone, Hydrolyzed Wheat Protein, Stearyl Alcohol, Carbomer, Cetyl Esters, Lactic Acid, Caprylyl Glycol, Ethylhexylglycerin, Aqua, Butyrospermum Parkii Butter, Citric Acid, Fragrance, Squalane, Sodium Hydroxide, Isopropyl Myristate, Caprylic/Capric Triglyceride, Parfum, Methylisothiazolinone",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Glycerin"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclomethicone"
+        ],
+        "oils": [
+          "Rosa Canina Fruit Oil"
+        ]
+      },
+      "expectedScore": 71
+    },
+    {
+      "id": "case_008",
+      "profileId": "profile_008",
+      "productId": "product_008",
+      "hairType": "1B",
+      "scalpCondition": "oily",
+      "goals": [
+        "curl definition",
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Leave-In Cream #8",
+      "productCategory": "serum",
+      "productType": "hair_oil_serum",
+      "inci": "Water, Ricinus Communis Seed Oil, C12-15 Alkyl Benzoate, Amodimethicone, Cyclomethicone, Panthenol, Sodium Benzoate, Aqua, Citric Acid, Potassium Sorbate, Sodium Chloride, Methylisothiazolinone, Butyrospermum Parkii Butter, Squalane, Tocopherol, Sodium Hydroxide, Pantolactone, Disodium EDTA, Fragrance, Caprylyl Glycol, Caprylic/Capric Triglyceride, Shea Butter, Cetyl Esters, Isopropyl Myristate, Chlorphenesin, Parfum, Phenoxyethanol, Ethylhexylglycerin, Lactic Acid",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Panthenol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Amodimethicone",
+          "Cyclomethicone"
+        ],
+        "oils": [
+          "Ricinus Communis Seed Oil"
+        ]
+      },
+      "expectedScore": 44
+    },
+    {
+      "id": "case_009",
+      "profileId": "profile_009",
+      "productId": "product_009",
+      "hairType": "1C",
+      "scalpCondition": "dry",
+      "goals": [
+        "curl definition",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Styling Cream #9",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Stearyl Alcohol, Stearamidopropyl Dimethylamine, Hydrolyzed Rice Protein, PEG-12 Dimethicone, Sodium Lauroyl Sarcosinate, Methylisothiazolinone, Citric Acid, Aqua, Lactic Acid, Parfum, Butyrospermum Parkii Butter, Caprylyl Glycol, C12-15 Alkyl Benzoate, Sodium Benzoate, Pantolactone, Sodium Hydroxide, Fragrance, Shea Butter, Sodium Chloride, Isopropyl Myristate, Squalane, Caprylic/Capric Triglyceride, Chlorphenesin, Ethylhexylglycerin, Phenoxyethanol, Tocopherol, Disodium EDTA, Cetyl Esters, Potassium Sorbate",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Rice Protein"
+        ],
+        "humectants": [],
+        "harshSurfactants": [],
+        "silicones": [
+          "PEG-12 Dimethicone"
+        ],
+        "oils": []
+      },
+      "expectedScore": 45
+    },
+    {
+      "id": "case_010",
+      "profileId": "profile_010",
+      "productId": "product_010",
+      "hairType": "3B",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "hair_oil_serum",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Protein Mask #10",
+      "productCategory": "gentle_shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Disodium Cocoamphodiacetate, Hydrolyzed Rice Protein, Propylene Glycol, Cetyl Alcohol, Stearamidopropyl Dimethylamine, Chlorphenesin, Isopropyl Myristate, Sodium Chloride, Tocopherol, Aqua, Sodium Benzoate, Butyrospermum Parkii Butter, Parfum, Ethylhexylglycerin, Citric Acid, Phenoxyethanol, Disodium EDTA, Sodium Hydroxide, Pantolactone",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Rice Protein"
+        ],
+        "humectants": [
+          "Propylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 62
+    },
+    {
+      "id": "case_011",
+      "profileId": "profile_011",
+      "productId": "product_011",
+      "hairType": "4C",
+      "scalpCondition": "normal",
+      "goals": [
+        "frizz control",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Clarifying Shampoo #11",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Ammonium Laureth Sulfate, Panthenol, Stearamidopropyl Dimethylamine, Lauryl Glucoside, Phenoxyethanol, Hydrolyzed Wheat Protein, Fragrance, Caprylic/Capric Triglyceride, Disodium EDTA, Cetyl Esters, Chlorphenesin, Citric Acid, Isopropyl Myristate, Sodium Hydroxide, Parfum, Shea Butter, Tocopherol, Butyrospermum Parkii Butter, Potassium Sorbate, Ethylhexylglycerin",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Panthenol"
+        ],
+        "harshSurfactants": [
+          "Ammonium Laureth Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 59
+    },
+    {
+      "id": "case_012",
+      "profileId": "profile_012",
+      "productId": "product_012",
+      "hairType": "1A",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Growth Serum #12",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Butylene Glycol, Stearamidopropyl Dimethylamine, Olea Europaea Fruit Oil, Polyquaternium-10, Dimethiconol, Cetearyl Alcohol, Sodium Benzoate, Citric Acid, Ethylhexylglycerin, Disodium EDTA, Caprylic/Capric Triglyceride, Chlorphenesin, Cetyl Esters, Potassium Sorbate, Isopropyl Myristate, Phenoxyethanol, Aqua, C12-15 Alkyl Benzoate, Butyrospermum Parkii Butter, Lactic Acid, Tocopherol, Parfum, Fragrance, Shea Butter, Sodium Chloride, Sodium Hydroxide, Pantolactone, Squalane, Caprylyl Glycol, Methylisothiazolinone",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Butylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Olea Europaea Fruit Oil"
+        ]
+      },
+      "expectedScore": 38
+    },
+    {
+      "id": "case_013",
+      "profileId": "profile_013",
+      "productId": "product_013",
+      "hairType": "4A",
+      "scalpCondition": "oily",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Curl Defining Gel #13",
+      "productCategory": "serum",
+      "productType": "hair_oil_serum",
+      "inci": "Water, Simmondsia Chinensis Seed Oil, Isopropyl Myristate, Bis-Aminopropyl Dimethicone, Aloe Barbadensis Leaf Juice, Ethylhexylglycerin, Dimethiconol, Parfum, Chlorphenesin, Sodium Chloride, Fragrance, Sodium Hydroxide, C12-15 Alkyl Benzoate, Disodium EDTA, Citric Acid, Potassium Sorbate, Tocopherol, Phenoxyethanol, Caprylyl Glycol, Sodium Benzoate, Lactic Acid, Caprylic/Capric Triglyceride, Squalane, Butyrospermum Parkii Butter, Shea Butter, Pantolactone, Methylisothiazolinone, Aqua, Cetyl Esters",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Aloe Barbadensis Leaf Juice"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Bis-Aminopropyl Dimethicone",
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Simmondsia Chinensis Seed Oil"
+        ]
+      },
+      "expectedScore": 56
+    },
+    {
+      "id": "case_014",
+      "profileId": "profile_014",
+      "productId": "product_014",
+      "hairType": "3B",
+      "scalpCondition": "normal",
+      "goals": [
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Leave-In Cream #14",
+      "productCategory": "mask",
+      "productType": "deep_conditioner_mask",
+      "inci": "Water, Stearyl Alcohol, Isopropyl Alcohol, Hydrolyzed Keratin, Sodium PCA, Cocos Nucifera Oil, Ethylhexylglycerin, Squalane, VP/VA Copolymer, Sodium Benzoate, Aqua, Lactic Acid, Sodium Hydroxide, Isopropyl Myristate, Pantolactone, Cetyl Esters, Caprylic/Capric Triglyceride, Disodium EDTA, Butyrospermum Parkii Butter, Tocopherol, Sodium Chloride",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": [
+          "Cocos Nucifera Oil"
+        ]
+      },
+      "expectedScore": 64
+    },
+    {
+      "id": "case_015",
+      "profileId": "profile_015",
+      "productId": "product_015",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Leave-In Cream #15",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Sodium Lauryl Sulfate, Honey, Sodium Benzoate, Behentrimonium Chloride, Coco Glucoside, Hydrolyzed Silk, Cetyl Esters, Aqua, Citric Acid, Butyrospermum Parkii Butter, Squalane, Phenoxyethanol, Shea Butter, Sodium Chloride, Caprylic/Capric Triglyceride, Isopropyl Myristate, Lactic Acid, Sodium Hydroxide, Disodium EDTA, Tocopherol, Methylisothiazolinone, Caprylyl Glycol, Fragrance, Potassium Sorbate, Chlorphenesin, Ethylhexylglycerin, Pantolactone, C12-15 Alkyl Benzoate, Parfum",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Silk"
+        ],
+        "humectants": [
+          "Honey"
+        ],
+        "harshSurfactants": [
+          "Sodium Lauryl Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 66
+    },
+    {
+      "id": "case_016",
+      "profileId": "profile_016",
+      "productId": "product_016",
+      "hairType": "2C",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Leave-In Cream #16",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Sodium PCA, Cetrimonium Chloride, Rosa Canina Fruit Oil, Dimethiconol, Hydrolyzed Quinoa, Lauryl Alcohol, Methylisothiazolinone, Hydroxyethylcellulose, Sodium Hydroxide, Sodium Benzoate, Butyrospermum Parkii Butter, Squalane, Potassium Sorbate, Tocopherol, Ethylhexylglycerin, Cetyl Esters, Sodium Chloride, Isopropyl Myristate, Disodium EDTA, Phenoxyethanol, Parfum, Citric Acid, Shea Butter, Pantolactone, Lactic Acid, Caprylyl Glycol, C12-15 Alkyl Benzoate, Caprylic/Capric Triglyceride, Chlorphenesin, Aqua, Fragrance",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Quinoa"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Rosa Canina Fruit Oil"
+        ]
+      },
+      "expectedScore": 58
+    },
+    {
+      "id": "case_017",
+      "profileId": "profile_017",
+      "productId": "product_017",
+      "hairType": "2A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Growth Serum #17",
+      "productCategory": "serum",
+      "productType": "hair_oil_serum",
+      "inci": "Water, Argania Spinosa Kernel Oil, Caprylic/Capric Triglyceride, Dimethiconol, Trimethylsilylamodimethicone, Phenoxyethanol, Glycerin, Lactic Acid, Aqua, Shea Butter, Citric Acid, Sodium Hydroxide, Fragrance, Pantolactone, Caprylyl Glycol, Cetyl Esters, Sodium Benzoate, Sodium Chloride, Parfum, Isopropyl Myristate, Methylisothiazolinone, C12-15 Alkyl Benzoate, Squalane, Tocopherol, Disodium EDTA, Potassium Sorbate",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Glycerin"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol",
+          "Trimethylsilylamodimethicone"
+        ],
+        "oils": [
+          "Argania Spinosa Kernel Oil"
+        ]
+      },
+      "expectedScore": 36
+    },
+    {
+      "id": "case_018",
+      "profileId": "profile_018",
+      "productId": "product_018",
+      "hairType": "1A",
+      "scalpCondition": "dry",
+      "goals": [
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Moisture Mask #18",
+      "productCategory": "styling_gel",
+      "productType": "styling_product",
+      "inci": "Water, Acrylates Copolymer, Caprylyl Glycol, Sodium PCA, Hydrolyzed Quinoa, Isopropyl Alcohol, PEG-12 Dimethicone, Aqua, Citric Acid, Caprylic/Capric Triglyceride, Phenoxyethanol, Lactic Acid, Ethylhexylglycerin, Sodium Hydroxide, Methylisothiazolinone, Isopropyl Myristate, Squalane, Potassium Sorbate, Sodium Benzoate, Fragrance, Cetyl Esters, Tocopherol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Quinoa"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "PEG-12 Dimethicone"
+        ],
+        "oils": []
+      },
+      "expectedScore": 76
+    },
+    {
+      "id": "case_019",
+      "profileId": "profile_019",
+      "productId": "product_019",
+      "hairType": "1B",
+      "scalpCondition": "dry",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Co-Wash #19",
+      "productCategory": "mask",
+      "productType": "deep_conditioner_mask",
+      "inci": "Water, Cetearyl Alcohol, Cetrimonium Chloride, Hydrolyzed Soy Protein, Shea Butter, VP/VA Copolymer, Chlorphenesin, Simmondsia Chinensis Seed Oil, Aqua, Citric Acid, Caprylyl Glycol, Sodium Hydroxide, C12-15 Alkyl Benzoate, Sodium Benzoate, Tocopherol, Fragrance, Squalane, Butyrospermum Parkii Butter, Pantolactone, Parfum, Sodium Chloride, Methylisothiazolinone",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Soy Protein"
+        ],
+        "humectants": [],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": [
+          "Simmondsia Chinensis Seed Oil"
+        ]
+      },
+      "expectedScore": 55
+    },
+    {
+      "id": "case_020",
+      "profileId": "profile_020",
+      "productId": "product_020",
+      "hairType": "4C",
+      "scalpCondition": "normal",
+      "goals": [
+        "curl definition",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "co_wash",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Leave-In Conditioner #20",
+      "productCategory": "gentle_shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Cocamidopropyl Betaine, Hydrolyzed Keratin, Chlorphenesin, Quaternium-91, Sodium PCA, Butyrospermum Parkii Butter, Lactic Acid, Potassium Sorbate, Caprylyl Glycol, Disodium EDTA, Sodium Benzoate, Aqua, Parfum, Squalane, Caprylic/Capric Triglyceride, Shea Butter, C12-15 Alkyl Benzoate, Isopropyl Myristate, Cetyl Esters, Pantolactone, Citric Acid, Fragrance, Tocopherol, Sodium Chloride",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 67
+    },
+    {
+      "id": "case_021",
+      "profileId": "profile_021",
+      "productId": "product_021",
+      "hairType": "4C",
+      "scalpCondition": "oily",
+      "goals": [
+        "curl definition",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "styling_product",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Styling Cream #21",
+      "productCategory": "conditioner",
+      "productType": "rinse_out_conditioner",
+      "inci": "Water, Cetearyl Alcohol, Behentrimonium Chloride, Hydrolyzed Keratin, Ethylhexylglycerin, Olea Europaea Fruit Oil, Butylene Glycol, Cyclopentasiloxane, Shea Butter, Aqua, Butyrospermum Parkii Butter, Sodium Chloride, C12-15 Alkyl Benzoate, Cetyl Esters, Fragrance, Tocopherol, Disodium EDTA, Phenoxyethanol, Caprylic/Capric Triglyceride, Sodium Hydroxide, Pantolactone, Parfum, Chlorphenesin, Sodium Benzoate, Lactic Acid, Squalane, Isopropyl Myristate, Citric Acid, Methylisothiazolinone, Potassium Sorbate, Caprylyl Glycol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Butylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane"
+        ],
+        "oils": [
+          "Olea Europaea Fruit Oil"
+        ]
+      },
+      "expectedScore": 70
+    },
+    {
+      "id": "case_022",
+      "profileId": "profile_022",
+      "productId": "product_022",
+      "hairType": "3C",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "volume",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Shine Serum #22",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Sodium Lauryl Sulfate, Propylene Glycol, Stearamidopropyl Dimethylamine, Coco Glucoside, Hydrolyzed Keratin, Ethylhexylglycerin, Potassium Sorbate, Chlorphenesin, Squalane, Lactic Acid, Parfum, Fragrance, Caprylyl Glycol, Shea Butter, Sodium Hydroxide, Cetyl Esters, Citric Acid, Pantolactone, Tocopherol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Propylene Glycol"
+        ],
+        "harshSurfactants": [
+          "Sodium Lauryl Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 70
+    },
+    {
+      "id": "case_023",
+      "profileId": "profile_023",
+      "productId": "product_023",
+      "hairType": "3A",
+      "scalpCondition": "oily",
+      "goals": [
+        "moisture",
+        "volume",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Growth Serum #23",
+      "productCategory": "styling_gel",
+      "productType": "styling_product",
+      "inci": "Water, Acrylates Copolymer, PEG-12 Dimethicone, Honey, Methylisothiazolinone, Stearamidopropyl Dimethylamine, Potassium Sorbate, Phenoxyethanol, Tocopherol, Citric Acid, Caprylyl Glycol, Butyrospermum Parkii Butter, Ethylhexylglycerin, Sodium Benzoate, Squalane, Aqua, Sodium Chloride, Shea Butter, Chlorphenesin, Caprylic/Capric Triglyceride, Lactic Acid, Cetyl Esters, C12-15 Alkyl Benzoate, Sodium Hydroxide, Fragrance, Isopropyl Myristate, Pantolactone, Parfum, Disodium EDTA",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Honey"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "PEG-12 Dimethicone"
+        ],
+        "oils": []
+      },
+      "expectedScore": 50
+    },
+    {
+      "id": "case_024",
+      "profileId": "profile_024",
+      "productId": "product_024",
+      "hairType": "4B",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "styling_product",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Styling Cream #24",
+      "productCategory": "styling_gel",
+      "productType": "styling_product",
+      "inci": "Water, VP/VA Copolymer, Methylisothiazolinone, Cyclopentasiloxane, Quaternium-91, Hydrolyzed Wheat Protein, Sodium PCA, Aqua, Citric Acid, Chlorphenesin, Caprylic/Capric Triglyceride, Squalane, Isopropyl Myristate, Ethylhexylglycerin, Tocopherol, Shea Butter, Cetyl Esters, Potassium Sorbate, Sodium Hydroxide, Pantolactone, Fragrance",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane"
+        ],
+        "oils": []
+      },
+      "expectedScore": 87
+    },
+    {
+      "id": "case_025",
+      "profileId": "profile_025",
+      "productId": "product_025",
+      "hairType": "3B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture",
+        "curl definition",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Growth Serum #25",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Sodium Laureth Sulfate, Decyl Glucoside, Butylene Glycol, Isopropyl Alcohol, Hydrolyzed Keratin, Chlorphenesin, Sodium Chloride, Isopropyl Myristate, Butyrospermum Parkii Butter, Disodium EDTA, Ethylhexylglycerin, Shea Butter, Parfum, Cetyl Esters, Fragrance, Sodium Hydroxide, Sodium Benzoate, C12-15 Alkyl Benzoate, Potassium Sorbate, Squalane, Lactic Acid, Citric Acid, Tocopherol, Methylisothiazolinone, Aqua, Pantolactone",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Butylene Glycol"
+        ],
+        "harshSurfactants": [
+          "Sodium Laureth Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 57
+    },
+    {
+      "id": "case_026",
+      "profileId": "profile_026",
+      "productId": "product_026",
+      "hairType": "2C",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine",
+        "volume",
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Hair Serum #26",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Lauryl Alcohol, Isopropyl Alcohol, Hydrolyzed Silk, Sodium Lauroyl Sarcosinate, Methylisothiazolinone, Olea Europaea Fruit Oil, Cyclomethicone, Sodium PCA, Fragrance, Lactic Acid, Caprylic/Capric Triglyceride, Isopropyl Myristate, Potassium Sorbate, Squalane, Sodium Hydroxide, Disodium EDTA, Ethylhexylglycerin, Butyrospermum Parkii Butter, Chlorphenesin, Citric Acid, Tocopherol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Silk"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclomethicone"
+        ],
+        "oils": [
+          "Olea Europaea Fruit Oil"
+        ]
+      },
+      "expectedScore": 59
+    },
+    {
+      "id": "case_027",
+      "profileId": "profile_027",
+      "productId": "product_027",
+      "hairType": "1B",
+      "scalpCondition": "oily",
+      "goals": [
+        "shine",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "shampoo",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Leave-In Conditioner #27",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, TEA Lauryl Sulfate, Ethylhexylglycerin, Behentrimonium Methosulfate, Decyl Glucoside, Sodium PCA, Hydrolyzed Wheat Protein, Cetyl Esters, Aqua, Butyrospermum Parkii Butter, Sodium Benzoate, Chlorphenesin, Citric Acid, Isopropyl Myristate, Sodium Chloride, Sodium Hydroxide, Parfum, Phenoxyethanol, Caprylyl Glycol, Lactic Acid, Squalane, C12-15 Alkyl Benzoate, Pantolactone, Disodium EDTA, Potassium Sorbate, Fragrance, Methylisothiazolinone, Shea Butter, Caprylic/Capric Triglyceride, Tocopherol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [
+          "TEA Lauryl Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 89
+    },
+    {
+      "id": "case_028",
+      "profileId": "profile_028",
+      "productId": "product_028",
+      "hairType": "1C",
+      "scalpCondition": "dry",
+      "goals": [
+        "protein treatment",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Everyday Conditioner #28",
+      "productCategory": "conditioner",
+      "productType": "rinse_out_conditioner",
+      "inci": "Water, Behenyl Alcohol, Stearamidopropyl Dimethylamine, Argania Spinosa Kernel Oil, Hydrolyzed Soy Protein, Chlorphenesin, Amodimethicone, Cyclopentasiloxane, VP/VA Copolymer, Sodium PCA, Shea Butter, Tocopherol, Pantolactone, Cetyl Esters, Sodium Chloride, Caprylyl Glycol, Squalane, Disodium EDTA, Isopropyl Myristate, Butyrospermum Parkii Butter, Sodium Benzoate, Parfum, Caprylic/Capric Triglyceride, Phenoxyethanol, Ethylhexylglycerin, Sodium Hydroxide, Methylisothiazolinone, C12-15 Alkyl Benzoate, Lactic Acid",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Soy Protein"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Amodimethicone",
+          "Cyclopentasiloxane"
+        ],
+        "oils": [
+          "Argania Spinosa Kernel Oil"
+        ]
+      },
+      "expectedScore": 52
+    },
+    {
+      "id": "case_029",
+      "profileId": "profile_029",
+      "productId": "product_029",
+      "hairType": "4C",
+      "scalpCondition": "normal",
+      "goals": [
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "shampoo",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Moisture Mask #29",
+      "productCategory": "mask",
+      "productType": "deep_conditioner_mask",
+      "inci": "Water, Lauryl Alcohol, Quaternium-91, Hydrolyzed Soy Protein, Argania Spinosa Kernel Oil, Polyquaternium-7, Honey, Methylisothiazolinone, Butyrospermum Parkii Butter, Disodium EDTA, Phenoxyethanol, Cetyl Esters, Squalane, Ethylhexylglycerin, Pantolactone, C12-15 Alkyl Benzoate, Lactic Acid, Citric Acid, Parfum, Chlorphenesin, Caprylic/Capric Triglyceride, Aqua",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Soy Protein"
+        ],
+        "humectants": [
+          "Honey"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": [
+          "Argania Spinosa Kernel Oil"
+        ]
+      },
+      "expectedScore": 68
+    },
+    {
+      "id": "case_030",
+      "profileId": "profile_030",
+      "productId": "product_030",
+      "hairType": "1C",
+      "scalpCondition": "oily",
+      "goals": [
+        "shine",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Hair Serum #30",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Stearyl Alcohol, Behentrimonium Methosulfate, Cocos Nucifera Oil, Sodium Cocoyl Isethionate, Methylisothiazolinone, Hydrolyzed Keratin, PEG-12 Dimethicone, Honey, Tocopherol, Parfum, Sodium Hydroxide, Pantolactone, Squalane, Sodium Chloride, Cetyl Esters, Phenoxyethanol, Isopropyl Myristate, Potassium Sorbate, C12-15 Alkyl Benzoate, Citric Acid, Fragrance, Ethylhexylglycerin, Chlorphenesin, Lactic Acid, Sodium Benzoate, Caprylyl Glycol, Disodium EDTA, Aqua, Butyrospermum Parkii Butter",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Honey"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "PEG-12 Dimethicone"
+        ],
+        "oils": [
+          "Cocos Nucifera Oil"
+        ]
+      },
+      "expectedScore": 45
+    },
+    {
+      "id": "case_031",
+      "profileId": "profile_031",
+      "productId": "product_031",
+      "hairType": "2A",
+      "scalpCondition": "oily",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Conditioning Co-Wash #31",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Honey, Cetrimonium Chloride, Chlorphenesin, Cyclomethicone, Behenyl Alcohol, Polyquaternium-10, Lactic Acid, Caprylyl Glycol, Shea Butter, Tocopherol, Methylisothiazolinone, Sodium Benzoate, Pantolactone, Squalane, Caprylic/Capric Triglyceride, Cetyl Esters, Fragrance, Isopropyl Myristate, C12-15 Alkyl Benzoate, Potassium Sorbate",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Honey"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclomethicone"
+        ],
+        "oils": []
+      },
+      "expectedScore": 48
+    },
+    {
+      "id": "case_032",
+      "profileId": "profile_032",
+      "productId": "product_032",
+      "hairType": "4B",
+      "scalpCondition": "normal",
+      "goals": [
+        "repair",
+        "moisture",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Repair Shampoo #32",
+      "productCategory": "mask",
+      "productType": "deep_conditioner_mask",
+      "inci": "Water, Stearyl Alcohol, Behentrimonium Methosulfate, Hydrolyzed Keratin, Butylene Glycol, Shea Butter, Simmondsia Chinensis Seed Oil, Polyquaternium-7, Chlorphenesin, Lactic Acid, Sodium Benzoate, C12-15 Alkyl Benzoate, Disodium EDTA, Pantolactone, Caprylyl Glycol, Potassium Sorbate, Cetyl Esters, Butyrospermum Parkii Butter, Phenoxyethanol, Tocopherol, Fragrance, Parfum, Sodium Hydroxide, Methylisothiazolinone, Ethylhexylglycerin, Citric Acid, Sodium Chloride, Squalane, Aqua, Caprylic/Capric Triglyceride",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Butylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": [
+          "Simmondsia Chinensis Seed Oil"
+        ]
+      },
+      "expectedScore": 66
+    },
+    {
+      "id": "case_033",
+      "profileId": "profile_033",
+      "productId": "product_033",
+      "hairType": "1C",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Co-Wash #33",
+      "productCategory": "styling_gel",
+      "productType": "styling_product",
+      "inci": "Water, VP/VA Copolymer, Glycerin, Ethylhexylglycerin, Cyclopentasiloxane, Behentrimonium Chloride, Hydrolyzed Silk, Tocopherol, Sodium Hydroxide, Methylisothiazolinone, Chlorphenesin, Pantolactone, Citric Acid, Isopropyl Myristate, Potassium Sorbate, Caprylic/Capric Triglyceride, C12-15 Alkyl Benzoate, Lactic Acid, Fragrance, Disodium EDTA",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Silk"
+        ],
+        "humectants": [
+          "Glycerin"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane"
+        ],
+        "oils": []
+      },
+      "expectedScore": 56
+    },
+    {
+      "id": "case_034",
+      "profileId": "profile_034",
+      "productId": "product_034",
+      "hairType": "3B",
+      "scalpCondition": "oily",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Curl Defining Gel #34",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Sodium Laureth Sulfate, Decyl Glucoside, Phenoxyethanol, Aloe Barbadensis Leaf Juice, Hydrolyzed Rice Protein, Stearamidopropyl Dimethylamine, Pantolactone, Methylisothiazolinone, Cetyl Esters, Squalane, Parfum, Disodium EDTA, Butyrospermum Parkii Butter, Tocopherol, Potassium Sorbate, Caprylyl Glycol, Ethylhexylglycerin, Citric Acid, Chlorphenesin, Sodium Benzoate, Aqua, Sodium Hydroxide, Sodium Chloride, Lactic Acid, Isopropyl Myristate, Fragrance, C12-15 Alkyl Benzoate, Shea Butter, Caprylic/Capric Triglyceride",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Rice Protein"
+        ],
+        "humectants": [
+          "Aloe Barbadensis Leaf Juice"
+        ],
+        "harshSurfactants": [
+          "Sodium Laureth Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 62
+    },
+    {
+      "id": "case_035",
+      "profileId": "profile_035",
+      "productId": "product_035",
+      "hairType": "4A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "styling_product",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Hair Serum #35",
+      "productCategory": "mask",
+      "productType": "deep_conditioner_mask",
+      "inci": "Water, Behenyl Alcohol, Behentrimonium Methosulfate, Hydrolyzed Keratin, VP/VA Copolymer, Sodium PCA, Argania Spinosa Kernel Oil, Shea Butter, Potassium Sorbate, Lactic Acid, Methylisothiazolinone, Ethylhexylglycerin, Sodium Chloride, Isopropyl Myristate, Parfum, Tocopherol, Butyrospermum Parkii Butter, Sodium Benzoate, Sodium Hydroxide, Caprylic/Capric Triglyceride, Phenoxyethanol, Citric Acid, C12-15 Alkyl Benzoate, Aqua, Pantolactone, Caprylyl Glycol, Fragrance, Squalane, Chlorphenesin",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": [
+          "Argania Spinosa Kernel Oil"
+        ]
+      },
+      "expectedScore": 64
+    },
+    {
+      "id": "case_036",
+      "profileId": "profile_036",
+      "productId": "product_036",
+      "hairType": "1C",
+      "scalpCondition": "dry",
+      "goals": [
+        "moisture",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Moisturizing Conditioner #36",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, TEA Lauryl Sulfate, Sodium PCA, Decyl Glucoside, Hydrolyzed Quinoa, Isopropyl Alcohol, Ethylhexylglycerin, Fragrance, Disodium EDTA, Pantolactone, Isopropyl Myristate, Cetyl Esters, Tocopherol, Caprylic/Capric Triglyceride, Sodium Chloride, C12-15 Alkyl Benzoate, Butyrospermum Parkii Butter, Phenoxyethanol, Shea Butter, Chlorphenesin, Potassium Sorbate, Caprylyl Glycol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Quinoa"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [
+          "TEA Lauryl Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 57
+    },
+    {
+      "id": "case_037",
+      "profileId": "profile_037",
+      "productId": "product_037",
+      "hairType": "2A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Shine Serum #37",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Ammonium Laureth Sulfate, Behentrimonium Methosulfate, Phenoxyethanol, Hydrolyzed Silk, Sodium PCA, Coco Glucoside, Ethylhexylglycerin, Lactic Acid, Shea Butter, Aqua, Potassium Sorbate, Sodium Benzoate, Disodium EDTA, Methylisothiazolinone, Caprylyl Glycol, Tocopherol, Isopropyl Myristate, Chlorphenesin, Citric Acid, Parfum, Cetyl Esters, C12-15 Alkyl Benzoate, Sodium Hydroxide, Caprylic/Capric Triglyceride, Squalane, Fragrance, Butyrospermum Parkii Butter, Sodium Chloride, Pantolactone",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Silk"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [
+          "Ammonium Laureth Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 45
+    },
+    {
+      "id": "case_038",
+      "profileId": "profile_038",
+      "productId": "product_038",
+      "hairType": "1A",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine",
+        "repair",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Clarifying Shampoo #38",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Behenyl Alcohol, Isopropyl Alcohol, Methylisothiazolinone, Hydrolyzed Silk, Lauryl Glucoside, Sodium PCA, Chlorphenesin, Sodium Benzoate, C12-15 Alkyl Benzoate, Tocopherol, Aqua, Sodium Chloride, Fragrance, Parfum, Butyrospermum Parkii Butter, Shea Butter, Isopropyl Myristate, Caprylyl Glycol, Potassium Sorbate, Ethylhexylglycerin, Pantolactone, Citric Acid, Cetyl Esters, Sodium Hydroxide, Caprylic/Capric Triglyceride, Lactic Acid, Squalane, Phenoxyethanol, Disodium EDTA",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Silk"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 53
+    },
+    {
+      "id": "case_039",
+      "profileId": "profile_039",
+      "productId": "product_039",
+      "hairType": "3C",
+      "scalpCondition": "dry",
+      "goals": [
+        "volume",
+        "shine",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Conditioning Co-Wash #39",
+      "productCategory": "styling_gel",
+      "productType": "styling_product",
+      "inci": "Water, Hydroxyethylcellulose, Quaternium-91, Cyclopentasiloxane, Hydrolyzed Keratin, Panthenol, Phenoxyethanol, Chlorphenesin, Sodium Hydroxide, Shea Butter, Citric Acid, Ethylhexylglycerin, Potassium Sorbate, Cetyl Esters, Methylisothiazolinone, Pantolactone, Caprylyl Glycol, Isopropyl Myristate, Lactic Acid, Caprylic/Capric Triglyceride, Tocopherol, Sodium Benzoate, Aqua, Parfum, Fragrance, C12-15 Alkyl Benzoate, Sodium Chloride, Disodium EDTA, Squalane, Butyrospermum Parkii Butter",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Panthenol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane"
+        ],
+        "oils": []
+      },
+      "expectedScore": 69
+    },
+    {
+      "id": "case_040",
+      "profileId": "profile_040",
+      "productId": "product_040",
+      "hairType": "3C",
+      "scalpCondition": "dry",
+      "goals": [
+        "protein treatment",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Moisturizing Conditioner #40",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Cetearyl Alcohol, Behentrimonium Methosulfate, Cocos Nucifera Oil, Chlorphenesin, Decyl Glucoside, Hydrolyzed Soy Protein, Honey, Lactic Acid, Parfum, Butyrospermum Parkii Butter, C12-15 Alkyl Benzoate, Sodium Chloride, Potassium Sorbate, Cetyl Esters, Methylisothiazolinone, Squalane, Pantolactone, Fragrance, Isopropyl Myristate, Phenoxyethanol, Sodium Hydroxide, Tocopherol, Disodium EDTA, Caprylyl Glycol, Citric Acid, Aqua, Sodium Benzoate, Caprylic/Capric Triglyceride, Shea Butter, Ethylhexylglycerin",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Soy Protein"
+        ],
+        "humectants": [
+          "Honey"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": [
+          "Cocos Nucifera Oil"
+        ]
+      },
+      "expectedScore": 78
+    },
+    {
+      "id": "case_041",
+      "profileId": "profile_041",
+      "productId": "product_041",
+      "hairType": "4A",
+      "scalpCondition": "dry",
+      "goals": [
+        "frizz control",
+        "volume",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Leave-In Cream #41",
+      "productCategory": "mask",
+      "productType": "deep_conditioner_mask",
+      "inci": "Water, Cetearyl Alcohol, Stearamidopropyl Dimethylamine, Hydrolyzed Silk, C12-15 Alkyl Benzoate, Methylisothiazolinone, Rosa Canina Fruit Oil, Acrylates Copolymer, Sodium Hydroxide, Sodium Benzoate, Citric Acid, Sodium Chloride, Squalane, Aqua, Disodium EDTA, Fragrance, Potassium Sorbate, Pantolactone, Caprylic/Capric Triglyceride, Ethylhexylglycerin, Parfum, Caprylyl Glycol, Isopropyl Myristate, Tocopherol, Cetyl Esters, Shea Butter, Lactic Acid, Chlorphenesin, Butyrospermum Parkii Butter, Phenoxyethanol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Silk"
+        ],
+        "humectants": [],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": [
+          "Rosa Canina Fruit Oil"
+        ]
+      },
+      "expectedScore": 60
+    },
+    {
+      "id": "case_042",
+      "profileId": "profile_042",
+      "productId": "product_042",
+      "hairType": "4A",
+      "scalpCondition": "normal",
+      "goals": [
+        "repair",
+        "moisture",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Conditioning Co-Wash #42",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Propylene Glycol, Quaternium-91, Phenoxyethanol, Polyquaternium-10, Helianthus Annuus Seed Oil, Dimethiconol, Behenyl Alcohol, Hydrolyzed Quinoa, Pantolactone, Citric Acid, Aqua, Tocopherol, Shea Butter, Squalane, Sodium Chloride, Isopropyl Myristate, Disodium EDTA, Methylisothiazolinone, Lactic Acid, Parfum, Cetyl Esters, Potassium Sorbate, Ethylhexylglycerin",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Quinoa"
+        ],
+        "humectants": [
+          "Propylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Helianthus Annuus Seed Oil"
+        ]
+      },
+      "expectedScore": 60
+    },
+    {
+      "id": "case_043",
+      "profileId": "profile_043",
+      "productId": "product_043",
+      "hairType": "3B",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "curl definition",
+        "scalp health"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Shine Serum #43",
+      "productCategory": "styling_gel",
+      "productType": "styling_product",
+      "inci": "Water, VP/VA Copolymer, Hydrolyzed Keratin, Cyclopentasiloxane, Hyaluronic Acid, Methylisothiazolinone, Behentrimonium Methosulfate, Ethylhexylglycerin, Sodium Chloride, Sodium Benzoate, Butyrospermum Parkii Butter, Tocopherol, Disodium EDTA, Lactic Acid, Potassium Sorbate, Caprylic/Capric Triglyceride, Squalane, Phenoxyethanol, Cetyl Esters, C12-15 Alkyl Benzoate, Chlorphenesin",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Hyaluronic Acid"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane"
+        ],
+        "oils": []
+      },
+      "expectedScore": 67
+    },
+    {
+      "id": "case_044",
+      "profileId": "profile_044",
+      "productId": "product_044",
+      "hairType": "3C",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "scalp health",
+        "repair",
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Conditioning Co-Wash #44",
+      "productCategory": "conditioner",
+      "productType": "rinse_out_conditioner",
+      "inci": "Water, Stearyl Alcohol, Quaternium-91, Methylisothiazolinone, Cyclomethicone, Polyquaternium-7, Bis-Aminopropyl Dimethicone, Olea Europaea Fruit Oil, Hydrolyzed Keratin, Butylene Glycol, Fragrance, Lactic Acid, Shea Butter, Chlorphenesin, Aqua, C12-15 Alkyl Benzoate, Phenoxyethanol, Potassium Sorbate, Caprylic/Capric Triglyceride, Sodium Hydroxide, Ethylhexylglycerin, Butyrospermum Parkii Butter, Parfum",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Butylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclomethicone",
+          "Bis-Aminopropyl Dimethicone"
+        ],
+        "oils": [
+          "Olea Europaea Fruit Oil"
+        ]
+      },
+      "expectedScore": 60
+    },
+    {
+      "id": "case_045",
+      "profileId": "profile_045",
+      "productId": "product_045",
+      "hairType": "3A",
+      "scalpCondition": "dry",
+      "goals": [
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Edge Control Gel #45",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Butylene Glycol, Cetrimonium Chloride, Cyclomethicone, Hydrolyzed Keratin, Acrylates Copolymer, Simmondsia Chinensis Seed Oil, Ethylhexylglycerin, Cetearyl Alcohol, Phenoxyethanol, Pantolactone, Aqua, Parfum, Isopropyl Myristate, Tocopherol, Citric Acid, Caprylic/Capric Triglyceride, Methylisothiazolinone, Squalane, Fragrance, Lactic Acid",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [
+          "Butylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclomethicone"
+        ],
+        "oils": [
+          "Simmondsia Chinensis Seed Oil"
+        ]
+      },
+      "expectedScore": 58
+    },
+    {
+      "id": "case_046",
+      "profileId": "profile_046",
+      "productId": "product_046",
+      "hairType": "2C",
+      "scalpCondition": "dry",
+      "goals": [
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Hair Serum #46",
+      "productCategory": "gentle_shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Disodium Cocoamphodiacetate, Quaternium-91, Sodium PCA, Behenyl Alcohol, Chlorphenesin, Hydrolyzed Rice Protein, Shea Butter, Lactic Acid, Isopropyl Myristate, Sodium Chloride, Aqua, Sodium Benzoate, Caprylyl Glycol, Citric Acid, Caprylic/Capric Triglyceride, Disodium EDTA, Potassium Sorbate, Methylisothiazolinone, Ethylhexylglycerin, Sodium Hydroxide, Phenoxyethanol, Pantolactone, Squalane, Butyrospermum Parkii Butter, Fragrance, Parfum, Tocopherol, Cetyl Esters, C12-15 Alkyl Benzoate",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Rice Protein"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 68
+    },
+    {
+      "id": "case_047",
+      "profileId": "profile_047",
+      "productId": "product_047",
+      "hairType": "2B",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "hair_oil_serum",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Moisture Mask #47",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, TEA Lauryl Sulfate, Decyl Glucoside, Caprylyl Glycol, Quaternium-91, Sorbitol, Hydrolyzed Wheat Protein, Disodium EDTA, Ethylhexylglycerin, Lactic Acid, Parfum, C12-15 Alkyl Benzoate, Phenoxyethanol, Sodium Chloride, Cetyl Esters, Caprylic/Capric Triglyceride, Sodium Benzoate, Pantolactone, Fragrance, Sodium Hydroxide, Methylisothiazolinone, Butyrospermum Parkii Butter, Shea Butter, Citric Acid, Squalane, Tocopherol, Isopropyl Myristate, Chlorphenesin",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Sorbitol"
+        ],
+        "harshSurfactants": [
+          "TEA Lauryl Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 55
+    },
+    {
+      "id": "case_048",
+      "profileId": "profile_048",
+      "productId": "product_048",
+      "hairType": "4A",
+      "scalpCondition": "normal",
+      "goals": [
+        "moisture",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "co_wash",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Repair Conditioner #48",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Cetearyl Alcohol, Isopropyl Alcohol, Persea Gratissima Oil, Honey, Coco Glucoside, Methylisothiazolinone, Dimethiconol, Hydrolyzed Soy Protein, Cetyl Esters, Phenoxyethanol, Fragrance, Shea Butter, Caprylic/Capric Triglyceride, Lactic Acid, Ethylhexylglycerin, C12-15 Alkyl Benzoate, Sodium Benzoate, Sodium Hydroxide, Potassium Sorbate, Pantolactone",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Soy Protein"
+        ],
+        "humectants": [
+          "Honey"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Persea Gratissima Oil"
+        ]
+      },
+      "expectedScore": 88
+    },
+    {
+      "id": "case_049",
+      "profileId": "profile_049",
+      "productId": "product_049",
+      "hairType": "3A",
+      "scalpCondition": "oily",
+      "goals": [
+        "shine",
+        "scalp health",
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "co_wash",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Curl Defining Gel #49",
+      "productCategory": "gentle_shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Disodium Cocoamphodiacetate, Methylisothiazolinone, Stearamidopropyl Dimethylamine, Hydrolyzed Rice Protein, Propylene Glycol, Stearyl Alcohol, Fragrance, Phenoxyethanol, Lactic Acid, Shea Butter, Ethylhexylglycerin, Sodium Hydroxide, Tocopherol, Isopropyl Myristate, Parfum, Squalane, Butyrospermum Parkii Butter, Potassium Sorbate, C12-15 Alkyl Benzoate, Caprylyl Glycol, Citric Acid, Disodium EDTA, Sodium Chloride, Cetyl Esters",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Rice Protein"
+        ],
+        "humectants": [
+          "Propylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 62
+    },
+    {
+      "id": "case_050",
+      "profileId": "profile_050",
+      "productId": "product_050",
+      "hairType": "2B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "curl definition",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Leave-In Conditioner #50",
+      "productCategory": "gentle_shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Cocamidopropyl Betaine, Panthenol, Cetearyl Alcohol, Hydrolyzed Rice Protein, Isopropyl Alcohol, Potassium Sorbate, Pantolactone, Chlorphenesin, Aqua, Disodium EDTA, Citric Acid, Shea Butter, Sodium Hydroxide, Tocopherol, Butyrospermum Parkii Butter, C12-15 Alkyl Benzoate, Squalane, Cetyl Esters, Fragrance, Isopropyl Myristate, Parfum, Methylisothiazolinone, Caprylic/Capric Triglyceride, Sodium Chloride, Lactic Acid, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Caprylyl Glycol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Rice Protein"
+        ],
+        "humectants": [
+          "Panthenol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 56
+    },
+    {
+      "id": "case_051",
+      "profileId": "profile_051",
+      "productId": "product_051",
+      "hairType": "2A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "oily",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Repair Conditioner #51",
+      "productCategory": "conditioner",
+      "productType": "rinse_out_conditioner",
+      "inci": "Water, Stearyl Alcohol, Quaternium-91, Butylene Glycol, Hydrolyzed Collagen, Cocos Nucifera Oil, Caprylyl Glycol, Dimethiconol, Fragrance, Parfum, Caprylic/Capric Triglyceride, Potassium Sorbate, Isopropyl Myristate, Lactic Acid, Chlorphenesin, Squalane, Shea Butter, Sodium Chloride, Cetyl Esters, Butyrospermum Parkii Butter, Sodium Hydroxide, Ethylhexylglycerin, Citric Acid, Aqua",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Collagen"
+        ],
+        "humectants": [
+          "Butylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Cocos Nucifera Oil"
+        ]
+      },
+      "expectedScore": 43
+    },
+    {
+      "id": "case_052",
+      "profileId": "profile_052",
+      "productId": "product_052",
+      "hairType": "1A",
+      "scalpCondition": "normal",
+      "goals": [
+        "curl definition",
+        "repair",
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "damaged",
+        "oiliness": "normal",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Protein Mask #52",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Behenyl Alcohol, Quaternium-91, Helianthus Annuus Seed Oil, Hydrolyzed Keratin, Sodium Benzoate, Dimethiconol, Aqua, Ethylhexylglycerin, Citric Acid, Tocopherol, Potassium Sorbate, Cetyl Esters, C12-15 Alkyl Benzoate, Lactic Acid, Sodium Chloride, Butyrospermum Parkii Butter, Disodium EDTA, Methylisothiazolinone, Chlorphenesin",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Keratin"
+        ],
+        "humectants": [],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Helianthus Annuus Seed Oil"
+        ]
+      },
+      "expectedScore": 43
+    },
+    {
+      "id": "case_053",
+      "profileId": "profile_053",
+      "productId": "product_053",
+      "hairType": "2C",
+      "scalpCondition": "oily",
+      "goals": [
+        "frizz control",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "rinse_out_conditioner",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Deep Conditioning Mask #53",
+      "productCategory": "serum",
+      "productType": "hair_oil_serum",
+      "inci": "Water, Helianthus Annuus Seed Oil, Isopropyl Myristate, Glycerin, Potassium Sorbate, Trimethylsilylamodimethicone, PEG-12 Dimethicone, Sodium Hydroxide, Sodium Chloride, Methylisothiazolinone, Ethylhexylglycerin, Parfum, Lactic Acid, C12-15 Alkyl Benzoate, Citric Acid, Squalane, Fragrance, Tocopherol, Aqua, Cetyl Esters, Phenoxyethanol, Pantolactone, Caprylyl Glycol, Sodium Benzoate, Chlorphenesin, Caprylic/Capric Triglyceride, Butyrospermum Parkii Butter, Shea Butter, Disodium EDTA",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Glycerin"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Trimethylsilylamodimethicone",
+          "PEG-12 Dimethicone"
+        ],
+        "oils": [
+          "Helianthus Annuus Seed Oil"
+        ]
+      },
+      "expectedScore": 36
+    },
+    {
+      "id": "case_054",
+      "profileId": "profile_054",
+      "productId": "product_054",
+      "hairType": "2B",
+      "scalpCondition": "dry",
+      "goals": [
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "co_wash",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Repair Conditioner #54",
+      "productCategory": "serum",
+      "productType": "hair_oil_serum",
+      "inci": "Water, Simmondsia Chinensis Seed Oil, Caprylic/Capric Triglyceride, Caprylyl Glycol, Amodimethicone, Cyclomethicone, Aloe Barbadensis Leaf Juice, Citric Acid, Phenoxyethanol, Fragrance, Sodium Hydroxide, Chlorphenesin, Sodium Benzoate, Aqua, Tocopherol, Ethylhexylglycerin, Butyrospermum Parkii Butter, Lactic Acid, Shea Butter, Isopropyl Myristate, Parfum, C12-15 Alkyl Benzoate, Methylisothiazolinone, Squalane, Pantolactone, Cetyl Esters, Sodium Chloride, Disodium EDTA",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Aloe Barbadensis Leaf Juice"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Amodimethicone",
+          "Cyclomethicone"
+        ],
+        "oils": [
+          "Simmondsia Chinensis Seed Oil"
+        ]
+      },
+      "expectedScore": 62
+    },
+    {
+      "id": "case_055",
+      "profileId": "profile_055",
+      "productId": "product_055",
+      "hairType": "4B",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "coily",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Clarifying Shampoo #55",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Lauryl Alcohol, Behentrimonium Chloride, Propylene Glycol, Hydrolyzed Quinoa, Helianthus Annuus Seed Oil, Phenoxyethanol, Dimethiconol, Coco Glucoside, Isopropyl Myristate, Squalane, Caprylic/Capric Triglyceride, Pantolactone, Sodium Hydroxide, Sodium Chloride, Ethylhexylglycerin, Shea Butter, Citric Acid, Potassium Sorbate, Chlorphenesin, Cetyl Esters, Lactic Acid",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Quinoa"
+        ],
+        "humectants": [
+          "Propylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Helianthus Annuus Seed Oil"
+        ]
+      },
+      "expectedScore": 68
+    },
+    {
+      "id": "case_056",
+      "profileId": "profile_056",
+      "productId": "product_056",
+      "hairType": "3C",
+      "scalpCondition": "oily",
+      "goals": [
+        "shine",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "co_wash",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Clarifying Shampoo #56",
+      "productCategory": "serum",
+      "productType": "hair_oil_serum",
+      "inci": "Water, Cocos Nucifera Oil, C12-15 Alkyl Benzoate, Cyclopentasiloxane, Bis-Aminopropyl Dimethicone, Phenoxyethanol, Hyaluronic Acid, Shea Butter, Sodium Hydroxide, Potassium Sorbate, Isopropyl Myristate, Citric Acid, Cetyl Esters, Caprylic/Capric Triglyceride, Pantolactone, Caprylyl Glycol, Chlorphenesin, Lactic Acid, Sodium Chloride, Tocopherol, Fragrance, Aqua, Sodium Benzoate, Ethylhexylglycerin, Squalane, Methylisothiazolinone, Parfum, Butyrospermum Parkii Butter, Disodium EDTA",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Hyaluronic Acid"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane",
+          "Bis-Aminopropyl Dimethicone"
+        ],
+        "oils": [
+          "Cocos Nucifera Oil"
+        ]
+      },
+      "expectedScore": 56
+    },
+    {
+      "id": "case_057",
+      "profileId": "profile_057",
+      "productId": "product_057",
+      "hairType": "1A",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "fine",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "styling_product",
+        "curlPattern": "straight",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Edge Control Gel #57",
+      "productCategory": "mask",
+      "productType": "deep_conditioner_mask",
+      "inci": "Water, Lauryl Alcohol, Quaternium-91, Hydrolyzed Wheat Protein, Sodium PCA, Rosa Canina Fruit Oil, Shea Butter, Polyquaternium-7, Chlorphenesin, Fragrance, Butyrospermum Parkii Butter, Disodium EDTA, C12-15 Alkyl Benzoate, Methylisothiazolinone, Sodium Hydroxide, Tocopherol, Isopropyl Myristate, Phenoxyethanol, Citric Acid, Squalane, Caprylyl Glycol, Pantolactone, Ethylhexylglycerin, Parfum, Cetyl Esters, Potassium Sorbate, Aqua, Sodium Benzoate",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": [
+          "Rosa Canina Fruit Oil"
+        ]
+      },
+      "expectedScore": 50
+    },
+    {
+      "id": "case_058",
+      "profileId": "profile_058",
+      "productId": "product_058",
+      "hairType": "3C",
+      "scalpCondition": "oily",
+      "goals": [
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Shine Serum #58",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Butylene Glycol, Stearamidopropyl Dimethylamine, Dimethiconol, Stearyl Alcohol, Helianthus Annuus Seed Oil, Polyquaternium-10, Phenoxyethanol, C12-15 Alkyl Benzoate, Caprylyl Glycol, Sodium Chloride, Disodium EDTA, Chlorphenesin, Sodium Hydroxide, Aqua, Parfum, Squalane, Lactic Acid, Ethylhexylglycerin, Methylisothiazolinone",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Butylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Helianthus Annuus Seed Oil"
+        ]
+      },
+      "expectedScore": 60
+    },
+    {
+      "id": "case_059",
+      "profileId": "profile_059",
+      "productId": "product_059",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "curl definition",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Edge Control Gel #59",
+      "productCategory": "gentle_shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Sodium Cocoamphoacetate, Honey, Hydrolyzed Soy Protein, Quaternium-91, Phenoxyethanol, Cetyl Alcohol, Parfum, Citric Acid, Butyrospermum Parkii Butter, Ethylhexylglycerin, C12-15 Alkyl Benzoate, Caprylyl Glycol, Caprylic/Capric Triglyceride, Tocopherol, Disodium EDTA, Chlorphenesin, Aqua, Sodium Hydroxide, Cetyl Esters, Potassium Sorbate, Fragrance, Pantolactone, Sodium Chloride, Isopropyl Myristate, Methylisothiazolinone, Squalane, Shea Butter, Lactic Acid, Sodium Benzoate",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Soy Protein"
+        ],
+        "humectants": [
+          "Honey"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 64
+    },
+    {
+      "id": "case_060",
+      "profileId": "profile_060",
+      "productId": "product_060",
+      "hairType": "1C",
+      "scalpCondition": "oily",
+      "goals": [
+        "protein treatment",
+        "scalp health",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "leave_in_conditioner",
+        "curlPattern": "straight",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Hair Serum #60",
+      "productCategory": "conditioner",
+      "productType": "rinse_out_conditioner",
+      "inci": "Water, Cetyl Alcohol, Behentrimonium Methosulfate, Amodimethicone, Honey, Hydrolyzed Wheat Protein, Persea Gratissima Oil, Chlorphenesin, Dimethiconol, Lactic Acid, Shea Butter, Sodium Benzoate, Isopropyl Myristate, Methylisothiazolinone, Parfum, Tocopherol, Phenoxyethanol, Disodium EDTA, Sodium Hydroxide, Butyrospermum Parkii Butter, Cetyl Esters, Citric Acid, Caprylyl Glycol, Fragrance, Ethylhexylglycerin, C12-15 Alkyl Benzoate, Caprylic/Capric Triglyceride, Squalane, Pantolactone, Aqua, Sodium Chloride, Potassium Sorbate",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Honey"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Amodimethicone",
+          "Dimethiconol"
+        ],
+        "oils": [
+          "Persea Gratissima Oil"
+        ]
+      },
+      "expectedScore": 58
+    },
+    {
+      "id": "case_061",
+      "profileId": "profile_061",
+      "productId": "product_061",
+      "hairType": "2B",
+      "scalpCondition": "dry",
+      "goals": [
+        "moisture",
+        "volume"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "styling_product",
+        "curlPattern": "wavy",
+        "scalpSensitivity": true,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Growth Serum #61",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Sorbitol, Cetrimonium Chloride, Hydrolyzed Collagen, Cyclopentasiloxane, Cocos Nucifera Oil, Potassium Sorbate, Cetearyl Alcohol, VP/VA Copolymer, Phenoxyethanol, Chlorphenesin, Sodium Benzoate, Lactic Acid, Fragrance, Pantolactone, C12-15 Alkyl Benzoate, Sodium Hydroxide, Tocopherol, Methylisothiazolinone, Citric Acid, Parfum, Shea Butter, Caprylic/Capric Triglyceride, Aqua, Cetyl Esters, Butyrospermum Parkii Butter, Isopropyl Myristate, Sodium Chloride, Disodium EDTA, Squalane, Ethylhexylglycerin, Caprylyl Glycol",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Collagen"
+        ],
+        "humectants": [
+          "Sorbitol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclopentasiloxane"
+        ],
+        "oils": [
+          "Cocos Nucifera Oil"
+        ]
+      },
+      "expectedScore": 50
+    },
+    {
+      "id": "case_062",
+      "profileId": "profile_062",
+      "productId": "product_062",
+      "hairType": "3B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "frizz control",
+        "volume",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "coarse",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Leave-In Cream #62",
+      "productCategory": "serum",
+      "productType": "hair_oil_serum",
+      "inci": "Water, Persea Gratissima Oil, Caprylic/Capric Triglyceride, Dimethicone, Sodium Benzoate, PEG-12 Dimethicone, Sorbitol, Caprylyl Glycol, Pantolactone, Shea Butter, C12-15 Alkyl Benzoate, Sodium Hydroxide, Citric Acid, Parfum, Tocopherol, Butyrospermum Parkii Butter, Potassium Sorbate, Aqua, Ethylhexylglycerin, Disodium EDTA, Methylisothiazolinone",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Sorbitol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethicone",
+          "PEG-12 Dimethicone"
+        ],
+        "oils": [
+          "Persea Gratissima Oil"
+        ]
+      },
+      "expectedScore": 40
+    },
+    {
+      "id": "case_063",
+      "profileId": "profile_063",
+      "productId": "product_063",
+      "hairType": "1C",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "normal",
+        "productType": "shampoo",
+        "curlPattern": "straight",
+        "scalpSensitivity": true,
+        "proteinSensitivity": true,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Everyday Conditioner #63",
+      "productCategory": "shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Ammonium Laureth Sulfate, Caprylyl Glycol, Hydrolyzed Soy Protein, Glycerin, Behentrimonium Chloride, Sodium Cocoamphoacetate, Caprylic/Capric Triglyceride, Tocopherol, Aqua, Methylisothiazolinone, Pantolactone, Lactic Acid, Squalane, Sodium Benzoate, Fragrance, Cetyl Esters, Potassium Sorbate, Phenoxyethanol, Butyrospermum Parkii Butter, Ethylhexylglycerin, Shea Butter, Isopropyl Myristate, Citric Acid, Sodium Hydroxide, Sodium Chloride, Parfum, Chlorphenesin, Disodium EDTA, C12-15 Alkyl Benzoate",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Soy Protein"
+        ],
+        "humectants": [
+          "Glycerin"
+        ],
+        "harshSurfactants": [
+          "Ammonium Laureth Sulfate"
+        ],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 55
+    },
+    {
+      "id": "case_064",
+      "profileId": "profile_064",
+      "productId": "product_064",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "volume",
+        "curl definition"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "healthy",
+        "oiliness": "normal",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": true,
+        "chemicallyTreated": false
+      },
+      "productName": "Leave-In Conditioner #64",
+      "productCategory": "gentle_shampoo",
+      "productType": "shampoo",
+      "inci": "Water, Sodium Cocoamphoacetate, Butylene Glycol, Quaternium-91, Hydrolyzed Wheat Protein, Potassium Sorbate, Behenyl Alcohol, Disodium EDTA, Ethylhexylglycerin, Aqua, Tocopherol, Citric Acid, Fragrance, Sodium Benzoate, Parfum, Methylisothiazolinone, Sodium Hydroxide, Caprylic/Capric Triglyceride, Lactic Acid, Phenoxyethanol, Chlorphenesin, Squalane, Sodium Chloride, Butyrospermum Parkii Butter",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Butylene Glycol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [],
+        "oils": []
+      },
+      "expectedScore": 62
+    },
+    {
+      "id": "case_065",
+      "profileId": "profile_065",
+      "productId": "product_065",
+      "hairType": "2A",
+      "scalpCondition": "dry",
+      "goals": [
+        "shine",
+        "volume",
+        "frizz control"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "dry",
+        "productType": "shampoo",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Edge Control Gel #65",
+      "productCategory": "leave_in",
+      "productType": "leave_in_conditioner",
+      "inci": "Water, Sodium PCA, Cetrimonium Chloride, Caprylyl Glycol, Argania Spinosa Kernel Oil, Cyclomethicone, Hydrolyzed Wheat Protein, Polyquaternium-7, Cetyl Esters, Potassium Sorbate, Sodium Chloride, Parfum, Fragrance, Shea Butter, Ethylhexylglycerin, Tocopherol, Aqua, Chlorphenesin, Methylisothiazolinone, Sodium Hydroxide, C12-15 Alkyl Benzoate, Squalane, Caprylic/Capric Triglyceride, Pantolactone",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [
+          "Sodium PCA"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclomethicone"
+        ],
+        "oils": [
+          "Argania Spinosa Kernel Oil"
+        ]
+      },
+      "expectedScore": 58
+    },
+    {
+      "id": "case_066",
+      "profileId": "profile_066",
+      "productId": "product_066",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "frizz control",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "damaged",
+        "oiliness": "dry",
+        "productType": "deep_conditioner_mask",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Repair Conditioner #66",
+      "productCategory": "styling_gel",
+      "productType": "styling_product",
+      "inci": "Water, Hydroxyethylcellulose, PEG-12 Dimethicone, Hydrolyzed Silk, Sorbitol, Chlorphenesin, Behentrimonium Chloride, Fragrance, Butyrospermum Parkii Butter, Tocopherol, Sodium Hydroxide, Citric Acid, Potassium Sorbate, Aqua, Isopropyl Myristate, Caprylic/Capric Triglyceride, Squalane, Lactic Acid, Cetyl Esters, C12-15 Alkyl Benzoate, Sodium Benzoate, Disodium EDTA, Sodium Chloride, Parfum",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Silk"
+        ],
+        "humectants": [
+          "Sorbitol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "PEG-12 Dimethicone"
+        ],
+        "oils": []
+      },
+      "expectedScore": 62
+    },
+    {
+      "id": "case_067",
+      "profileId": "profile_067",
+      "productId": "product_067",
+      "hairType": "3A",
+      "scalpCondition": "oily",
+      "goals": [
+        "protein treatment",
+        "shine"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "oily",
+        "productType": "styling_product",
+        "curlPattern": "curly",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Leave-In Conditioner #67",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Cetyl Alcohol, Cetrimonium Chloride, PEG-12 Dimethicone, Potassium Sorbate, Ricinus Communis Seed Oil, Hydrolyzed Wheat Protein, Coco Glucoside, Caprylyl Glycol, Citric Acid, Sodium Benzoate, Shea Butter, Caprylic/Capric Triglyceride, Butyrospermum Parkii Butter, Methylisothiazolinone, Aqua, Parfum, Squalane, Phenoxyethanol, Lactic Acid, Tocopherol, Sodium Hydroxide, Fragrance, Ethylhexylglycerin, Isopropyl Myristate, Disodium EDTA",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Wheat Protein"
+        ],
+        "humectants": [],
+        "harshSurfactants": [],
+        "silicones": [
+          "PEG-12 Dimethicone"
+        ],
+        "oils": [
+          "Ricinus Communis Seed Oil"
+        ]
+      },
+      "expectedScore": 51
+    },
+    {
+      "id": "case_068",
+      "profileId": "profile_068",
+      "productId": "product_068",
+      "hairType": "3A",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine",
+        "moisture"
+      ],
+      "engineProfile": {
+        "porosity": "med",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "co_wash",
+        "curlPattern": "curly",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Moisturizing Shampoo #68",
+      "productCategory": "co_wash",
+      "productType": "co_wash",
+      "inci": "Water, Lauryl Alcohol, Stearamidopropyl Dimethylamine, Decyl Glucoside, Cyclomethicone, Sodium Benzoate, Rosa Canina Fruit Oil, Hydrolyzed Rice Protein, Sorbitol, Citric Acid, Parfum, Shea Butter, Pantolactone, Caprylyl Glycol, Lactic Acid, Cetyl Esters, Potassium Sorbate, Tocopherol, Disodium EDTA, Caprylic/Capric Triglyceride, Fragrance, C12-15 Alkyl Benzoate, Phenoxyethanol, Butyrospermum Parkii Butter, Sodium Chloride, Ethylhexylglycerin, Sodium Hydroxide",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Rice Protein"
+        ],
+        "humectants": [
+          "Sorbitol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Cyclomethicone"
+        ],
+        "oils": [
+          "Rosa Canina Fruit Oil"
+        ]
+      },
+      "expectedScore": 80
+    },
+    {
+      "id": "case_069",
+      "profileId": "profile_069",
+      "productId": "product_069",
+      "hairType": "2A",
+      "scalpCondition": "normal",
+      "goals": [
+        "shine",
+        "repair"
+      ],
+      "engineProfile": {
+        "porosity": "low",
+        "density": "med",
+        "condition": "normal",
+        "oiliness": "normal",
+        "productType": "hair_oil_serum",
+        "curlPattern": "wavy",
+        "scalpSensitivity": false,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": true
+      },
+      "productName": "Protein Mask #69",
+      "productCategory": "serum",
+      "productType": "hair_oil_serum",
+      "inci": "Water, Simmondsia Chinensis Seed Oil, Isopropyl Myristate, Dimethiconol, Dimethicone, Ethylhexylglycerin, Glycerin, Citric Acid, Methylisothiazolinone, C12-15 Alkyl Benzoate, Sodium Benzoate, Squalane, Chlorphenesin, Lactic Acid, Cetyl Esters, Sodium Chloride, Shea Butter, Fragrance, Butyrospermum Parkii Butter, Aqua, Parfum, Caprylic/Capric Triglyceride, Caprylyl Glycol, Potassium Sorbate, Pantolactone, Sodium Hydroxide, Tocopherol",
+      "highlights": {
+        "proteins": [],
+        "humectants": [
+          "Glycerin"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Dimethiconol",
+          "Dimethicone"
+        ],
+        "oils": [
+          "Simmondsia Chinensis Seed Oil"
+        ]
+      },
+      "expectedScore": 64
+    },
+    {
+      "id": "case_070",
+      "profileId": "profile_070",
+      "productId": "product_070",
+      "hairType": "4B",
+      "scalpCondition": "sensitive",
+      "goals": [
+        "protein treatment"
+      ],
+      "engineProfile": {
+        "porosity": "high",
+        "density": "coarse",
+        "condition": "damaged",
+        "oiliness": "oily",
+        "productType": "hair_oil_serum",
+        "curlPattern": "coily",
+        "scalpSensitivity": true,
+        "proteinSensitivity": false,
+        "siliconeSensitivity": false,
+        "chemicallyTreated": false
+      },
+      "productName": "Leave-In Conditioner #70",
+      "productCategory": "conditioner",
+      "productType": "rinse_out_conditioner",
+      "inci": "Water, Cetearyl Alcohol, Stearamidopropyl Dimethylamine, Phenoxyethanol, Panthenol, Bis-Aminopropyl Dimethicone, PEG-12 Dimethicone, Hydrolyzed Collagen, Ricinus Communis Seed Oil, Polyquaternium-10, Cetyl Esters, Aqua, Ethylhexylglycerin, Pantolactone, Butyrospermum Parkii Butter, Squalane, Citric Acid, Sodium Chloride, Tocopherol, Caprylyl Glycol, Sodium Benzoate, Lactic Acid, Fragrance, Methylisothiazolinone",
+      "highlights": {
+        "proteins": [
+          "Hydrolyzed Collagen"
+        ],
+        "humectants": [
+          "Panthenol"
+        ],
+        "harshSurfactants": [],
+        "silicones": [
+          "Bis-Aminopropyl Dimethicone",
+          "PEG-12 Dimethicone"
+        ],
+        "oils": [
+          "Ricinus Communis Seed Oil"
+        ]
+      },
+      "expectedScore": 60
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "iteration": 6,
+  "generatedAt": "2026-06-11T01:02:04.152Z",
+  "summary": {
+    "avgAbsError": 20.6,
+    "avgError": -19.61,
+    "overratedCount": 1,
+    "underratedCount": 49,
+    "correctCount": 20,
+    "stabilized": false
+  },
+  "diagnoses": [
+    {
+      "id": "harsh_surfactant_underrating",
+      "module": "cleanserHarshness.ts",
+      "severity": "high",
+      "affectedCount": 12,
+      "avgError": -26.93,
+      "description": "12 shampoos with harsh surfactants scored 26.9 points below expected. STRONG_DRY_SCALP_PENALTY (0.78) or STRONG_DAMAGED_PENALTY (0.82) may be too harsh, reducing even oily-hair profiles unnecessarily.",
+      "proposedFix": "Raise STRONG_DRY_SCALP_PENALTY from 0.78 to 0.84. Raise STRONG_DAMAGED_PENALTY from 0.82 to 0.87."
+    },
+    {
+      "id": "low_porosity_silicone_underrating",
+      "module": "advancedProfileModifiers.ts / molecularWeightHeuristics.ts",
+      "severity": "high",
+      "affectedCount": 11,
+      "avgError": -29.17,
+      "description": "11 low-porosity profiles with silicones scored 29.2 points below expected. Low-porosity penalty for silicones may be stacking excessively (molecular weight + buildup + advanced profile = triple penalty).",
+      "proposedFix": "The MULTI_PENALTY_FLOOR=0.35 in scoreFormulation.ts should catch this. If still underrating, raise MULTI_PENALTY_FLOOR from 0.35 to 0.40 for Silicone category."
+    },
+    {
+      "id": "scalp_sensitivity_overpenalty",
+      "module": "advancedProfileModifiers.ts / cleanserHarshness.ts",
+      "severity": "low",
+      "affectedCount": 15,
+      "avgError": -36.12,
+      "description": "15 sensitive-scalp profiles underrated by 36.1 pts. Scalp sensitivity may be stacking with cleanser harshness penalties.",
+      "proposedFix": "Ensure MILD_SENSITIVE_SCALP_BONUS (1.08) in cleanserHarshness.ts is actually offsetting the scalp sensitivity penalty from advancedProfileModifiers.ts. Consider adding an explicit cap: max combined scalp penalty = ×0.75."
+    }
+  ],
+  "patterns": {
+    "byProductCategory": [
+      {
+        "key": "leave_in",
+        "count": 10,
+        "avgError": -25.34
+      },
+      {
+        "key": "co_wash",
+        "count": 13,
+        "avgError": -24.44
+      },
+      {
+        "key": "shampoo",
+        "count": 14,
+        "avgError": -22.99
+      },
+      {
+        "key": "mask",
+        "count": 8,
+        "avgError": -17.95
+      },
+      {
+        "key": "styling_gel",
+        "count": 9,
+        "avgError": -15.76
+      },
+      {
+        "key": "conditioner",
+        "count": 4,
+        "avgError": -15.38
+      },
+      {
+        "key": "gentle_shampoo",
+        "count": 7,
+        "avgError": -12
+      },
+      {
+        "key": "serum",
+        "count": 5,
+        "avgError": -9.8
+      }
+    ],
+    "byHairType": [
+      {
+        "key": "1B",
+        "count": 5,
+        "avgError": -29.64
+      },
+      {
+        "key": "3C",
+        "count": 8,
+        "avgError": -26.64
+      },
+      {
+        "key": "1A",
+        "count": 6,
+        "avgError": -23.62
+      },
+      {
+        "key": "3B",
+        "count": 6,
+        "avgError": -22.55
+      },
+      {
+        "key": "2B",
+        "count": 8,
+        "avgError": -20.66
+      },
+      {
+        "key": "2A",
+        "count": 9,
+        "avgError": -19.14
+      },
+      {
+        "key": "2C",
+        "count": 3,
+        "avgError": -18.24
+      },
+      {
+        "key": "4B",
+        "count": 7,
+        "avgError": -18.08
+      },
+      {
+        "key": "3A",
+        "count": 5,
+        "avgError": -15.38
+      },
+      {
+        "key": "4C",
+        "count": 4,
+        "avgError": -15.26
+      },
+      {
+        "key": "4A",
+        "count": 6,
+        "avgError": -10.6
+      },
+      {
+        "key": "1C",
+        "count": 3,
+        "avgError": -4.72
+      }
+    ],
+    "byPorosity": [
+      {
+        "key": "low",
+        "count": 23,
+        "avgError": -20.71
+      },
+      {
+        "key": "med",
+        "count": 22,
+        "avgError": -19.65
+      },
+      {
+        "key": "high",
+        "count": 25,
+        "avgError": -18.57
+      }
+    ],
+    "byScalpCondition": [
+      {
+        "key": "sensitive",
+        "count": 17,
+        "avgError": -32.36
+      },
+      {
+        "key": "dry",
+        "count": 19,
+        "avgError": -17.72
+      },
+      {
+        "key": "oily",
+        "count": 21,
+        "avgError": -16.07
+      },
+      {
+        "key": "normal",
+        "count": 13,
+        "avgError": -11.42
+      }
+    ]
+  }
+}

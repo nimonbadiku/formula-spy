@@ -1,0 +1,59 @@
+.option-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  width: 100%;
+  text-align: left;
+  padding: 16px 48px 16px 18px;
+  border-radius: var(--radius-md);
+  background: var(--surface-solid);
+  border: 1.5px solid var(--hairline);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.18s ease, transform 0.15s ease, background 0.18s ease;
+}
+
+.option-card:active {
+  transform: scale(0.99);
+}
+
+.option-card--selected {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+}
+
+.option-card__label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.option-card__desc {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.4;
+}
+
+.option-card__check {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--blue);
+  opacity: 0;
+  transform: translateY(-50%) scale(0.6);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.option-card--selected .option-card__check {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}

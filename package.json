@@ -1,0 +1,29 @@
+{
+  "name": "formula-spy",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Formula Spy - hair care ingredient analysis (mobile-first PWA)",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-navigation/native": "^7.3.1",
+    "@react-navigation/stack": "^7.10.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "tsx": "^4.22.4",
+    "typescript": "^5.6.2",
+    "vite": "^8.0.16"
+  }
+}

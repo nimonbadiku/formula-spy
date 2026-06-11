@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+
+    "types": ["node"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@engine/*": ["./scoringlogic+database/*"]
+    }
+  },
+  "include": ["src", "scoringlogic+database/engine", "scoringlogic+database/scoring", "scoringlogic+database/interactions", "scoringlogic+database/contracts", "scoringlogic+database/identity", "scoringlogic+database/rules"],
+  "exclude": ["scoringlogic+database/tools", "scoringlogic+database/test.ts", "node_modules", "dist"]
+}

@@ -1,0 +1,3814 @@
+{
+  "iteration": 8,
+  "generatedAt": "2026-06-11T01:02:18.147Z",
+  "results": [
+    {
+      "id": "case_001",
+      "expectedScore": 47,
+      "actualScore": 59.45,
+      "error": null,
+      "classification": "overrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 29.13,
+        "buildup": 25,
+        "moisture": 100,
+        "protein": 31.35,
+        "scalpCompatibility": 43.55,
+        "repairSupport": 31.35,
+        "smoothing": 26.91,
+        "lightweightFeel": 96.92,
+        "curlSupport": 100,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "lightweight_leave_in_compatible_low_porosity",
+          "label": "lightweight_leave_in_compatible_low_porosity",
+          "modifier": 1.1
+        }
+      ],
+      "profileCompatibilityModifier": 1.1,
+      "resolvedCount": 26,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_002",
+      "expectedScore": 43,
+      "actualScore": 31.99,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 30.8,
+        "buildup": 0,
+        "moisture": 99.33,
+        "protein": 35.93,
+        "scalpCompatibility": 43.39,
+        "repairSupport": 35.93,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 100,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 29,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_003",
+      "expectedScore": 58,
+      "actualScore": 22.92,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 3.71,
+        "buildup": 0,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 22.63,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 0,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_004",
+      "expectedScore": 63,
+      "actualScore": 37.78,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 0,
+        "buildup": 25,
+        "moisture": 0,
+        "protein": 28.17,
+        "scalpCompatibility": 30.77,
+        "repairSupport": 30.99,
+        "smoothing": 3.48,
+        "lightweightFeel": 96.36,
+        "curlSupport": 0,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "scalp_active_compatible_oily_scalp",
+          "label": "scalp_active_compatible_oily_scalp",
+          "modifier": 1.12
+        }
+      ],
+      "profileCompatibilityModifier": 0.8400000000000001,
+      "resolvedCount": 22,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_005",
+      "expectedScore": 52,
+      "actualScore": 37.18,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 23.88,
+        "buildup": 35,
+        "moisture": 4.67,
+        "protein": 0.9,
+        "scalpCompatibility": 23.65,
+        "repairSupport": 0.9,
+        "smoothing": 65.07,
+        "lightweightFeel": 96,
+        "curlSupport": 4.67,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 20,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_006",
+      "expectedScore": 74,
+      "actualScore": 68.79,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 86.98,
+        "buildup": 35,
+        "moisture": 0,
+        "protein": 100,
+        "scalpCompatibility": 52.2,
+        "repairSupport": 100,
+        "smoothing": 100,
+        "lightweightFeel": 97.33,
+        "curlSupport": 0,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3697505902753909
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        }
+      ],
+      "profileCompatibilityModifier": 1.1,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_007",
+      "expectedScore": 46,
+      "actualScore": 42.61,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 58.5,
+        "buildup": 25,
+        "moisture": 70.13,
+        "protein": 70.94,
+        "scalpCompatibility": 49.02,
+        "repairSupport": 70.94,
+        "smoothing": 69.82,
+        "lightweightFeel": 97.24,
+        "curlSupport": 77.14,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        }
+      ],
+      "profileCompatibilityModifier": 0.75,
+      "resolvedCount": 29,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_008",
+      "expectedScore": 68,
+      "actualScore": 94.16,
+      "error": null,
+      "classification": "overrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 92.34,
+        "buildup": 0,
+        "moisture": 12.86,
+        "protein": 4.68,
+        "scalpCompatibility": 31.01,
+        "repairSupport": 5.15,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 14.15,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.1426250000000001
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 1.1880000000000002,
+      "resolvedCount": 24,
+      "unresolvedCount": 1
+    },
+    {
+      "id": "case_009",
+      "expectedScore": 53,
+      "actualScore": 49.75,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 37.5,
+        "conditioning": 0,
+        "buildup": 25,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 27.41,
+        "repairSupport": 0,
+        "smoothing": 2.07,
+        "lightweightFeel": 96.92,
+        "curlSupport": 0,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 37.5
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3697505902753909
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "sulfate_free_mild_shampoo_compatible",
+          "label": "sulfate_free_mild_shampoo_compatible",
+          "modifier": 1.18
+        }
+      ],
+      "profileCompatibilityModifier": 1.18,
+      "resolvedCount": 26,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_010",
+      "expectedScore": 37,
+      "actualScore": 19.34,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 30.12,
+        "buildup": 50,
+        "moisture": 62.32,
+        "protein": 20.94,
+        "scalpCompatibility": 34.95,
+        "repairSupport": 23.03,
+        "smoothing": 40.84,
+        "lightweightFeel": 94.67,
+        "curlSupport": 62.32,
+        "buildupResistance": 50,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "high_buildup_risk",
+          "label": "High Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.5
+        },
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "label": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "modifier": 0.65
+        },
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        },
+        {
+          "id": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "label": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "modifier": 0.82
+        }
+      ],
+      "profileCompatibilityModifier": 0.43173000000000006,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_011",
+      "expectedScore": 64,
+      "actualScore": 45.88,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 35.41,
+        "buildup": 10,
+        "moisture": 4.89,
+        "protein": 4.08,
+        "scalpCompatibility": 23.61,
+        "repairSupport": 4.08,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 4.89,
+        "buildupResistance": 90,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 24,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_012",
+      "expectedScore": 64,
+      "actualScore": 37.48,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 16.95,
+        "buildup": 0,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 30.34,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 0,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_013",
+      "expectedScore": 77,
+      "actualScore": 59.39,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 58.33,
+        "buildup": 25,
+        "moisture": 70.74,
+        "protein": 43.69,
+        "scalpCompatibility": 46.91,
+        "repairSupport": 43.69,
+        "smoothing": 72.97,
+        "lightweightFeel": 96.19,
+        "curlSupport": 77.81,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.1426250000000001
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "heavy_polymer_incompatible_coily_styler",
+          "label": "heavy_polymer_incompatible_coily_styler",
+          "modifier": 0.88
+        }
+      ],
+      "profileCompatibilityModifier": 0.88,
+      "resolvedCount": 21,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_014",
+      "expectedScore": 58,
+      "actualScore": 38.86,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 90,
+        "conditioning": 0,
+        "buildup": 0,
+        "moisture": 52.06,
+        "protein": 22.38,
+        "scalpCompatibility": 33.28,
+        "repairSupport": 22.38,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 57.27,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 90
+      },
+      "heuristicWarnings": [
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "single_sulfate_curly_moderate",
+          "label": "single_sulfate_curly_moderate",
+          "modifier": 0.92
+        }
+      ],
+      "profileCompatibilityModifier": 0.92,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_015",
+      "expectedScore": 54,
+      "actualScore": 26.44,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 0,
+        "buildup": 35,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 28.91,
+        "repairSupport": 0,
+        "smoothing": 1.76,
+        "lightweightFeel": 97.33,
+        "curlSupport": 0,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "over_conditioning",
+          "label": "Over-Conditioning Risk",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.07999999999999996
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "under_supported_cleansing",
+          "label": "Under-Supported Cleansing Product",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.1
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "heavy_conditioning_incompatible_oily_shampoo",
+          "label": "heavy_conditioning_incompatible_oily_shampoo",
+          "modifier": 0.7
+        },
+        {
+          "id": "conditioning_polymer_suboptimal_oily_shampoo",
+          "label": "conditioning_polymer_suboptimal_oily_shampoo",
+          "modifier": 0.92
+        },
+        {
+          "id": "scalp_active_compatible_oily_scalp",
+          "label": "scalp_active_compatible_oily_scalp",
+          "modifier": 1.12
+        }
+      ],
+      "profileCompatibilityModifier": 0.72128,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_016",
+      "expectedScore": 47,
+      "actualScore": 47.8,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 35.05,
+        "buildup": 0,
+        "moisture": 7.82,
+        "protein": 6.11,
+        "scalpCompatibility": 18.13,
+        "repairSupport": 6.72,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 8.6,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "harsh_cleanser_sensitive_profile",
+          "label": "Harsh Cleanser for Sensitive Profile",
+          "heuristicSystem": "cleanser_harshness",
+          "modifierValue": -0.21999999999999997
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "leave_in_strong_surfactant",
+          "label": "Strong Surfactant in Leave-In Product",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.15
+        },
+        {
+          "id": "contradictory_format",
+          "label": "Contradictory Format: Strong Surfactants in Leave-In",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.08
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 1.1880000000000002,
+      "resolvedCount": 24,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_017",
+      "expectedScore": 31,
+      "actualScore": 18.74,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 38.22,
+        "buildup": 35,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 38.56,
+        "repairSupport": 0,
+        "smoothing": 45.37,
+        "lightweightFeel": 96.67,
+        "curlSupport": 0,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        },
+        {
+          "id": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "label": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "modifier": 0.82
+        }
+      ],
+      "profileCompatibilityModifier": 0.5227499999999999,
+      "resolvedCount": 24,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_018",
+      "expectedScore": 78,
+      "actualScore": 30.59,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 60.2,
+        "buildup": 0,
+        "moisture": 0,
+        "protein": 57.44,
+        "scalpCompatibility": 44.14,
+        "repairSupport": 57.44,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 0,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_019",
+      "expectedScore": 58,
+      "actualScore": 26.45,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 11.72,
+        "buildup": 10,
+        "moisture": 6.46,
+        "protein": 0,
+        "scalpCompatibility": 21.69,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 6.46,
+        "buildupResistance": 90,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 31,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_020",
+      "expectedScore": 64,
+      "actualScore": 51.09,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 0,
+        "buildup": 15,
+        "moisture": 84.39,
+        "protein": 55.93,
+        "scalpCompatibility": 37.84,
+        "repairSupport": 61.52,
+        "smoothing": 62.16,
+        "lightweightFeel": 97.33,
+        "curlSupport": 92.83,
+        "buildupResistance": 85,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        }
+      ],
+      "profileCompatibilityModifier": 1.1,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_021",
+      "expectedScore": 61,
+      "actualScore": 23.02,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 41.22,
+        "buildup": 0,
+        "moisture": 90.27,
+        "protein": 41.33,
+        "scalpCompatibility": 39.74,
+        "repairSupport": 41.33,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 99.3,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        },
+        {
+          "id": "drying_alcohol_incompatible_coily_styler",
+          "label": "drying_alcohol_incompatible_coily_styler",
+          "modifier": 0.72
+        }
+      ],
+      "profileCompatibilityModifier": 0.45899999999999996,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_022",
+      "expectedScore": 64,
+      "actualScore": 56.58,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 54.47,
+        "buildup": 35,
+        "moisture": 85.33,
+        "protein": 54.45,
+        "scalpCompatibility": 42.58,
+        "repairSupport": 59.9,
+        "smoothing": 88.03,
+        "lightweightFeel": 96.36,
+        "curlSupport": 93.86,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        }
+      ],
+      "profileCompatibilityModifier": 1.1,
+      "resolvedCount": 22,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_023",
+      "expectedScore": 52,
+      "actualScore": 57.4,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 0,
+        "buildup": 35,
+        "moisture": 100,
+        "protein": 0,
+        "scalpCompatibility": 35.39,
+        "repairSupport": 0,
+        "smoothing": 2.2,
+        "lightweightFeel": 96.19,
+        "curlSupport": 100,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.18549375000000012
+        },
+        {
+          "id": "under_supported_cleansing",
+          "label": "Under-Supported Cleansing Product",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.1
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "bond_repair_compatible_damaged",
+          "label": "bond_repair_compatible_damaged",
+          "modifier": 1.15
+        }
+      ],
+      "profileCompatibilityModifier": 0.8624999999999999,
+      "resolvedCount": 21,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_024",
+      "expectedScore": 74,
+      "actualScore": 38.06,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 53.51,
+        "buildup": 25,
+        "moisture": 100,
+        "protein": 56.25,
+        "scalpCompatibility": 46.58,
+        "repairSupport": 56.25,
+        "smoothing": 46.65,
+        "lightweightFeel": 97.5,
+        "curlSupport": 100,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 32,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_025",
+      "expectedScore": 60,
+      "actualScore": 43.04,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 0,
+        "buildup": 25,
+        "moisture": 53.91,
+        "protein": 0,
+        "scalpCompatibility": 27.97,
+        "repairSupport": 0,
+        "smoothing": 3.05,
+        "lightweightFeel": 96.92,
+        "curlSupport": 59.3,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 26,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_026",
+      "expectedScore": 70,
+      "actualScore": 35.65,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 36.15,
+        "buildup": 25,
+        "moisture": 6.87,
+        "protein": 2.06,
+        "scalpCompatibility": 26.28,
+        "repairSupport": 2.06,
+        "smoothing": 62.24,
+        "lightweightFeel": 97.5,
+        "curlSupport": 7.56,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3697505902753909
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 32,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_027",
+      "expectedScore": 64,
+      "actualScore": 65.62,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 73.12,
+        "buildup": 0,
+        "moisture": 91.67,
+        "protein": 100,
+        "scalpCompatibility": 49.32,
+        "repairSupport": 100,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 100,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "harsh_cleanser_sensitive_profile",
+          "label": "Harsh Cleanser for Sensitive Profile",
+          "heuristicSystem": "cleanser_harshness",
+          "modifierValue": -0.21999999999999997
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        },
+        {
+          "id": "moisture_only_no_repair_suboptimal",
+          "label": "moisture_only_no_repair_suboptimal",
+          "modifier": 0.78
+        }
+      ],
+      "profileCompatibilityModifier": 0.9266400000000001,
+      "resolvedCount": 22,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_028",
+      "expectedScore": 44,
+      "actualScore": 42.55,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 35.61,
+        "buildup": 25,
+        "moisture": 3.22,
+        "protein": 0,
+        "scalpCompatibility": 23.7,
+        "repairSupport": 0,
+        "smoothing": 42.8,
+        "lightweightFeel": 97.24,
+        "curlSupport": 3.22,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 1.08,
+      "resolvedCount": 29,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_029",
+      "expectedScore": 64,
+      "actualScore": 40.9,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 26.06,
+        "buildup": 0,
+        "moisture": 50.64,
+        "protein": 0,
+        "scalpCompatibility": 39.74,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 50.64,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        },
+        {
+          "id": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "label": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "modifier": 0.82
+        }
+      ],
+      "profileCompatibilityModifier": 0.8856,
+      "resolvedCount": 20,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_030",
+      "expectedScore": 56,
+      "actualScore": 29.88,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 17.97,
+        "buildup": 0,
+        "moisture": 3.42,
+        "protein": 0,
+        "scalpCompatibility": 23.85,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 3.42,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 31,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_031",
+      "expectedScore": 73,
+      "actualScore": 48.19,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 52.1,
+        "buildup": 0,
+        "moisture": 88.86,
+        "protein": 65.25,
+        "scalpCompatibility": 52.49,
+        "repairSupport": 71.78,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 97.75,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "moisture_only_no_repair_suboptimal",
+          "label": "moisture_only_no_repair_suboptimal",
+          "modifier": 0.78
+        }
+      ],
+      "profileCompatibilityModifier": 0.78,
+      "resolvedCount": 28,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_032",
+      "expectedScore": 67,
+      "actualScore": 46.62,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 46.12,
+        "buildup": 25,
+        "moisture": 62.35,
+        "protein": 43.91,
+        "scalpCompatibility": 33.63,
+        "repairSupport": 48.3,
+        "smoothing": 81.51,
+        "lightweightFeel": 97.24,
+        "curlSupport": 62.35,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3697505902753909
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 1.1880000000000002,
+      "resolvedCount": 29,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_033",
+      "expectedScore": 78,
+      "actualScore": 52.69,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 72.5,
+        "conditioning": 0,
+        "buildup": 0,
+        "moisture": 25.98,
+        "protein": 13.21,
+        "scalpCompatibility": 32.74,
+        "repairSupport": 13.21,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 25.98,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 72.5
+      },
+      "heuristicWarnings": [
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "conditioning_polymer_suboptimal_oily_shampoo",
+          "label": "conditioning_polymer_suboptimal_oily_shampoo",
+          "modifier": 0.92
+        },
+        {
+          "id": "scalp_active_compatible_oily_scalp",
+          "label": "scalp_active_compatible_oily_scalp",
+          "modifier": 1.12
+        }
+      ],
+      "profileCompatibilityModifier": 1.0304000000000002,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_034",
+      "expectedScore": 53,
+      "actualScore": 52.55,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 38.93,
+        "buildup": 10,
+        "moisture": 64.79,
+        "protein": 31.55,
+        "scalpCompatibility": 43.6,
+        "repairSupport": 31.55,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 64.79,
+        "buildupResistance": 90,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 24,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_035",
+      "expectedScore": 60,
+      "actualScore": 34.53,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 0,
+        "buildup": 25,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 25.45,
+        "repairSupport": 0,
+        "smoothing": 2.07,
+        "lightweightFeel": 97.5,
+        "curlSupport": 0,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "over_conditioning",
+          "label": "Over-Conditioning Risk",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.07999999999999996
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "under_supported_cleansing",
+          "label": "Under-Supported Cleansing Product",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.1
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 32,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_036",
+      "expectedScore": 62,
+      "actualScore": 26.94,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 23.56,
+        "buildup": 0,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 19.95,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 0,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 24,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_037",
+      "expectedScore": 56,
+      "actualScore": 23.29,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 14.92,
+        "buildup": 0,
+        "moisture": 2.24,
+        "protein": 1.33,
+        "scalpCompatibility": 20.78,
+        "repairSupport": 1.46,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 2.24,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        },
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 0.7573500000000001,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_038",
+      "expectedScore": 52,
+      "actualScore": 49.62,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 0,
+        "buildup": 25,
+        "moisture": 40.26,
+        "protein": 34.76,
+        "scalpCompatibility": 31.32,
+        "repairSupport": 38.24,
+        "smoothing": 2.7,
+        "lightweightFeel": 96.8,
+        "curlSupport": 44.29,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "conditioning_polymer_suboptimal_oily_shampoo",
+          "label": "conditioning_polymer_suboptimal_oily_shampoo",
+          "modifier": 0.92
+        },
+        {
+          "id": "scalp_active_compatible_oily_scalp",
+          "label": "scalp_active_compatible_oily_scalp",
+          "modifier": 1.12
+        }
+      ],
+      "profileCompatibilityModifier": 1.0304000000000002,
+      "resolvedCount": 25,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_039",
+      "expectedScore": 62,
+      "actualScore": 62.86,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 44.38,
+        "buildup": 50,
+        "moisture": 92.9,
+        "protein": 0,
+        "scalpCompatibility": 44.41,
+        "repairSupport": 0,
+        "smoothing": 42.76,
+        "lightweightFeel": 94.48,
+        "curlSupport": 92.9,
+        "buildupResistance": 50,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "high_buildup_risk",
+          "label": "High Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.5
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3016627039062503
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "bond_repair_compatible_damaged",
+          "label": "bond_repair_compatible_damaged",
+          "modifier": 1.15
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 1.242,
+      "resolvedCount": 29,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_040",
+      "expectedScore": 53,
+      "actualScore": 19.46,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 30.11,
+        "buildup": 0,
+        "moisture": 0,
+        "protein": 4.64,
+        "scalpCompatibility": 15.66,
+        "repairSupport": 4.64,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 0,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "harsh_cleanser_sensitive_profile",
+          "label": "Harsh Cleanser for Sensitive Profile",
+          "heuristicSystem": "cleanser_harshness",
+          "modifierValue": -0.21999999999999997
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "leave_in_strong_surfactant",
+          "label": "Strong Surfactant in Leave-In Product",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.15
+        },
+        {
+          "id": "contradictory_format",
+          "label": "Contradictory Format: Strong Surfactants in Leave-In",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.08
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 25,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_041",
+      "expectedScore": 66,
+      "actualScore": 38.5,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 30.24,
+        "buildup": 10,
+        "moisture": 59.79,
+        "protein": 37.71,
+        "scalpCompatibility": 34.31,
+        "repairSupport": 37.71,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 59.79,
+        "buildupResistance": 90,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 31,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_042",
+      "expectedScore": 63,
+      "actualScore": 71.83,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 90.28,
+        "buildup": 25,
+        "moisture": 100,
+        "protein": 89.68,
+        "scalpCompatibility": 61.96,
+        "repairSupport": 89.68,
+        "smoothing": 87.89,
+        "lightweightFeel": 96.19,
+        "curlSupport": 100,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.18549375000000012
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 21,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_043",
+      "expectedScore": 44,
+      "actualScore": 72.96,
+      "error": null,
+      "classification": "overrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 86.45,
+        "buildup": 25,
+        "moisture": 75.06,
+        "protein": 0,
+        "scalpCompatibility": 52.37,
+        "repairSupport": 0,
+        "smoothing": 79.05,
+        "lightweightFeel": 95.79,
+        "curlSupport": 82.57,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.09750000000000003
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 19,
+      "unresolvedCount": 1
+    },
+    {
+      "id": "case_044",
+      "expectedScore": 55,
+      "actualScore": 40.88,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 73.71,
+        "buildup": 25,
+        "moisture": 100,
+        "protein": 71,
+        "scalpCompatibility": 58.09,
+        "repairSupport": 71,
+        "smoothing": 47.59,
+        "lightweightFeel": 96.36,
+        "curlSupport": 100,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.18549375000000012
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "drying_alcohol_incompatible_coily_styler",
+          "label": "drying_alcohol_incompatible_coily_styler",
+          "modifier": 0.72
+        }
+      ],
+      "profileCompatibilityModifier": 0.54,
+      "resolvedCount": 22,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_045",
+      "expectedScore": 50,
+      "actualScore": 44.5,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 46.5,
+        "buildup": 0,
+        "moisture": 69.28,
+        "protein": 0,
+        "scalpCompatibility": 27.09,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 69.28,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "harsh_cleanser_sensitive_profile",
+          "label": "Harsh Cleanser for Sensitive Profile",
+          "heuristicSystem": "cleanser_harshness",
+          "modifierValue": -0.21999999999999997
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.18549375000000012
+        },
+        {
+          "id": "leave_in_strong_surfactant",
+          "label": "Strong Surfactant in Leave-In Product",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.15
+        },
+        {
+          "id": "contradictory_format",
+          "label": "Contradictory Format: Strong Surfactants in Leave-In",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.08
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 1.08,
+      "resolvedCount": 27,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_046",
+      "expectedScore": 37,
+      "actualScore": 35.48,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 0,
+        "buildup": 25,
+        "moisture": 0,
+        "protein": 17.64,
+        "scalpCompatibility": 34.56,
+        "repairSupport": 19.4,
+        "smoothing": 2.29,
+        "lightweightFeel": 97.14,
+        "curlSupport": 0,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        },
+        {
+          "id": "scalp_active_compatible_oily_scalp",
+          "label": "scalp_active_compatible_oily_scalp",
+          "modifier": 1.12
+        }
+      ],
+      "profileCompatibilityModifier": 0.714,
+      "resolvedCount": 28,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_047",
+      "expectedScore": 29,
+      "actualScore": 30.47,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 47.7,
+        "buildup": 0,
+        "moisture": 94.69,
+        "protein": 38.14,
+        "scalpCompatibility": 33.28,
+        "repairSupport": 38.14,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 94.69,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "harsh_cleanser_sensitive_profile",
+          "label": "Harsh Cleanser for Sensitive Profile",
+          "heuristicSystem": "cleanser_harshness",
+          "modifierValue": -0.21999999999999997
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 29,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_048",
+      "expectedScore": 64,
+      "actualScore": 44.39,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 14.35,
+        "buildup": 0,
+        "moisture": 6.12,
+        "protein": 0,
+        "scalpCompatibility": 23.31,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 6.12,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 27,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_049",
+      "expectedScore": 56,
+      "actualScore": 73.21,
+      "error": null,
+      "classification": "overrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 72.09,
+        "buildup": 50,
+        "moisture": 100,
+        "protein": 0,
+        "scalpCompatibility": 45.88,
+        "repairSupport": 0,
+        "smoothing": 92.81,
+        "lightweightFeel": 92.38,
+        "curlSupport": 100,
+        "buildupResistance": 50,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "high_buildup_risk",
+          "label": "High Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.5
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 1.08,
+      "resolvedCount": 21,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_050",
+      "expectedScore": 64,
+      "actualScore": 30.84,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 37.63,
+        "buildup": 0,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 39.11,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 0,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "harsh_cleanser_sensitive_profile",
+          "label": "Harsh Cleanser for Sensitive Profile",
+          "heuristicSystem": "cleanser_harshness",
+          "modifierValue": -0.21999999999999997
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "leave_in_strong_surfactant",
+          "label": "Strong Surfactant in Leave-In Product",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.15
+        },
+        {
+          "id": "contradictory_format",
+          "label": "Contradictory Format: Strong Surfactants in Leave-In",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.08
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "drying_alcohol_incompatible_coily_styler",
+          "label": "drying_alcohol_incompatible_coily_styler",
+          "modifier": 0.72
+        }
+      ],
+      "profileCompatibilityModifier": 0.72,
+      "resolvedCount": 26,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_051",
+      "expectedScore": 62,
+      "actualScore": 38.67,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 22.39,
+        "buildup": 35,
+        "moisture": 2.62,
+        "protein": 0,
+        "scalpCompatibility": 22.76,
+        "repairSupport": 0,
+        "smoothing": 47.82,
+        "lightweightFeel": 97.04,
+        "curlSupport": 2.62,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3697505902753909
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 27,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_052",
+      "expectedScore": 56,
+      "actualScore": 31.28,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 55,
+        "conditioning": 53.76,
+        "buildup": 0,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 43.99,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 0,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 55
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_053",
+      "expectedScore": 60,
+      "actualScore": 27.17,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 18.13,
+        "buildup": 0,
+        "moisture": 3.43,
+        "protein": 3.33,
+        "scalpCompatibility": 21.38,
+        "repairSupport": 3.66,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 3.43,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        },
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 0.7573500000000001,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_054",
+      "expectedScore": 50,
+      "actualScore": 31.06,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 64.04,
+        "buildup": 50,
+        "moisture": 8.97,
+        "protein": 0,
+        "scalpCompatibility": 26.58,
+        "repairSupport": 0,
+        "smoothing": 39.76,
+        "lightweightFeel": 94.48,
+        "curlSupport": 8.97,
+        "buildupResistance": 50,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "high_buildup_risk",
+          "label": "High Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.5
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "label": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "modifier": 0.75
+        },
+        {
+          "id": "silicone_incompatible_silicone_avoiding",
+          "label": "silicone_incompatible_silicone_avoiding",
+          "modifier": 0.72
+        },
+        {
+          "id": "bond_repair_compatible_damaged",
+          "label": "bond_repair_compatible_damaged",
+          "modifier": 1.15
+        }
+      ],
+      "profileCompatibilityModifier": 0.621,
+      "resolvedCount": 29,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_055",
+      "expectedScore": 69,
+      "actualScore": 50.4,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 37.5,
+        "conditioning": 47.76,
+        "buildup": 0,
+        "moisture": 66.16,
+        "protein": 76.79,
+        "scalpCompatibility": 38.31,
+        "repairSupport": 76.79,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 72.78,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 37.5
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_056",
+      "expectedScore": 74,
+      "actualScore": 56.57,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 84.96,
+        "buildup": 35,
+        "moisture": 0,
+        "protein": 66.28,
+        "scalpCompatibility": 53.76,
+        "repairSupport": 66.28,
+        "smoothing": 100,
+        "lightweightFeel": 96.92,
+        "curlSupport": 0,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        }
+      ],
+      "profileCompatibilityModifier": 0.75,
+      "resolvedCount": 26,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_057",
+      "expectedScore": 62,
+      "actualScore": 55.62,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 51.25,
+        "buildup": 15,
+        "moisture": 74.12,
+        "protein": 0,
+        "scalpCompatibility": 50.28,
+        "repairSupport": 0,
+        "smoothing": 60.42,
+        "lightweightFeel": 96.19,
+        "curlSupport": 74.12,
+        "buildupResistance": 85,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "moisture_only_no_repair_suboptimal",
+          "label": "moisture_only_no_repair_suboptimal",
+          "modifier": 0.78
+        }
+      ],
+      "profileCompatibilityModifier": 0.78,
+      "resolvedCount": 21,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_058",
+      "expectedScore": 48,
+      "actualScore": 38.96,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 47.07,
+        "buildup": 35,
+        "moisture": 100,
+        "protein": 40.23,
+        "scalpCompatibility": 46.83,
+        "repairSupport": 44.25,
+        "smoothing": 17.95,
+        "lightweightFeel": 97.33,
+        "curlSupport": 100,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "silicone_incompatible_silicone_avoiding",
+          "label": "silicone_incompatible_silicone_avoiding",
+          "modifier": 0.72
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        },
+        {
+          "id": "moisture_only_no_repair_suboptimal",
+          "label": "moisture_only_no_repair_suboptimal",
+          "modifier": 0.78
+        }
+      ],
+      "profileCompatibilityModifier": 0.6065280000000001,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_059",
+      "expectedScore": 70,
+      "actualScore": 14.39,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 34.03,
+        "buildup": 35,
+        "moisture": 63.38,
+        "protein": 0,
+        "scalpCompatibility": 34.88,
+        "repairSupport": 0,
+        "smoothing": 52.68,
+        "lightweightFeel": 97.33,
+        "curlSupport": 63.38,
+        "buildupResistance": 65,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.175
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "label": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "modifier": 0.75
+        },
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        },
+        {
+          "id": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "label": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "modifier": 0.82
+        }
+      ],
+      "profileCompatibilityModifier": 0.3920624999999999,
+      "resolvedCount": 30,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_060",
+      "expectedScore": 50,
+      "actualScore": 49.78,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 32.35,
+        "buildup": 0,
+        "moisture": 100,
+        "protein": 0,
+        "scalpCompatibility": 34.39,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 100,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "harsh_cleanser_sensitive_profile",
+          "label": "Harsh Cleanser for Sensitive Profile",
+          "heuristicSystem": "cleanser_harshness",
+          "modifierValue": -0.21999999999999997
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.33657956871093775
+        },
+        {
+          "id": "leave_in_strong_surfactant",
+          "label": "Strong Surfactant in Leave-In Product",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.15
+        },
+        {
+          "id": "contradictory_format",
+          "label": "Contradictory Format: Strong Surfactants in Leave-In",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.08
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "lightweight_leave_in_compatible_low_porosity",
+          "label": "lightweight_leave_in_compatible_low_porosity",
+          "modifier": 1.1
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        },
+        {
+          "id": "moisture_only_no_repair_suboptimal",
+          "label": "moisture_only_no_repair_suboptimal",
+          "modifier": 0.78
+        },
+        {
+          "id": "pure_humectant_compatible_low_porosity_leave_in",
+          "label": "pure_humectant_compatible_low_porosity_leave_in",
+          "modifier": 1.06
+        }
+      ],
+      "profileCompatibilityModifier": 0.9822384000000002,
+      "resolvedCount": 29,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_061",
+      "expectedScore": 44,
+      "actualScore": 39.78,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 47.57,
+        "buildup": 50,
+        "moisture": 66.9,
+        "protein": 0,
+        "scalpCompatibility": 44.85,
+        "repairSupport": 0,
+        "smoothing": 63.33,
+        "lightweightFeel": 92,
+        "curlSupport": 66.9,
+        "buildupResistance": 50,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "high_buildup_risk",
+          "label": "High Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.5
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "label": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "modifier": 0.75
+        },
+        {
+          "id": "protein_free_compatible_sensitive",
+          "label": "protein_free_compatible_sensitive",
+          "modifier": 1.05
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        }
+      ],
+      "profileCompatibilityModifier": 0.8505000000000001,
+      "resolvedCount": 20,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_062",
+      "expectedScore": 62,
+      "actualScore": 23.95,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 0,
+        "buildup": 25,
+        "moisture": 64.27,
+        "protein": 8.78,
+        "scalpCompatibility": 26.74,
+        "repairSupport": 8.78,
+        "smoothing": 3.11,
+        "lightweightFeel": 97.42,
+        "curlSupport": 70.7,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.3697505902753909
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        }
+      ],
+      "profileCompatibilityModifier": 0.6375,
+      "resolvedCount": 31,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_063",
+      "expectedScore": 71,
+      "actualScore": 67.69,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 55.35,
+        "buildup": 25,
+        "moisture": 0,
+        "protein": 18.8,
+        "scalpCompatibility": 56.6,
+        "repairSupport": 18.8,
+        "smoothing": 31.79,
+        "lightweightFeel": 96.36,
+        "curlSupport": 0,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "protein_sensitive_profile",
+          "label": "Protein-Sensitive Profile",
+          "heuristicSystem": "protein_balance",
+          "modifierValue": -0.6
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 22,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_064",
+      "expectedScore": 56,
+      "actualScore": 58.71,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 56.61,
+        "buildup": 25,
+        "moisture": 6.69,
+        "protein": 0,
+        "scalpCompatibility": 29.01,
+        "repairSupport": 0,
+        "smoothing": 53.73,
+        "lightweightFeel": 95.79,
+        "curlSupport": 6.69,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "silicone_sensitive_profile",
+          "label": "Silicone-Sensitive Profile",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.2
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.09750000000000003
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_free_compatible_sensitive",
+          "label": "protein_free_compatible_sensitive",
+          "modifier": 1.05
+        }
+      ],
+      "profileCompatibilityModifier": 1.05,
+      "resolvedCount": 19,
+      "unresolvedCount": 1
+    },
+    {
+      "id": "case_065",
+      "expectedScore": 52,
+      "actualScore": 41.05,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 37.5,
+        "conditioning": 91.29,
+        "buildup": 25,
+        "moisture": 93.78,
+        "protein": 100,
+        "scalpCompatibility": 55.02,
+        "repairSupport": 100,
+        "smoothing": 100,
+        "lightweightFeel": 96.67,
+        "curlSupport": 100,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 37.5
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.2649081093750002
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "protein_compatible_damaged",
+          "label": "protein_compatible_damaged",
+          "modifier": 1.1
+        },
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        },
+        {
+          "id": "multiple_irritants_sensitive_scalp",
+          "label": "multiple_irritants_sensitive_scalp",
+          "modifier": 0.85
+        },
+        {
+          "id": "color_protection_compatible_chemically_treated",
+          "label": "color_protection_compatible_chemically_treated",
+          "modifier": 1.08
+        },
+        {
+          "id": "moisture_only_no_repair_suboptimal",
+          "label": "moisture_only_no_repair_suboptimal",
+          "modifier": 0.78
+        }
+      ],
+      "profileCompatibilityModifier": 0.5907330000000001,
+      "resolvedCount": 24,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_066",
+      "expectedScore": 86,
+      "actualScore": 44.96,
+      "error": null,
+      "classification": "underrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 33.56,
+        "buildup": 0,
+        "moisture": 87.6,
+        "protein": 0,
+        "scalpCompatibility": 41,
+        "repairSupport": 0,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 87.6,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.18549375000000012
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "label": "heavy_polymer_buildup_incompatible_low_porosity_leave_in",
+          "modifier": 0.82
+        }
+      ],
+      "profileCompatibilityModifier": 0.82,
+      "resolvedCount": 24,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_067",
+      "expectedScore": 44,
+      "actualScore": 38.32,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 0,
+        "buildup": 25,
+        "moisture": 0,
+        "protein": 0,
+        "scalpCompatibility": 31.57,
+        "repairSupport": 0,
+        "smoothing": 1.8,
+        "lightweightFeel": 96.92,
+        "curlSupport": 0,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.22621906250000023
+        },
+        {
+          "id": "under_supported_cleansing",
+          "label": "Under-Supported Cleansing Product",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.1
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "heavy_conditioning_incompatible_oily_shampoo",
+          "label": "heavy_conditioning_incompatible_oily_shampoo",
+          "modifier": 0.7
+        },
+        {
+          "id": "scalp_active_compatible_oily_scalp",
+          "label": "scalp_active_compatible_oily_scalp",
+          "modifier": 1.12
+        }
+      ],
+      "profileCompatibilityModifier": 0.784,
+      "resolvedCount": 26,
+      "unresolvedCount": 1
+    },
+    {
+      "id": "case_068",
+      "expectedScore": 59,
+      "actualScore": 69.01,
+      "error": null,
+      "classification": "overrated",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 84.43,
+        "buildup": 0,
+        "moisture": 0,
+        "protein": 68.07,
+        "scalpCompatibility": 60.34,
+        "repairSupport": 68.07,
+        "smoothing": 0,
+        "lightweightFeel": 100,
+        "curlSupport": 0,
+        "buildupResistance": 100,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.18549375000000012
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "fragrance_incompatible_sensitive_scalp",
+          "label": "fragrance_incompatible_sensitive_scalp",
+          "modifier": 0.75
+        }
+      ],
+      "profileCompatibilityModifier": 0.75,
+      "resolvedCount": 22,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_069",
+      "expectedScore": 70,
+      "actualScore": 61.59,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 20,
+        "conditioning": 76.03,
+        "buildup": 25,
+        "moisture": 96.36,
+        "protein": 97.48,
+        "scalpCompatibility": 53.88,
+        "repairSupport": 97.48,
+        "smoothing": 74.7,
+        "lightweightFeel": 97.42,
+        "curlSupport": 100,
+        "buildupResistance": 75,
+        "cleansingEfficiency": 20
+      },
+      "heuristicWarnings": [
+        {
+          "id": "moderate_buildup_risk",
+          "label": "Moderate Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.125
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.40126306076162144
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [],
+      "profileCompatibilityModifier": 1,
+      "resolvedCount": 31,
+      "unresolvedCount": 0
+    },
+    {
+      "id": "case_070",
+      "expectedScore": 38,
+      "actualScore": 31.35,
+      "error": null,
+      "classification": "correct",
+      "subscores": {
+        "cleansing": 0,
+        "conditioning": 32.24,
+        "buildup": 50,
+        "moisture": 52.06,
+        "protein": 0,
+        "scalpCompatibility": 37.35,
+        "repairSupport": 0,
+        "smoothing": 42.08,
+        "lightweightFeel": 93.33,
+        "curlSupport": 52.06,
+        "buildupResistance": 50,
+        "cleansingEfficiency": 0
+      },
+      "heuristicWarnings": [
+        {
+          "id": "high_buildup_risk",
+          "label": "High Buildup Risk",
+          "heuristicSystem": "buildup",
+          "modifierValue": -0.5
+        },
+        {
+          "id": "excessive_layering",
+          "label": "Excessive Surface Layering",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.1426250000000001
+        },
+        {
+          "id": "marketing_heavy_low_function",
+          "label": "Low Functional Ingredient Density",
+          "heuristicSystem": "formulation_balance",
+          "modifierValue": -0.03
+        }
+      ],
+      "criticalSignals": [
+        {
+          "id": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "label": "heavy_silicone_incompatible_low_porosity_leave_on",
+          "modifier": 0.65
+        }
+      ],
+      "profileCompatibilityModifier": 0.65,
+      "resolvedCount": 24,
+      "unresolvedCount": 0
+    }
+  ]
+}

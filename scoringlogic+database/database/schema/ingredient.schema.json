@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ingredient.schema.json",
+  "title": "IngredientDatabase",
+  "description": "Schema for database/ingredients.json. Version 2.0-audited.",
+  "type": "object",
+  "required": ["version", "lastUpdated", "totalIngredients", "ingredients"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version string. Must be a supported version (e.g. '2.0-audited').",
+      "minLength": 1
+    },
+    "lastUpdated": {
+      "type": "string",
+      "description": "ISO 8601 date string (YYYY-MM-DD) of the last database update.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "totalIngredients": {
+      "type": "integer",
+      "description": "Declared count of ingredient records. Must equal ingredients.length.",
+      "minimum": 1
+    },
+    "ingredients": {
+      "type": "array",
+      "description": "Array of canonical ingredient records.",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/IngredientRecord" }
+    }
+  },
+  "definitions": {
+    "HairTypeFlag": {
+      "type": "string",
+      "enum": ["g", "b", "n"],
+      "description": "'g' = good, 'b' = bad/avoid, 'n' = neutral."
+    },
+    "IonicCharge": {
+      "type": "string",
+      "enum": ["anionic", "cationic", "amphoteric", "neutral"],
+      "description": "Ionic character of the ingredient."
+    },
+    "PenetrationDepth": {
+      "type": "string",
+      "enum": ["surface", "cortical", "medullary"],
+      "description": "Depth to which the ingredient penetrates the hair fiber."
+    },
+    "ProductRole": {
+      "type": "object",
+      "required": ["score", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Pre-computed suitability score for this product type (0–100)."
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable explanation of the score."
+        }
+      }
+    },
+    "ProductRoles": {
+      "type": "object",
+      "description": "Scores and notes for each supported product type.",
+      "required": [
+        "shampoo",
+        "co_wash",
+        "rinse_out_conditioner",
+        "deep_conditioner_mask",
+        "leave_in_conditioner",
+        "hair_oil_serum",
+        "styling_product"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "shampoo":               { "$ref": "#/definitions/ProductRole" },
+        "co_wash":               { "$ref": "#/definitions/ProductRole" },
+        "rinse_out_conditioner": { "$ref": "#/definitions/ProductRole" },
+        "deep_conditioner_mask": { "$ref": "#/definitions/ProductRole" },
+        "leave_in_conditioner":  { "$ref": "#/definitions/ProductRole" },
+        "hair_oil_serum":        { "$ref": "#/definitions/ProductRole" },
+        "styling_product":       { "$ref": "#/definitions/ProductRole" }
+      }
+    },
+    "IngredientRecord": {
+      "type": "object",
+      "description": "A single canonical ingredient entry.",
+      "required": [
+        "name",
+        "category",
+        "low",
+        "med",
+        "high",
+        "fine",
+        "oily",
+        "notes",
+        "tags",
+        "product_roles",
+        "aliases",
+        "molecular_weight_da",
+        "ionic_charge",
+        "penetration_depth"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Canonical INCI name. Used as the primary lookup key."
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Broad classification category (e.g. 'Surfactant', 'Silicone')."
+        },
+        "low": { "$ref": "#/definitions/HairTypeFlag" },
+        "med": { "$ref": "#/definitions/HairTypeFlag" },
+        "high": { "$ref": "#/definitions/HairTypeFlag" },
+        "fine": { "$ref": "#/definitions/HairTypeFlag" },
+        "oily": { "$ref": "#/definitions/HairTypeFlag" },
+        "notes": {
+          "type": "string",
+          "description": "Human-readable description of the ingredient."
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Descriptive tags (e.g. ['water-soluble', 'low-buildup'])."
+        },
+        "product_roles": { "$ref": "#/definitions/ProductRoles" },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Known synonyms, trade names, and INCI variants."
+        },
+        "molecular_weight_da": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "description": "Molecular weight in daltons. Null if unknown."
+        },
+        "ionic_charge": { "$ref": "#/definitions/IonicCharge" },
+        "penetration_depth": { "$ref": "#/definitions/PenetrationDepth" }
+      }
+    }
+  }
+}

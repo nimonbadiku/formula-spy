@@ -1,0 +1,27 @@
+Error: Command failed: "c:\Users\sadik\Desktop\formula spy\scoring system\formula spy\node_modules\.bin\tsx" "c:\Users\sadik\Desktop\formula spy\scoring system\formula spy\_runner_tmp.ts"
+
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'c:'
+    at throwIfUnsupportedURLScheme (node:internal/modules/esm/load:199:11)
+    at defaultLoad (node:internal/modules/esm/load:82:3)
+    at nextLoad (node:internal/modules/esm/hooks:748:28)
+    at load2 (file:///c:/Users/sadik/Desktop/formula%20spy/scoring%20system/formula%20spy/node_modules/tsx/dist/register-CqMfTiWi.mjs:2:3780)
+    at nextLoad (node:internal/modules/esm/hooks:748:28)
+    at Hooks.load (node:internal/modules/esm/hooks:385:26)
+    at handleMessage (node:internal/modules/esm/worker:199:24)
+    at Immediate.checkForMessages (node:internal/modules/esm/worker:141:28)
+    at process.processImmediate (node:internal/timers:484:21) {
+  code: 'ERR_UNSUPPORTED_ESM_URL_SCHEME'
+}
+
+Node.js v22.22.3
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at checkExecSyncError (node:child_process:916:11)
+    at execSync (node:child_process:988:15)
+    at runEngine (file:///c:/Users/sadik/Desktop/formula%20spy/scoring%20system/formula%20spy/scoring_training_output/engine_runner.mjs:89:11)
+    at phase2RunEngine (file:///c:/Users/sadik/Desktop/formula%20spy/scoring%20system/formula%20spy/scoring_training_output/train.mjs:77:25)
+    at main (file:///c:/Users/sadik/Desktop/formula%20spy/scoring%20system/formula%20spy/scoring_training_output/train.mjs:344:23)

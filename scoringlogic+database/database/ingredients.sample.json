@@ -1,0 +1,2037 @@
+{
+  "version": "2.0-audited",
+  "lastUpdated": "2026-05-10",
+  "totalIngredients": 36,
+  "ingredients": [
+    {
+      "name": "Sodium Lauryl Sulfate",
+      "category": "Surfactant",
+      "low": "b",
+      "med": "b",
+      "high": "b",
+      "fine": "b",
+      "oily": "b",
+      "notes": "Anionic surfactant. Strong cleansing action; can strip moisture with frequent use.",
+      "tags": [
+        "anionic",
+        "cleansing",
+        "high-porosity-safe",
+        "sulfate",
+        "surfactant"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 88,
+          "notes": "Primary lathering surfactant; effective but potentially drying."
+        },
+        "co_wash": {
+          "score": 10,
+          "notes": "Sodium Lauryl Sulfate: strong anionic; too stripping for co-wash format."
+        },
+        "rinse_out_conditioner": {
+          "score": 5,
+          "notes": "Sodium Lauryl Sulfate: strong anionic; not suitable for conditioning formats."
+        },
+        "deep_conditioner_mask": {
+          "score": 3,
+          "notes": "Sodium Lauryl Sulfate: strong anionic; counterproductive in treatment formats."
+        },
+        "leave_in_conditioner": {
+          "score": 2,
+          "notes": "Sodium Lauryl Sulfate: strong anionic; not suitable for leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 1,
+          "notes": "Sodium Lauryl Sulfate: strong anionic; incompatible with oil-serum formats."
+        },
+        "styling_product": {
+          "score": 8,
+          "notes": "Sodium Lauryl Sulfate: strong anionic; rarely used in styling formats."
+        }
+      },
+      "aliases": [
+        "SLS",
+        "Sodium dodecyl sulfate",
+        "SDS",
+        "Sodium laurilsulfate"
+      ],
+      "molecular_weight_da": 288,
+      "ionic_charge": "anionic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Sodium Laureth Sulfate",
+      "category": "Surfactant",
+      "low": "b",
+      "med": "b",
+      "high": "b",
+      "fine": "b",
+      "oily": "b",
+      "notes": "Ethoxylated anionic surfactant. Milder than SLS; widely used primary cleanser.",
+      "tags": [
+        "anionic",
+        "cleansing",
+        "ethoxylated",
+        "sulfate",
+        "surfactant"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 85,
+          "notes": "Workhorse shampoo surfactant; good foam and mildness balance."
+        },
+        "co_wash": {
+          "score": 12,
+          "notes": "Sodium Laureth Sulfate: anionic surfactant; too cleansing for co-wash format."
+        },
+        "rinse_out_conditioner": {
+          "score": 6,
+          "notes": "Sodium Laureth Sulfate: anionic surfactant; not suitable for conditioning formats."
+        },
+        "deep_conditioner_mask": {
+          "score": 4,
+          "notes": "Sodium Laureth Sulfate: anionic surfactant; counterproductive in treatment formats."
+        },
+        "leave_in_conditioner": {
+          "score": 3,
+          "notes": "Sodium Laureth Sulfate: anionic surfactant; not suitable for leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 2,
+          "notes": "Sodium Laureth Sulfate: anionic surfactant; incompatible with oil-serum formats."
+        },
+        "styling_product": {
+          "score": 9,
+          "notes": "Sodium Laureth Sulfate: anionic surfactant; rarely used in styling formats."
+        }
+      },
+      "aliases": [
+        "SLES",
+        "Sodium lauryl ether sulfate",
+        "Sodium polyoxyethylene lauryl sulfate"
+      ],
+      "molecular_weight_da": 420,
+      "ionic_charge": "anionic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Cocamidopropyl Betaine",
+      "category": "Surfactant",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Amphoteric surfactant derived from coconut oil. Mild co-surfactant; improves foam and reduces irritation.",
+      "tags": [
+        "amphoteric",
+        "co-surfactant",
+        "fine-hair-safe",
+        "foam-booster",
+        "mild",
+        "surfactant"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 78,
+          "notes": "Excellent mild co-surfactant; improves foam quality and reduces irritation."
+        },
+        "co_wash": {
+          "score": 65,
+          "notes": "Cocamidopropyl Betaine: amphoteric; gentle enough for co-wash cleansing."
+        },
+        "rinse_out_conditioner": {
+          "score": 30,
+          "notes": "Cocamidopropyl Betaine: amphoteric; limited conditioning benefit in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 20,
+          "notes": "Cocamidopropyl Betaine: amphoteric; minimal benefit in treatment formats."
+        },
+        "leave_in_conditioner": {
+          "score": 18,
+          "notes": "Cocamidopropyl Betaine: amphoteric; not ideal for leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 5,
+          "notes": "Cocamidopropyl Betaine: amphoteric; not compatible with oil-serum formats."
+        },
+        "styling_product": {
+          "score": 22,
+          "notes": "Cocamidopropyl Betaine: amphoteric; occasional use in styling for slip."
+        }
+      },
+      "aliases": [
+        "CAPB",
+        "Cocamidopropyl betaine",
+        "Cocoamidopropyl betaine",
+        "1-Propanaminium, 3-amino-N-(carboxymethyl)-N,N-dimethyl-, N-coco acyl derivs., hydroxides, inner salts"
+      ],
+      "molecular_weight_da": 342,
+      "ionic_charge": "amphoteric",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Dimethicone",
+      "category": "Silicone",
+      "low": "b",
+      "med": "b",
+      "high": "b",
+      "fine": "b",
+      "oily": "b",
+      "notes": "Non-water-soluble silicone. Provides slip, shine, and frizz control; builds up without clarifying shampoo.",
+      "tags": [
+        "buildup-risk",
+        "frizz-control",
+        "non-water-soluble",
+        "silicone",
+        "slip",
+        "smoothing"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 15,
+          "notes": "Dimethicone: non-soluble silicone; rarely used in shampoo formats."
+        },
+        "co_wash": {
+          "score": 10,
+          "notes": "Dimethicone: non-soluble silicone; builds up without sulfate cleansing."
+        },
+        "rinse_out_conditioner": {
+          "score": 72,
+          "notes": "Dimethicone: non-soluble silicone; excellent slip and detangling in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 60,
+          "notes": "Dimethicone: non-soluble silicone; adds slip but may block penetration in masks."
+        },
+        "leave_in_conditioner": {
+          "score": 55,
+          "notes": "Dimethicone: non-soluble silicone; frizz control but buildup risk in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 82,
+          "notes": "Dimethicone: non-soluble silicone; ideal serum ingredient for shine and smoothing."
+        },
+        "styling_product": {
+          "score": 68,
+          "notes": "Dimethicone: non-soluble silicone; frizz control and shine in styling formats."
+        }
+      },
+      "aliases": [
+        "Polydimethylsiloxane",
+        "PDMS",
+        "Dimethyl silicone",
+        "Dimethylpolysiloxane"
+      ],
+      "molecular_weight_da": 9000,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Cyclopentasiloxane",
+      "category": "Silicone",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "b",
+      "notes": "Volatile cyclic silicone. Evaporates after application; leaves no residue.",
+      "tags": [
+        "fine-hair-safe",
+        "low-buildup",
+        "silicone",
+        "volatile",
+        "weightless"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 10,
+          "notes": "Cyclopentasiloxane: volatile silicone; not useful in rinse-off shampoo."
+        },
+        "co_wash": {
+          "score": 12,
+          "notes": "Cyclopentasiloxane: volatile silicone; evaporates before benefit in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 45,
+          "notes": "Cyclopentasiloxane: volatile silicone; provides slip during application."
+        },
+        "deep_conditioner_mask": {
+          "score": 30,
+          "notes": "Cyclopentasiloxane: volatile silicone; limited benefit in long-contact formats."
+        },
+        "leave_in_conditioner": {
+          "score": 70,
+          "notes": "Cyclopentasiloxane: volatile silicone; evaporates cleanly in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 88,
+          "notes": "Cyclopentasiloxane: volatile silicone; ideal carrier in serums; evaporates cleanly."
+        },
+        "styling_product": {
+          "score": 65,
+          "notes": "Cyclopentasiloxane: volatile silicone; lightweight feel in styling products."
+        }
+      },
+      "aliases": [
+        "D5",
+        "Cyclomethicone D5",
+        "Decamethylcyclopentasiloxane"
+      ],
+      "molecular_weight_da": 370,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Amodimethicone",
+      "category": "Silicone",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "b",
+      "oily": "b",
+      "notes": "Amino-functional silicone. Substantive to damaged hair; targeted deposition reduces buildup on healthy hair.",
+      "tags": [
+        "amino-functional",
+        "buildup-risk",
+        "damage-repair",
+        "silicone",
+        "substantive"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 20,
+          "notes": "Amodimethicone: amino silicone; limited benefit in rinse-off shampoo."
+        },
+        "co_wash": {
+          "score": 35,
+          "notes": "Amodimethicone: amino silicone; some deposition possible in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 80,
+          "notes": "Amodimethicone: amino silicone; excellent targeted deposition on damaged sites."
+        },
+        "deep_conditioner_mask": {
+          "score": 85,
+          "notes": "Amodimethicone: amino silicone; long contact maximizes targeted repair."
+        },
+        "leave_in_conditioner": {
+          "score": 72,
+          "notes": "Amodimethicone: amino silicone; targeted deposition limits buildup in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 75,
+          "notes": "Amodimethicone: amino silicone; effective in serum for targeted smoothing."
+        },
+        "styling_product": {
+          "score": 55,
+          "notes": "Amodimethicone: amino silicone; frizz control in styling with low buildup."
+        }
+      },
+      "aliases": [
+        "Aminosilicone",
+        "Amino silicone",
+        "Bis-aminopropyl dimethicone"
+      ],
+      "molecular_weight_da": 15000,
+      "ionic_charge": "cationic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Cocos Nucifera Oil",
+      "category": "Oil",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "b",
+      "oily": "b",
+      "notes": "Coconut oil. Small molecular weight allows cortical penetration; reduces protein loss.",
+      "tags": [
+        "anti-protein-loss",
+        "lauric-acid",
+        "natural",
+        "oil",
+        "penetrating"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 25,
+          "notes": "Cocos Nucifera Oil: penetrating oil; pre-shampoo treatment more effective."
+        },
+        "co_wash": {
+          "score": 55,
+          "notes": "Cocos Nucifera Oil: penetrating oil; good emollient in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 65,
+          "notes": "Cocos Nucifera Oil: penetrating oil; reduces protein loss in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 90,
+          "notes": "Cocos Nucifera Oil: penetrating oil; long contact maximizes cortical penetration."
+        },
+        "leave_in_conditioner": {
+          "score": 70,
+          "notes": "Cocos Nucifera Oil: penetrating oil; effective leave-on treatment for dry hair."
+        },
+        "hair_oil_serum": {
+          "score": 88,
+          "notes": "Cocos Nucifera Oil: penetrating oil; excellent base oil for serums."
+        },
+        "styling_product": {
+          "score": 45,
+          "notes": "Cocos Nucifera Oil: penetrating oil; can weigh down fine hair in styling."
+        }
+      },
+      "aliases": [
+        "Coconut oil",
+        "Virgin coconut oil",
+        "VCO",
+        "Fractionated coconut oil",
+        "Copra oil"
+      ],
+      "molecular_weight_da": 680,
+      "ionic_charge": "neutral",
+      "penetration_depth": "cortical"
+    },
+    {
+      "name": "Argania Spinosa Kernel Oil",
+      "category": "Oil",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "b",
+      "notes": "Argan oil. Rich in oleic acid and vitamin E; surface conditioning and shine.",
+      "tags": [
+        "antioxidant",
+        "natural",
+        "oil",
+        "oleic-acid",
+        "shine",
+        "surface-conditioning"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 20,
+          "notes": "Argania Spinosa Kernel Oil: surface oil; limited benefit in rinse-off shampoo."
+        },
+        "co_wash": {
+          "score": 50,
+          "notes": "Argania Spinosa Kernel Oil: surface oil; adds emolliency in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 62,
+          "notes": "Argania Spinosa Kernel Oil: surface oil; shine and slip in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 75,
+          "notes": "Argania Spinosa Kernel Oil: surface oil; long contact improves surface conditioning."
+        },
+        "leave_in_conditioner": {
+          "score": 78,
+          "notes": "Argania Spinosa Kernel Oil: surface oil; shine and frizz control in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 92,
+          "notes": "Argania Spinosa Kernel Oil: surface oil; premium serum base for shine."
+        },
+        "styling_product": {
+          "score": 55,
+          "notes": "Argania Spinosa Kernel Oil: surface oil; adds shine in styling formats."
+        }
+      },
+      "aliases": [
+        "Argan oil",
+        "Moroccan oil",
+        "Argania oil"
+      ],
+      "molecular_weight_da": 870,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Glycerin",
+      "category": "Humectant",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Polyol humectant. Draws moisture from environment; highly effective in humid conditions.",
+      "tags": [
+        "fine-hair-safe",
+        "high-porosity-safe",
+        "humectant",
+        "hydrating",
+        "low-buildup",
+        "low-porosity-safe",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 45,
+          "notes": "Glycerin: humectant; adds moisture retention even in rinse-off format."
+        },
+        "co_wash": {
+          "score": 60,
+          "notes": "Glycerin: humectant; effective moisture draw in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 72,
+          "notes": "Glycerin: humectant; draws moisture during rinse-out contact time."
+        },
+        "deep_conditioner_mask": {
+          "score": 85,
+          "notes": "Glycerin: humectant; long contact maximizes moisture absorption."
+        },
+        "leave_in_conditioner": {
+          "score": 88,
+          "notes": "Glycerin: humectant; continuous moisture draw in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 30,
+          "notes": "Glycerin: humectant; water-soluble; limited compatibility with oil serums."
+        },
+        "styling_product": {
+          "score": 65,
+          "notes": "Glycerin: humectant; moisture retention in styling; can cause frizz in low humidity."
+        }
+      },
+      "aliases": [
+        "Glycerol",
+        "Glycerine",
+        "1,2,3-Propanetriol",
+        "Propane-1,2,3-triol"
+      ],
+      "molecular_weight_da": 92,
+      "ionic_charge": "neutral",
+      "penetration_depth": "cortical"
+    },
+    {
+      "name": "Panthenol",
+      "category": "Humectant",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Provitamin B5. Penetrates cortex; humectant and film-forming properties.",
+      "tags": [
+        "fine-hair-safe",
+        "high-porosity-safe",
+        "humectant",
+        "hydrating",
+        "low-buildup",
+        "low-mw",
+        "low-porosity-safe",
+        "penetrating",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 50,
+          "notes": "Panthenol: provitamin B5; some deposition even in rinse-off format."
+        },
+        "co_wash": {
+          "score": 62,
+          "notes": "Panthenol: provitamin B5; good humectant in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 75,
+          "notes": "Panthenol: provitamin B5; penetrates and hydrates in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 88,
+          "notes": "Panthenol: provitamin B5; long contact maximizes cortical penetration."
+        },
+        "leave_in_conditioner": {
+          "score": 90,
+          "notes": "Panthenol: provitamin B5; excellent leave-on humectant and film former."
+        },
+        "hair_oil_serum": {
+          "score": 35,
+          "notes": "Panthenol: provitamin B5; water-soluble; limited in oil-serum formats."
+        },
+        "styling_product": {
+          "score": 68,
+          "notes": "Panthenol: provitamin B5; adds moisture and light hold in styling."
+        }
+      },
+      "aliases": [
+        "D-Panthenol",
+        "DL-Panthenol",
+        "Dexpanthenol",
+        "Provitamin B5",
+        "D-Pantothenyl alcohol"
+      ],
+      "molecular_weight_da": 205,
+      "ionic_charge": "neutral",
+      "penetration_depth": "cortical"
+    },
+    {
+      "name": "Hydrolyzed Keratin",
+      "category": "Protein",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Hydrolyzed keratin protein. Fills gaps in damaged cuticle; temporary strength improvement.",
+      "tags": [
+        "damage-repair",
+        "film-forming",
+        "high-porosity-safe",
+        "protein",
+        "strengthening",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 38,
+          "notes": "Hydrolyzed Keratin: protein; some deposition possible in shampoo format."
+        },
+        "co_wash": {
+          "score": 55,
+          "notes": "Hydrolyzed Keratin: protein; good deposition in co-wash format."
+        },
+        "rinse_out_conditioner": {
+          "score": 72,
+          "notes": "Hydrolyzed Keratin: protein; fills cuticle gaps in rinse-out contact."
+        },
+        "deep_conditioner_mask": {
+          "score": 90,
+          "notes": "Hydrolyzed Keratin: protein; long contact maximizes cortical filling."
+        },
+        "leave_in_conditioner": {
+          "score": 80,
+          "notes": "Hydrolyzed Keratin: protein; continuous film formation in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 15,
+          "notes": "Hydrolyzed Keratin: protein; water-soluble; poor compatibility with oil serums."
+        },
+        "styling_product": {
+          "score": 55,
+          "notes": "Hydrolyzed Keratin: protein; adds strength and hold in styling formats."
+        }
+      },
+      "aliases": [
+        "Keratin hydrolysate",
+        "Hydrolysed keratin",
+        "Soluble keratin"
+      ],
+      "molecular_weight_da": 1000,
+      "ionic_charge": "amphoteric",
+      "penetration_depth": "cortical"
+    },
+    {
+      "name": "Hydrolyzed Wheat Protein",
+      "category": "Protein",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Wheat-derived hydrolyzed protein. Film-forming; adds body and strength.",
+      "tags": [
+        "damage-repair",
+        "film-forming",
+        "high-porosity-safe",
+        "protein",
+        "strengthening",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 35,
+          "notes": "Hydrolyzed Wheat Protein: protein; limited deposition in rinse-off format."
+        },
+        "co_wash": {
+          "score": 52,
+          "notes": "Hydrolyzed Wheat Protein: protein; moderate deposition in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 68,
+          "notes": "Hydrolyzed Wheat Protein: protein; film formation in rinse-out contact."
+        },
+        "deep_conditioner_mask": {
+          "score": 85,
+          "notes": "Hydrolyzed Wheat Protein: protein; long contact maximizes film deposition."
+        },
+        "leave_in_conditioner": {
+          "score": 78,
+          "notes": "Hydrolyzed Wheat Protein: protein; continuous film in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 12,
+          "notes": "Hydrolyzed Wheat Protein: protein; water-soluble; poor fit for oil serums."
+        },
+        "styling_product": {
+          "score": 60,
+          "notes": "Hydrolyzed Wheat Protein: protein; adds body and light hold in styling."
+        }
+      },
+      "aliases": [
+        "Hydrolysed wheat protein",
+        "Wheat protein hydrolysate",
+        "HWP"
+      ],
+      "molecular_weight_da": 1200,
+      "ionic_charge": "amphoteric",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Phenoxyethanol",
+      "category": "Preservative",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Broad-spectrum preservative. Effective against bacteria and fungi; widely used in cosmetics.",
+      "tags": [
+        "antimicrobial",
+        "broad-spectrum",
+        "fine-hair-safe",
+        "low-buildup",
+        "preservative"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 70,
+          "notes": "Phenoxyethanol: preservative; functional in all rinse-off formats."
+        },
+        "co_wash": {
+          "score": 70,
+          "notes": "Phenoxyethanol: preservative; functional across all product formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 70,
+          "notes": "Phenoxyethanol: preservative; functional in rinse-out conditioner formats."
+        },
+        "deep_conditioner_mask": {
+          "score": 70,
+          "notes": "Phenoxyethanol: preservative; functional in treatment formats."
+        },
+        "leave_in_conditioner": {
+          "score": 70,
+          "notes": "Phenoxyethanol: preservative; critical in leave-on formats for stability."
+        },
+        "hair_oil_serum": {
+          "score": 65,
+          "notes": "Phenoxyethanol: preservative; less critical in anhydrous oil serums."
+        },
+        "styling_product": {
+          "score": 70,
+          "notes": "Phenoxyethanol: preservative; functional in styling product formats."
+        }
+      },
+      "aliases": [
+        "2-Phenoxyethanol",
+        "Ethylene glycol monophenyl ether",
+        "PhE"
+      ],
+      "molecular_weight_da": 138,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Methylisothiazolinone",
+      "category": "Preservative",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Isothiazolinone preservative. Effective at low concentrations; sensitization risk at higher levels.",
+      "tags": [
+        "antimicrobial",
+        "broad-spectrum",
+        "preservative",
+        "sensitizer-risk"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 65,
+          "notes": "Methylisothiazolinone: preservative; acceptable in rinse-off at regulated levels."
+        },
+        "co_wash": {
+          "score": 60,
+          "notes": "Methylisothiazolinone: preservative; functional in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 60,
+          "notes": "Methylisothiazolinone: preservative; functional in rinse-out formats."
+        },
+        "deep_conditioner_mask": {
+          "score": 55,
+          "notes": "Methylisothiazolinone: preservative; longer contact increases sensitization risk."
+        },
+        "leave_in_conditioner": {
+          "score": 30,
+          "notes": "Methylisothiazolinone: preservative; not recommended in leave-on formats due to sensitization."
+        },
+        "hair_oil_serum": {
+          "score": 20,
+          "notes": "Methylisothiazolinone: preservative; not recommended in leave-on oil serums."
+        },
+        "styling_product": {
+          "score": 45,
+          "notes": "Methylisothiazolinone: preservative; use with caution in leave-on styling."
+        }
+      },
+      "aliases": [
+        "MIT",
+        "MI",
+        "2-Methyl-4-isothiazolin-3-one",
+        "Methylisothiazolinone"
+      ],
+      "molecular_weight_da": 115,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Carbomer",
+      "category": "Polymer",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Acrylic acid polymer. Thickener and gelling agent; provides structure to aqueous formulations.",
+      "tags": [
+        "film-forming",
+        "fine-hair-safe",
+        "gelling-agent",
+        "low-buildup",
+        "polymer",
+        "thickener",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 55,
+          "notes": "Carbomer: polymer thickener; provides viscosity in shampoo formats."
+        },
+        "co_wash": {
+          "score": 58,
+          "notes": "Carbomer: polymer thickener; provides texture in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 60,
+          "notes": "Carbomer: polymer thickener; provides body in rinse-out conditioner."
+        },
+        "deep_conditioner_mask": {
+          "score": 65,
+          "notes": "Carbomer: polymer thickener; provides structure in treatment masks."
+        },
+        "leave_in_conditioner": {
+          "score": 62,
+          "notes": "Carbomer: polymer thickener; provides light hold in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 10,
+          "notes": "Carbomer: polymer thickener; water-soluble; not compatible with oil serums."
+        },
+        "styling_product": {
+          "score": 80,
+          "notes": "Carbomer: polymer thickener; primary gelling agent in styling gels."
+        }
+      },
+      "aliases": [
+        "Carbopol",
+        "Polyacrylic acid",
+        "Acrylic acid polymer",
+        "Carboxyvinyl polymer"
+      ],
+      "molecular_weight_da": 3000000,
+      "ionic_charge": "anionic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Polyquaternium-10",
+      "category": "Polymer",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Cationic cellulose polymer. Substantive conditioning; provides slip and antistatic properties.",
+      "tags": [
+        "antistatic",
+        "cationic",
+        "conditioning",
+        "film-forming",
+        "polymer",
+        "substantive"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 60,
+          "notes": "Polyquaternium-10: cationic polymer; deposits conditioning film even in shampoo."
+        },
+        "co_wash": {
+          "score": 72,
+          "notes": "Polyquaternium-10: cationic polymer; good conditioning deposition in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 78,
+          "notes": "Polyquaternium-10: cationic polymer; slip and antistatic in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 82,
+          "notes": "Polyquaternium-10: cationic polymer; long contact maximizes deposition."
+        },
+        "leave_in_conditioner": {
+          "score": 85,
+          "notes": "Polyquaternium-10: cationic polymer; excellent leave-on conditioning film."
+        },
+        "hair_oil_serum": {
+          "score": 20,
+          "notes": "Polyquaternium-10: cationic polymer; water-soluble; limited in oil serums."
+        },
+        "styling_product": {
+          "score": 70,
+          "notes": "Polyquaternium-10: cationic polymer; adds hold and conditioning in styling."
+        }
+      },
+      "aliases": [
+        "PQ-10",
+        "Cellulose, 2-hydroxyethyl, 2-(trimethylammonio)ethyl ether, chloride",
+        "Hydroxyethylcellulose dimethyl diallylammonium chloride"
+      ],
+      "molecular_weight_da": 400000,
+      "ionic_charge": "cationic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Cetyl Alcohol",
+      "category": "Fatty Alcohol",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "b",
+      "oily": "b",
+      "notes": "C16 fatty alcohol. Emollient and emulsifier; provides slip and creamy texture.",
+      "tags": [
+        "emollient",
+        "emulsifier",
+        "fatty-alcohol",
+        "slip",
+        "thickener"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 20,
+          "notes": "Cetyl Alcohol: fatty alcohol; limited role in shampoo formats."
+        },
+        "co_wash": {
+          "score": 65,
+          "notes": "Cetyl Alcohol: fatty alcohol; provides creamy texture in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 82,
+          "notes": "Cetyl Alcohol: fatty alcohol; essential emollient and thickener in conditioner."
+        },
+        "deep_conditioner_mask": {
+          "score": 85,
+          "notes": "Cetyl Alcohol: fatty alcohol; provides rich texture in treatment masks."
+        },
+        "leave_in_conditioner": {
+          "score": 60,
+          "notes": "Cetyl Alcohol: fatty alcohol; can feel heavy in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 30,
+          "notes": "Cetyl Alcohol: fatty alcohol; waxy texture limits use in serums."
+        },
+        "styling_product": {
+          "score": 45,
+          "notes": "Cetyl Alcohol: fatty alcohol; provides body in cream styling products."
+        }
+      },
+      "aliases": [
+        "1-Hexadecanol",
+        "Hexadecyl alcohol",
+        "C16 alcohol",
+        "Palmityl alcohol"
+      ],
+      "molecular_weight_da": 242,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Stearyl Alcohol",
+      "category": "Fatty Alcohol",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "b",
+      "oily": "b",
+      "notes": "C18 fatty alcohol. Emollient and emulsifier; heavier feel than cetyl alcohol.",
+      "tags": [
+        "emollient",
+        "emulsifier",
+        "fatty-alcohol",
+        "slip",
+        "thickener"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 18,
+          "notes": "Stearyl Alcohol: fatty alcohol; limited role in shampoo formats."
+        },
+        "co_wash": {
+          "score": 62,
+          "notes": "Stearyl Alcohol: fatty alcohol; provides creamy texture in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 80,
+          "notes": "Stearyl Alcohol: fatty alcohol; essential emollient in conditioner formulas."
+        },
+        "deep_conditioner_mask": {
+          "score": 83,
+          "notes": "Stearyl Alcohol: fatty alcohol; rich texture in treatment masks."
+        },
+        "leave_in_conditioner": {
+          "score": 55,
+          "notes": "Stearyl Alcohol: fatty alcohol; heavier feel may weigh down in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 25,
+          "notes": "Stearyl Alcohol: fatty alcohol; waxy texture limits use in serums."
+        },
+        "styling_product": {
+          "score": 42,
+          "notes": "Stearyl Alcohol: fatty alcohol; provides body in cream styling products."
+        }
+      },
+      "aliases": [
+        "1-Octadecanol",
+        "Octadecyl alcohol",
+        "C18 alcohol",
+        "Stearol"
+      ],
+      "molecular_weight_da": 270,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Linalool",
+      "category": "Fragrance",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Naturally occurring terpene alcohol. Common fragrance component; potential allergen at high concentrations.",
+      "tags": [
+        "allergen-risk",
+        "fragrance",
+        "natural-origin",
+        "terpene"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 50,
+          "notes": "Linalool: fragrance component; provides scent in shampoo formats."
+        },
+        "co_wash": {
+          "score": 50,
+          "notes": "Linalool: fragrance component; provides scent across formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 50,
+          "notes": "Linalool: fragrance component; provides scent in rinse-out conditioner."
+        },
+        "deep_conditioner_mask": {
+          "score": 48,
+          "notes": "Linalool: fragrance component; longer contact increases allergen exposure."
+        },
+        "leave_in_conditioner": {
+          "score": 45,
+          "notes": "Linalool: fragrance component; allergen risk higher in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 45,
+          "notes": "Linalool: fragrance component; allergen risk in leave-on oil serums."
+        },
+        "styling_product": {
+          "score": 48,
+          "notes": "Linalool: fragrance component; provides scent in styling products."
+        }
+      },
+      "aliases": [
+        "3,7-Dimethyl-1,6-octadien-3-ol",
+        "beta-Linalool",
+        "Linalyl alcohol"
+      ],
+      "molecular_weight_da": 154,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Limonene",
+      "category": "Fragrance",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Cyclic terpene. Citrus fragrance component; oxidizes to form allergens on air exposure.",
+      "tags": [
+        "allergen-risk",
+        "citrus",
+        "fragrance",
+        "natural-origin",
+        "terpene"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 50,
+          "notes": "Limonene: fragrance terpene; provides citrus scent in shampoo."
+        },
+        "co_wash": {
+          "score": 50,
+          "notes": "Limonene: fragrance terpene; provides scent across formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 50,
+          "notes": "Limonene: fragrance terpene; provides scent in rinse-out conditioner."
+        },
+        "deep_conditioner_mask": {
+          "score": 46,
+          "notes": "Limonene: fragrance terpene; oxidized forms increase allergen risk in masks."
+        },
+        "leave_in_conditioner": {
+          "score": 42,
+          "notes": "Limonene: fragrance terpene; allergen risk higher in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 42,
+          "notes": "Limonene: fragrance terpene; oxidation risk in oil serums."
+        },
+        "styling_product": {
+          "score": 47,
+          "notes": "Limonene: fragrance terpene; provides scent in styling products."
+        }
+      },
+      "aliases": [
+        "d-Limonene",
+        "Dipentene",
+        "(R)-Limonene",
+        "4-Isopropenyl-1-methylcyclohexene"
+      ],
+      "molecular_weight_da": 136,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Polyvinylpyrrolidone",
+      "category": "Film Former",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Synthetic film-forming polymer. Provides hold in styling; humidity-sensitive.",
+      "tags": [
+        "film-forming",
+        "hold",
+        "humidity-sensitive",
+        "polymer",
+        "styling",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 20,
+          "notes": "Polyvinylpyrrolidone: film former; not useful in rinse-off shampoo."
+        },
+        "co_wash": {
+          "score": 25,
+          "notes": "Polyvinylpyrrolidone: film former; limited benefit in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 30,
+          "notes": "Polyvinylpyrrolidone: film former; some deposition in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 35,
+          "notes": "Polyvinylpyrrolidone: film former; limited benefit in treatment masks."
+        },
+        "leave_in_conditioner": {
+          "score": 55,
+          "notes": "Polyvinylpyrrolidone: film former; light hold in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 10,
+          "notes": "Polyvinylpyrrolidone: film former; water-soluble; not compatible with oil serums."
+        },
+        "styling_product": {
+          "score": 88,
+          "notes": "Polyvinylpyrrolidone: film former; primary hold polymer in styling products."
+        }
+      },
+      "aliases": [
+        "PVP",
+        "Povidone",
+        "1-Vinyl-2-pyrrolidinone polymer",
+        "Polyvidone"
+      ],
+      "molecular_weight_da": 40000,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Hydroxypropyl Methylcellulose",
+      "category": "Film Former",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Cellulose-derived film former and thickener. Water-soluble; provides flexible film.",
+      "tags": [
+        "cellulose-derived",
+        "film-forming",
+        "natural-origin",
+        "polymer",
+        "thickener",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 40,
+          "notes": "Hydroxypropyl Methylcellulose: cellulose film former; thickening in shampoo."
+        },
+        "co_wash": {
+          "score": 50,
+          "notes": "Hydroxypropyl Methylcellulose: cellulose film former; texture in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 55,
+          "notes": "Hydroxypropyl Methylcellulose: cellulose film former; body in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 60,
+          "notes": "Hydroxypropyl Methylcellulose: cellulose film former; structure in masks."
+        },
+        "leave_in_conditioner": {
+          "score": 65,
+          "notes": "Hydroxypropyl Methylcellulose: cellulose film former; flexible film in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 8,
+          "notes": "Hydroxypropyl Methylcellulose: cellulose film former; water-soluble; not for oil serums."
+        },
+        "styling_product": {
+          "score": 75,
+          "notes": "Hydroxypropyl Methylcellulose: cellulose film former; flexible hold in styling."
+        }
+      },
+      "aliases": [
+        "HPMC",
+        "Hypromellose",
+        "Hydroxypropyl methyl cellulose",
+        "Cellulose hydroxypropyl methyl ether"
+      ],
+      "molecular_weight_da": 86000,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Behentrimonium Chloride",
+      "category": "Surfactant",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "b",
+      "oily": "b",
+      "notes": "Quaternary ammonium cationic surfactant. Primary conditioner; reduces static and improves detangling.",
+      "tags": [
+        "antistatic",
+        "cationic",
+        "conditioning",
+        "detangling",
+        "quat",
+        "substantive"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 15,
+          "notes": "Behentrimonium Chloride: cationic quat; incompatible with anionic shampoo surfactants."
+        },
+        "co_wash": {
+          "score": 75,
+          "notes": "Behentrimonium Chloride: cationic quat; excellent conditioning in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 90,
+          "notes": "Behentrimonium Chloride: cationic quat; primary conditioner in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 88,
+          "notes": "Behentrimonium Chloride: cationic quat; long contact maximizes conditioning."
+        },
+        "leave_in_conditioner": {
+          "score": 70,
+          "notes": "Behentrimonium Chloride: cationic quat; conditioning in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 20,
+          "notes": "Behentrimonium Chloride: cationic quat; limited compatibility with oil serums."
+        },
+        "styling_product": {
+          "score": 45,
+          "notes": "Behentrimonium Chloride: cationic quat; antistatic benefit in styling."
+        }
+      },
+      "aliases": [
+        "BTAC",
+        "Behentrimonium chloride",
+        "Docosyltrimethylammonium chloride",
+        "Behenyl trimethyl ammonium chloride"
+      ],
+      "molecular_weight_da": 404,
+      "ionic_charge": "cationic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Sodium PCA",
+      "category": "Humectant",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Sodium salt of pyrrolidone carboxylic acid. Natural moisturizing factor component; highly hygroscopic.",
+      "tags": [
+        "fine-hair-safe",
+        "high-porosity-safe",
+        "humectant",
+        "hydrating",
+        "low-buildup",
+        "low-porosity-safe",
+        "NMF",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 42,
+          "notes": "Sodium PCA: NMF humectant; some moisture retention even in rinse-off."
+        },
+        "co_wash": {
+          "score": 58,
+          "notes": "Sodium PCA: NMF humectant; effective moisture draw in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 70,
+          "notes": "Sodium PCA: NMF humectant; moisture retention in rinse-out contact."
+        },
+        "deep_conditioner_mask": {
+          "score": 82,
+          "notes": "Sodium PCA: NMF humectant; long contact maximizes moisture absorption."
+        },
+        "leave_in_conditioner": {
+          "score": 88,
+          "notes": "Sodium PCA: NMF humectant; continuous moisture draw in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 25,
+          "notes": "Sodium PCA: NMF humectant; water-soluble; limited in oil serums."
+        },
+        "styling_product": {
+          "score": 60,
+          "notes": "Sodium PCA: NMF humectant; moisture retention in styling formats."
+        }
+      },
+      "aliases": [
+        "Sodium pyroglutamate",
+        "Sodium 2-pyrrolidone-5-carboxylate",
+        "Na-PCA",
+        "Sodium pyrrolidone carboxylate"
+      ],
+      "molecular_weight_da": 151,
+      "ionic_charge": "anionic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Helianthus Annuus Seed Oil",
+      "category": "Oil",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "b",
+      "notes": "Sunflower seed oil. High in linoleic acid; lightweight surface conditioning.",
+      "tags": [
+        "linoleic-acid",
+        "natural",
+        "oil",
+        "surface-conditioning",
+        "lightweight"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 18,
+          "notes": "Helianthus Annuus Seed Oil: lightweight oil; limited benefit in rinse-off shampoo."
+        },
+        "co_wash": {
+          "score": 48,
+          "notes": "Helianthus Annuus Seed Oil: lightweight oil; adds emolliency in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 60,
+          "notes": "Helianthus Annuus Seed Oil: lightweight oil; surface conditioning in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 72,
+          "notes": "Helianthus Annuus Seed Oil: lightweight oil; long contact improves surface feel."
+        },
+        "leave_in_conditioner": {
+          "score": 75,
+          "notes": "Helianthus Annuus Seed Oil: lightweight oil; good leave-on emollient."
+        },
+        "hair_oil_serum": {
+          "score": 85,
+          "notes": "Helianthus Annuus Seed Oil: lightweight oil; excellent lightweight serum base."
+        },
+        "styling_product": {
+          "score": 50,
+          "notes": "Helianthus Annuus Seed Oil: lightweight oil; adds shine in styling formats."
+        }
+      },
+      "aliases": [
+        "Sunflower oil",
+        "Sunflower seed oil",
+        "Helianthus annuus oil"
+      ],
+      "molecular_weight_da": 880,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Hydrolyzed Collagen",
+      "category": "Protein",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Hydrolyzed collagen protein. Film-forming; adds moisture and temporary strength.",
+      "tags": [
+        "damage-repair",
+        "film-forming",
+        "high-porosity-safe",
+        "protein",
+        "strengthening",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 36,
+          "notes": "Hydrolyzed Collagen: protein; limited deposition in rinse-off shampoo."
+        },
+        "co_wash": {
+          "score": 52,
+          "notes": "Hydrolyzed Collagen: protein; moderate deposition in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 68,
+          "notes": "Hydrolyzed Collagen: protein; film formation in rinse-out contact."
+        },
+        "deep_conditioner_mask": {
+          "score": 84,
+          "notes": "Hydrolyzed Collagen: protein; long contact maximizes film deposition."
+        },
+        "leave_in_conditioner": {
+          "score": 76,
+          "notes": "Hydrolyzed Collagen: protein; continuous film in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 14,
+          "notes": "Hydrolyzed Collagen: protein; water-soluble; poor fit for oil serums."
+        },
+        "styling_product": {
+          "score": 55,
+          "notes": "Hydrolyzed Collagen: protein; adds body and light hold in styling."
+        }
+      },
+      "aliases": [
+        "Collagen hydrolysate",
+        "Hydrolysed collagen",
+        "Soluble collagen",
+        "Collagen peptides"
+      ],
+      "molecular_weight_da": 1500,
+      "ionic_charge": "amphoteric",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Butylene Glycol",
+      "category": "Humectant",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Small diol humectant and solvent. Enhances penetration of other actives; mild preservative booster.",
+      "tags": [
+        "fine-hair-safe",
+        "humectant",
+        "hydrating",
+        "low-buildup",
+        "penetration-enhancer",
+        "solvent",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 40,
+          "notes": "Butylene Glycol: diol humectant; solvent and moisture retention in shampoo."
+        },
+        "co_wash": {
+          "score": 55,
+          "notes": "Butylene Glycol: diol humectant; effective in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 65,
+          "notes": "Butylene Glycol: diol humectant; enhances active penetration in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 78,
+          "notes": "Butylene Glycol: diol humectant; penetration enhancer in treatment masks."
+        },
+        "leave_in_conditioner": {
+          "score": 82,
+          "notes": "Butylene Glycol: diol humectant; continuous moisture and penetration in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 28,
+          "notes": "Butylene Glycol: diol humectant; water-soluble; limited in oil serums."
+        },
+        "styling_product": {
+          "score": 58,
+          "notes": "Butylene Glycol: diol humectant; moisture retention in styling formats."
+        }
+      },
+      "aliases": [
+        "1,3-Butanediol",
+        "1,3-Butylene glycol",
+        "BG",
+        "Butane-1,3-diol"
+      ],
+      "molecular_weight_da": 90,
+      "ionic_charge": "neutral",
+      "penetration_depth": "cortical"
+    },
+    {
+      "name": "Cetrimonium Chloride",
+      "category": "Surfactant",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "b",
+      "oily": "b",
+      "notes": "Quaternary ammonium cationic surfactant. Conditioning and antimicrobial; used in conditioners.",
+      "tags": [
+        "antimicrobial",
+        "antistatic",
+        "cationic",
+        "conditioning",
+        "quat",
+        "substantive"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 12,
+          "notes": "Cetrimonium Chloride: cationic quat; incompatible with anionic shampoo surfactants."
+        },
+        "co_wash": {
+          "score": 70,
+          "notes": "Cetrimonium Chloride: cationic quat; conditioning in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 85,
+          "notes": "Cetrimonium Chloride: cationic quat; primary conditioner in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 82,
+          "notes": "Cetrimonium Chloride: cationic quat; long contact maximizes conditioning."
+        },
+        "leave_in_conditioner": {
+          "score": 65,
+          "notes": "Cetrimonium Chloride: cationic quat; conditioning in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 18,
+          "notes": "Cetrimonium Chloride: cationic quat; limited compatibility with oil serums."
+        },
+        "styling_product": {
+          "score": 40,
+          "notes": "Cetrimonium Chloride: cationic quat; antistatic benefit in styling."
+        }
+      },
+      "aliases": [
+        "CTAC",
+        "Cetyltrimethylammonium chloride",
+        "Hexadecyltrimethylammonium chloride",
+        "Cetyl trimethyl ammonium chloride"
+      ],
+      "molecular_weight_da": 320,
+      "ionic_charge": "cationic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Simmondsia Chinensis Seed Oil",
+      "category": "Oil",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "b",
+      "notes": "Jojoba oil. Liquid wax ester; closely mimics sebum; non-greasy surface conditioning.",
+      "tags": [
+        "natural",
+        "non-greasy",
+        "oil",
+        "sebum-mimic",
+        "surface-conditioning",
+        "wax-ester"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 20,
+          "notes": "Simmondsia Chinensis Seed Oil: wax ester; limited benefit in rinse-off shampoo."
+        },
+        "co_wash": {
+          "score": 52,
+          "notes": "Simmondsia Chinensis Seed Oil: wax ester; adds emolliency in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 65,
+          "notes": "Simmondsia Chinensis Seed Oil: wax ester; non-greasy conditioning in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 74,
+          "notes": "Simmondsia Chinensis Seed Oil: wax ester; long contact improves surface feel."
+        },
+        "leave_in_conditioner": {
+          "score": 80,
+          "notes": "Simmondsia Chinensis Seed Oil: wax ester; non-greasy leave-on emollient."
+        },
+        "hair_oil_serum": {
+          "score": 90,
+          "notes": "Simmondsia Chinensis Seed Oil: wax ester; premium non-greasy serum base."
+        },
+        "styling_product": {
+          "score": 58,
+          "notes": "Simmondsia Chinensis Seed Oil: wax ester; adds shine without grease in styling."
+        }
+      },
+      "aliases": [
+        "Jojoba oil",
+        "Jojoba seed oil",
+        "Buxus chinensis oil"
+      ],
+      "molecular_weight_da": 600,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Sodium Benzoate",
+      "category": "Preservative",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Sodium salt of benzoic acid. Effective preservative at low pH; often paired with potassium sorbate.",
+      "tags": [
+        "antimicrobial",
+        "low-pH-active",
+        "preservative",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 65,
+          "notes": "Sodium Benzoate: preservative; effective in acidic shampoo formats."
+        },
+        "co_wash": {
+          "score": 65,
+          "notes": "Sodium Benzoate: preservative; functional in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 65,
+          "notes": "Sodium Benzoate: preservative; functional in rinse-out conditioner."
+        },
+        "deep_conditioner_mask": {
+          "score": 65,
+          "notes": "Sodium Benzoate: preservative; functional in treatment formats."
+        },
+        "leave_in_conditioner": {
+          "score": 65,
+          "notes": "Sodium Benzoate: preservative; critical in leave-on formats for stability."
+        },
+        "hair_oil_serum": {
+          "score": 30,
+          "notes": "Sodium Benzoate: preservative; less effective in anhydrous oil serums."
+        },
+        "styling_product": {
+          "score": 65,
+          "notes": "Sodium Benzoate: preservative; functional in styling product formats."
+        }
+      },
+      "aliases": [
+        "Benzoate of soda",
+        "Sodium benzoate",
+        "E211",
+        "Benzoic acid sodium salt"
+      ],
+      "molecular_weight_da": 144,
+      "ionic_charge": "anionic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Polyquaternium-7",
+      "category": "Polymer",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Cationic acrylamide copolymer. Conditioning and film-forming; compatible with anionic surfactants.",
+      "tags": [
+        "antistatic",
+        "cationic",
+        "conditioning",
+        "film-forming",
+        "polymer",
+        "surfactant-compatible"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 68,
+          "notes": "Polyquaternium-7: cationic polymer; deposits conditioning film in shampoo."
+        },
+        "co_wash": {
+          "score": 74,
+          "notes": "Polyquaternium-7: cationic polymer; good conditioning in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 76,
+          "notes": "Polyquaternium-7: cationic polymer; slip and antistatic in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 80,
+          "notes": "Polyquaternium-7: cationic polymer; long contact maximizes deposition."
+        },
+        "leave_in_conditioner": {
+          "score": 82,
+          "notes": "Polyquaternium-7: cationic polymer; excellent leave-on conditioning film."
+        },
+        "hair_oil_serum": {
+          "score": 18,
+          "notes": "Polyquaternium-7: cationic polymer; water-soluble; limited in oil serums."
+        },
+        "styling_product": {
+          "score": 72,
+          "notes": "Polyquaternium-7: cationic polymer; adds hold and conditioning in styling."
+        }
+      },
+      "aliases": [
+        "PQ-7",
+        "Acrylamide/DADMAC copolymer",
+        "Dimethyldiallylammonium chloride/acrylamide copolymer"
+      ],
+      "molecular_weight_da": 500000,
+      "ionic_charge": "cationic",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Cyclotetrasiloxane",
+      "category": "Silicone",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "b",
+      "notes": "Volatile cyclic silicone. Smaller ring than D5; fast evaporation; very lightweight feel.",
+      "tags": [
+        "fine-hair-safe",
+        "low-buildup",
+        "silicone",
+        "volatile",
+        "weightless"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 8,
+          "notes": "Cyclotetrasiloxane: volatile silicone; not useful in rinse-off shampoo."
+        },
+        "co_wash": {
+          "score": 10,
+          "notes": "Cyclotetrasiloxane: volatile silicone; evaporates before benefit in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 40,
+          "notes": "Cyclotetrasiloxane: volatile silicone; provides slip during application."
+        },
+        "deep_conditioner_mask": {
+          "score": 28,
+          "notes": "Cyclotetrasiloxane: volatile silicone; limited benefit in long-contact formats."
+        },
+        "leave_in_conditioner": {
+          "score": 68,
+          "notes": "Cyclotetrasiloxane: volatile silicone; evaporates cleanly in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 85,
+          "notes": "Cyclotetrasiloxane: volatile silicone; fast-evaporating carrier in serums."
+        },
+        "styling_product": {
+          "score": 62,
+          "notes": "Cyclotetrasiloxane: volatile silicone; lightweight feel in styling products."
+        }
+      },
+      "aliases": [
+        "D4",
+        "Cyclomethicone D4",
+        "Octamethylcyclotetrasiloxane"
+      ],
+      "molecular_weight_da": 297,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Behenyl Alcohol",
+      "category": "Fatty Alcohol",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "b",
+      "oily": "b",
+      "notes": "C22 fatty alcohol. Emollient and emulsifier; heavier and more waxy than cetyl or stearyl alcohol.",
+      "tags": [
+        "emollient",
+        "emulsifier",
+        "fatty-alcohol",
+        "slip",
+        "thickener"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 15,
+          "notes": "Behenyl Alcohol: C22 fatty alcohol; limited role in shampoo formats."
+        },
+        "co_wash": {
+          "score": 60,
+          "notes": "Behenyl Alcohol: C22 fatty alcohol; provides creamy texture in co-wash."
+        },
+        "rinse_out_conditioner": {
+          "score": 78,
+          "notes": "Behenyl Alcohol: C22 fatty alcohol; emollient and thickener in conditioner."
+        },
+        "deep_conditioner_mask": {
+          "score": 80,
+          "notes": "Behenyl Alcohol: C22 fatty alcohol; rich texture in treatment masks."
+        },
+        "leave_in_conditioner": {
+          "score": 50,
+          "notes": "Behenyl Alcohol: C22 fatty alcohol; heavier feel may weigh down in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 22,
+          "notes": "Behenyl Alcohol: C22 fatty alcohol; waxy texture limits use in serums."
+        },
+        "styling_product": {
+          "score": 40,
+          "notes": "Behenyl Alcohol: C22 fatty alcohol; provides body in cream styling products."
+        }
+      },
+      "aliases": [
+        "1-Docosanol",
+        "Docosyl alcohol",
+        "C22 alcohol",
+        "n-Docosanol"
+      ],
+      "molecular_weight_da": 326,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    },
+    {
+      "name": "Hydrolyzed Silk",
+      "category": "Protein",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Silk-derived hydrolyzed protein. Adds shine and softness; small peptides penetrate cortex.",
+      "tags": [
+        "damage-repair",
+        "film-forming",
+        "high-porosity-safe",
+        "protein",
+        "shine",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 38,
+          "notes": "Hydrolyzed Silk: silk protein; some deposition in shampoo format."
+        },
+        "co_wash": {
+          "score": 55,
+          "notes": "Hydrolyzed Silk: silk protein; good deposition in co-wash format."
+        },
+        "rinse_out_conditioner": {
+          "score": 72,
+          "notes": "Hydrolyzed Silk: silk protein; shine and softness in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 86,
+          "notes": "Hydrolyzed Silk: silk protein; long contact maximizes cortical penetration."
+        },
+        "leave_in_conditioner": {
+          "score": 80,
+          "notes": "Hydrolyzed Silk: silk protein; continuous film and shine in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 16,
+          "notes": "Hydrolyzed Silk: silk protein; water-soluble; poor compatibility with oil serums."
+        },
+        "styling_product": {
+          "score": 58,
+          "notes": "Hydrolyzed Silk: silk protein; adds shine and light hold in styling."
+        }
+      },
+      "aliases": [
+        "Silk amino acids",
+        "Hydrolysed silk",
+        "Silk protein hydrolysate",
+        "Sericin hydrolysate"
+      ],
+      "molecular_weight_da": 800,
+      "ionic_charge": "amphoteric",
+      "penetration_depth": "cortical"
+    },
+    {
+      "name": "Propylene Glycol",
+      "category": "Humectant",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Small diol humectant and solvent. Enhances penetration; preservative booster; potential sensitizer at high levels.",
+      "tags": [
+        "humectant",
+        "hydrating",
+        "low-buildup",
+        "penetration-enhancer",
+        "solvent",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 42,
+          "notes": "Propylene Glycol: diol humectant; solvent and moisture retention in shampoo."
+        },
+        "co_wash": {
+          "score": 55,
+          "notes": "Propylene Glycol: diol humectant; effective in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 62,
+          "notes": "Propylene Glycol: diol humectant; enhances active penetration in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 75,
+          "notes": "Propylene Glycol: diol humectant; penetration enhancer in treatment masks."
+        },
+        "leave_in_conditioner": {
+          "score": 78,
+          "notes": "Propylene Glycol: diol humectant; continuous moisture in leave-on."
+        },
+        "hair_oil_serum": {
+          "score": 22,
+          "notes": "Propylene Glycol: diol humectant; water-soluble; limited in oil serums."
+        },
+        "styling_product": {
+          "score": 55,
+          "notes": "Propylene Glycol: diol humectant; moisture retention in styling formats."
+        }
+      },
+      "aliases": [
+        "1,2-Propanediol",
+        "1,2-Propylene glycol",
+        "PG",
+        "Propane-1,2-diol"
+      ],
+      "molecular_weight_da": 76,
+      "ionic_charge": "neutral",
+      "penetration_depth": "cortical"
+    },
+    {
+      "name": "Polyvinyl Alcohol",
+      "category": "Film Former",
+      "low": "g",
+      "med": "g",
+      "high": "g",
+      "fine": "g",
+      "oily": "g",
+      "notes": "Synthetic film-forming polymer. Water-soluble; forms flexible peelable films.",
+      "tags": [
+        "film-forming",
+        "hold",
+        "polymer",
+        "styling",
+        "water-soluble"
+      ],
+      "product_roles": {
+        "shampoo": {
+          "score": 18,
+          "notes": "Polyvinyl Alcohol: film former; not useful in rinse-off shampoo."
+        },
+        "co_wash": {
+          "score": 22,
+          "notes": "Polyvinyl Alcohol: film former; limited benefit in co-wash formats."
+        },
+        "rinse_out_conditioner": {
+          "score": 28,
+          "notes": "Polyvinyl Alcohol: film former; some deposition in rinse-out."
+        },
+        "deep_conditioner_mask": {
+          "score": 32,
+          "notes": "Polyvinyl Alcohol: film former; limited benefit in treatment masks."
+        },
+        "leave_in_conditioner": {
+          "score": 52,
+          "notes": "Polyvinyl Alcohol: film former; flexible film in leave-on formats."
+        },
+        "hair_oil_serum": {
+          "score": 8,
+          "notes": "Polyvinyl Alcohol: film former; water-soluble; not compatible with oil serums."
+        },
+        "styling_product": {
+          "score": 82,
+          "notes": "Polyvinyl Alcohol: film former; strong flexible hold in styling products."
+        }
+      },
+      "aliases": [
+        "PVA",
+        "Polyvinol",
+        "Ethenol homopolymer",
+        "Vinyl alcohol polymer"
+      ],
+      "molecular_weight_da": 88000,
+      "ionic_charge": "neutral",
+      "penetration_depth": "surface"
+    }
+  ]
+}

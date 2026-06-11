@@ -1,0 +1,149 @@
+Folder PATH listing for volume Acer
+Volume serial number is 000000EA 7648:6863
+C:\USERS\SADIK\DESKTOP\FORMULA SPY\SCORING SYSTEM\MOVETOTHISFOLDER
+¦   AUDIT.md
+¦   FILE_TREE.txt
+¦   test.ts
+¦   
++---analysis
+¦       analyzeRoutine.ts
+¦       compareProducts.ts
+¦       confidenceScoring.ts
+¦       estimateConcentration.ts
+¦       recommendations.ts
+¦       
++---contracts
+¦       IngredientRecord.ts
+¦       LookupIndex.ts
+¦       NormalizeOptions.ts
+¦       ResolvedIngredient.ts
+¦       ResolveOptions.ts
+¦       
++---database
+¦   ¦   ingredients.sample.json
+¦   ¦   ingredients.v3.1.0.audit.json
+¦   ¦   ingredients.v3.backup.20260517.json
+¦   ¦   ingredients.v3.backup.20260517.phase5.json
+¦   ¦   ingredients.v3.json
+¦   ¦   integration-report.md
+¦   ¦   mobile-ingredients.json
+¦   ¦   new-ingredients-batch.json
+¦   ¦   package-lock.json
+¦   ¦   package.json
+¦   ¦   
+¦   +---schema
+¦           ingredient.schema.json
+¦           
++---engine
+¦   ¦   constants.optimized.json
+¦   ¦   index.ts
+¦   ¦   
+¦   +---pipeline
+¦   ¦       analysisCache.ts
+¦   ¦       mobileResolve.ts
+¦   ¦       normalizeRawInci.ts
+¦   ¦       ocrRecovery.ts
+¦   ¦       parser.ts
+¦   ¦       resolveIngredients.ts
+¦   ¦       
+¦   +---shared
+¦           CategoryEnum.ts
+¦           errors.ts
+¦           types.ts
+¦           utils.ts
+¦           
++---identity
+¦   +---contracts
+¦   ¦       index.ts
+¦   ¦       IngredientContracts.ts
+¦   ¦       LookupIndex.ts
+¦   ¦       ResolutionContracts.ts
+¦   ¦       
+¦   +---recognition
+¦           buildLookupIndexes.ts
+¦           index.ts
+¦           normalizeName.ts
+¦           resolveIngredient.ts
+¦           
++---interactions
+¦       detectInteractions.ts
+¦       index.ts
+¦       types.ts
+¦       
++---rules
+¦       interactionRegistry.ts
+¦       
++---scoring
+¦       activeSystemDetection.ts
+¦       advancedProfileModifiers.ts
+¦       builtupAnalysis.ts
+¦       cleanserHarshness.ts
+¦       compensationSystem.ts
+¦       concentrationEstimation.ts
+¦       criticalSignalDetection.ts
+¦       formulationArchetype.ts
+¦       formulationBalance.ts
+¦       formulationCoherence.ts
+¦       formulationIntent.ts
+¦       humectantEnvironment.ts
+¦       index.ts
+¦       molecularWeightHeuristics.ts
+¦       positionWeighting.ts
+¦       profileProductGating.ts
+¦       proteinBalance.ts
+¦       scoreFormulation.ts
+¦       scoreIngredient.ts
+¦       surfactantSystem.ts
+¦       
++---tools
+        auditDatabaseChemoinformatics.ts
+        auditIngredients.cjs
+        auditIngredients.js
+        auditModifiers.ts
+        auditShampooScores.ts
+        autoTuner.ts
+        benchmarkCalc.cjs
+        benchmarkDiff.ts
+        benchmarkLoader.ts
+        benchmarkRunner.ts
+        benchmarkShampoos.ts
+        benchmarkTypes.ts
+        benchmarkWorker.ts
+        build_scientific_benchmarks.ts
+        calibrationAudit.ts
+        debugCleansing.ts
+        dedupDatabase.cjs
+        diagnoseBenchmark.ts
+        diagnoseCleansing.ts
+        diagnoseProbeFail.ts
+        fixBenchmarks.ts
+        fixDatabase.cjs
+        generateScientificBenchmarks.ts
+        generateUnknownIngredients.cjs
+        goldBenchmarkRunner.ts
+        humanRealismAudit.ts
+        humanRealismTypes.ts
+        logUnknowns.ts
+        migrateBenchmarks.ts
+        migrateToV3.cjs
+        normalizeDatabase.ts
+        normalizeProductType.ts
+        patchDatabase.cjs
+        pcsAuditRunner.ts
+        precomputeMobileDatabase.ts
+        probeStageReachability.ts
+        processUnknownIngredients.cjs
+        rankingValidator.ts
+        reportUnresolved.ts
+        resolveNeedsReview.ts
+        runAudit.ts
+        runBenchmarks.ts
+        shadowTestV2.ts
+        tempTest.ts
+        tempTest2.ts
+        testV2.ts
+        unknownLogStore.stub.ts
+        unknownLogStore.ts
+        validateBenchmarks.ts
+        validateDatabase.cjs
+        
