@@ -125,7 +125,7 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
 
       <div className="stack-12">
         <h1 className="screen-title">{step.title}</h1>
-        <p className="subtitle">{step.subtitle}</p>
+        <p className="subtitle" style={{ marginBottom: 40 }}>{step.subtitle}</p>
       </div>
 
       {step.kind === "choice" ? (
