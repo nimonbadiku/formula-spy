@@ -10,6 +10,7 @@ import { Button } from "@/components/Button";
 interface AnalyzingScreenProps {
   readonly rawInci: string;
   readonly productType: ProductType;
+  readonly productName: string;
   readonly onComplete: (entry: HistoryEntry) => void;
   readonly onError: () => void;
 }
@@ -22,6 +23,7 @@ interface AnalyzingScreenProps {
 export function AnalyzingScreen({
   rawInci,
   productType,
+  productName,
   onComplete,
   onError,
 }: AnalyzingScreenProps) {
@@ -60,7 +62,9 @@ export function AnalyzingScreen({
       .then((result) => {
         const entry: HistoryEntry = {
           id: makeId(),
-          productName: defaultProductName(rawInci, productTypeLabel(productType)),
+          productName:
+            productName ||
+            defaultProductName(rawInci, productTypeLabel(productType)),
           productType,
           rawInci,
           score: result.summary.formulationScore,
@@ -75,7 +79,9 @@ export function AnalyzingScreen({
       })
       .catch((err: unknown) => {
         const message =
-          err instanceof Error ? err.message : "Something went wrong during analysis.";
+          err instanceof Error
+            ? err.message
+            : "Something went wrong during analysis.";
         setError(message);
       });
     // No cleanup-based cancellation: startedRef already ensures the work runs
@@ -104,26 +110,92 @@ export function AnalyzingScreen({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        gap: 26,
+        gap: 32,
         textAlign: "center",
       }}
     >
-      <div className="analyzing-orb" aria-hidden />
+      <div className="analyzing-container" aria-hidden>
+        <div className="analyzing-orb" />
+        <div className="analyzing-ring" />
+        <div className="analyzing-dot analyzing-dot--1" />
+        <div className="analyzing-dot analyzing-dot--2" />
+        <div className="analyzing-dot analyzing-dot--3" />
+      </div>
       <div className="stack-12">
         <h1 className="screen-title">Analyzing formula</h1>
-        <p className="subtitle">Matching ingredients and scoring for your hair…</p>
+        <p className="subtitle">
+          Matching ingredients and scoring for your hair…
+        </p>
       </div>
       <style>{`
-        .analyzing-orb {
-          width: 92px;
-          height: 92px;
-          border-radius: 50%;
-          background: conic-gradient(from 0deg, var(--blue), var(--green), var(--blue));
-          -webkit-mask: radial-gradient(circle at center, transparent 54%, #000 56%);
-          mask: radial-gradient(circle at center, transparent 54%, #000 56%);
-          animation: spin 1s linear infinite;
+        .analyzing-container {
+          position: relative;
+          width: 120px;
+          height: 120px;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .analyzing-orb {
+          position: absolute;
+          inset: 20px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, var(--blue), var(--green));
+          box-shadow:
+            0 0 40px rgba(79, 141, 249, 0.4),
+            0 0 80px rgba(57, 194, 168, 0.2);
+          animation: orb-pulse 2s ease-in-out infinite;
+        }
+        .analyzing-ring {
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          border: 3px solid transparent;
+          border-top-color: var(--blue);
+          border-right-color: var(--green);
+          animation: spin 1.2s linear infinite;
+        }
+        .analyzing-dot {
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--blue);
+          animation: orbit 2s linear infinite;
+        }
+        .analyzing-dot--1 {
+          background: var(--blue);
+          animation-delay: 0s;
+        }
+        .analyzing-dot--2 {
+          background: var(--green);
+          animation-delay: -0.66s;
+        }
+        .analyzing-dot--3 {
+          background: linear-gradient(135deg, var(--blue), var(--green));
+          animation-delay: -1.33s;
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+        @keyframes orb-pulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.08); opacity: 0.85; }
+        }
+        @keyframes orbit {
+          0% {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg) translateX(52px) scale(1);
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
+          100% {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(360deg) translateX(52px) scale(0.6);
+            opacity: 1;
+          }
+        }
       `}</style>
     </div>
   );

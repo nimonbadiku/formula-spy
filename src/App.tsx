@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useAppStore } from "@/store/appStore";
 import type { HistoryEntry } from "@/store/types";
 import { BottomNav } from "@/components/BottomNav";
@@ -8,7 +8,6 @@ import { AnalyzingScreen } from "@/screens/AnalyzingScreen";
 import { ResultScreen } from "@/screens/ResultScreen";
 import { HistoryScreen } from "@/screens/HistoryScreen";
 import { WelcomeScreen } from "@/screens/WelcomeScreen";
-import { ProfileScreen } from "@/screens/ProfileScreen";
 import type { ProductType } from "@/lib/productTypes";
 
 /**
@@ -19,10 +18,14 @@ export type Route =
   | { name: "welcome" }
   | { name: "quiz" }
   | { name: "analyze" }
-  | { name: "analyzing"; rawInci: string; productType: ProductType }
+  | {
+      name: "analyzing";
+      rawInci: string;
+      productType: ProductType;
+      productName: string;
+    }
   | { name: "result"; entry: HistoryEntry }
-  | { name: "history" }
-  | { name: "profile" };
+  | { name: "history" };
 
 export function App() {
   const hydrate = useAppStore((s) => s.hydrate);
@@ -30,6 +33,25 @@ export function App() {
   const profile = useAppStore((s) => s.profile);
 
   const [route, setRoute] = useState<Route>({ name: "welcome" });
+  const [displayRoute, setDisplayRoute] = useState<Route>({ name: "welcome" });
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const timerRef = useRef(0);
+
+  const navigate = useCallback((next: Route) => {
+    if (isTransitioning) return;
+    if (next.name === displayRoute.name) {
+      setRoute(next);
+      setDisplayRoute(next);
+      return;
+    }
+    setIsTransitioning(true);
+    clearTimeout(timerRef.current);
+    timerRef.current = window.setTimeout(() => {
+      setRoute(next);
+      setDisplayRoute(next);
+      setIsTransitioning(false);
+    }, 200);
+  }, [isTransitioning, displayRoute.name]);
 
   useEffect(() => {
     hydrate();
@@ -40,18 +62,18 @@ export function App() {
   useEffect(() => {
     if (!hydrated || bootstrapped) return;
     setBootstrapped(true);
-    setRoute(profile ? { name: "analyze" } : { name: "welcome" });
+    const initial: Route = profile ? { name: "analyze" } : { name: "welcome" };
+    setRoute(initial);
+    setDisplayRoute(initial);
   }, [hydrated, bootstrapped, profile]);
 
   const activeTab = useMemo(() => {
-    if (route.name === "history") return "history";
-    if (route.name === "analyze") return "analyze";
-    if (route.name === "profile") return "profile";
+    if (displayRoute.name === "history") return "history";
+    if (displayRoute.name === "analyze") return "analyze";
     return null;
-  }, [route]);
+  }, [displayRoute]);
 
-  const showTabs =
-    route.name === "analyze" || route.name === "history" || route.name === "profile";
+  const showTabs = displayRoute.name === "analyze" || displayRoute.name === "history";
 
   if (!hydrated) {
     return (
@@ -63,50 +85,49 @@ export function App() {
 
   return (
     <div className="app-shell">
-      <main className="app-main" key={route.name}>
-        {route.name === "welcome" && (
-          <WelcomeScreen onStart={() => setRoute({ name: "quiz" })} />
+      <main className={`app-main ${isTransitioning ? "app-main--exit" : ""}`} key={displayRoute.name}>
+        {displayRoute.name === "welcome" && (
+          <WelcomeScreen onStart={() => navigate({ name: "quiz" })} />
         )}
 
-        {route.name === "quiz" && (
+        {displayRoute.name === "quiz" && (
           <QuizScreen
-            onDone={() => setRoute({ name: "analyze" })}
-            onCancel={profile ? () => setRoute({ name: "analyze" }) : undefined}
+            onDone={() => navigate({ name: "analyze" })}
+            onCancel={profile ? () => navigate({ name: "analyze" }) : undefined}
           />
         )}
 
-        {route.name === "analyze" && (
+        {displayRoute.name === "analyze" && (
           <PasteScreen
-            onAnalyze={(rawInci, productType) =>
-              setRoute({ name: "analyzing", rawInci, productType })
+            onAnalyze={(rawInci, productType, productName) =>
+              navigate({ name: "analyzing", rawInci, productType, productName })
             }
-            onEditProfile={() => setRoute({ name: "quiz" })}
+            onEditProfile={() => navigate({ name: "quiz" })}
           />
         )}
 
-        {route.name === "analyzing" && (
+        {displayRoute.name === "analyzing" && (
           <AnalyzingScreen
-            rawInci={route.rawInci}
-            productType={route.productType}
-            onComplete={(entry) => setRoute({ name: "result", entry })}
-            onError={() => setRoute({ name: "analyze" })}
+            rawInci={displayRoute.rawInci}
+            productType={displayRoute.productType}
+            productName={displayRoute.productName}
+            onComplete={(entry) => navigate({ name: "result", entry })}
+            onError={() => navigate({ name: "analyze" })}
           />
         )}
 
-        {route.name === "result" && (
+        {displayRoute.name === "result" && (
           <ResultScreen
-            entry={route.entry}
-            onBack={() => setRoute({ name: "analyze" })}
-            onAnalyzeAnother={() => setRoute({ name: "analyze" })}
+            entry={displayRoute.entry}
+            onBack={() => navigate({ name: "analyze" })}
+            onAnalyzeAnother={() => navigate({ name: "analyze" })}
           />
         )}
 
-        {route.name === "history" && (
-          <HistoryScreen onOpen={(entry) => setRoute({ name: "result", entry })} />
-        )}
-
-        {route.name === "profile" && (
-          <ProfileScreen onEditProfile={() => setRoute({ name: "quiz" })} />
+        {displayRoute.name === "history" && (
+          <HistoryScreen
+            onOpen={(entry) => navigate({ name: "result", entry })}
+          />
         )}
       </main>
 
@@ -114,9 +135,8 @@ export function App() {
         <BottomNav
           active={activeTab}
           onNavigate={(tab) => {
-            if (tab === "analyze") setRoute({ name: "analyze" });
-            else if (tab === "history") setRoute({ name: "history" });
-            else if (tab === "profile") setRoute({ name: "profile" });
+            if (tab === "analyze") navigate({ name: "analyze" });
+            else if (tab === "history") navigate({ name: "history" });
           }}
         />
       )}

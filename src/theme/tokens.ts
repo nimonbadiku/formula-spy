@@ -38,3 +38,15 @@ export function scoreTier(score: number): ScoreTier {
   if (score >= 50) return { label: "Fair match", color: colors.amber, soft: colors.amberSoft };
   return { label: "Poor match", color: colors.red, soft: colors.redSoft };
 }
+
+/** 8-tier color for score bars — matches HistoryScreen score color scale. */
+export function scoreBarColor(score: number): string {
+  if (score >= 90) return "#16a34a";
+  if (score >= 81) return "#22c55e";
+  if (score >= 70) return "#65a30d";
+  if (score >= 60) return "#eab308";
+  if (score >= 50) return "#f97316";
+  if (score >= 41) return "#ea580c";
+  if (score >= 21) return "#dc2626";
+  return "#b91c1c";
+}

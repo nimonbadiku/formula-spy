@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { scoreTier } from "@/theme/tokens";
 
 interface ScoreRingProps {
@@ -21,10 +21,29 @@ export function ScoreRing({ score, size = 184 }: ScoreRingProps) {
   const circumference = 2 * Math.PI * radius;
 
   const [progress, setProgress] = useState(0);
+  const [displayScore, setDisplayScore] = useState(0);
+  const animRef = useRef<number>(0);
+
   useEffect(() => {
     const id = requestAnimationFrame(() => setProgress(clamped));
     return () => cancelAnimationFrame(id);
   }, [clamped]);
+
+  useEffect(() => {
+    const start = performance.now();
+    const duration = 900;
+    function tick(now: number) {
+      const elapsed = now - start;
+      const t = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplayScore(Math.round(eased * rounded));
+      if (t < 1) {
+        animRef.current = requestAnimationFrame(tick);
+      }
+    }
+    animRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animRef.current);
+  }, [rounded]);
 
   const dashOffset = circumference * (1 - progress / 100);
 
@@ -78,7 +97,7 @@ export function ScoreRing({ score, size = 184 }: ScoreRingProps) {
             color: "var(--text)",
           }}
         >
-          {rounded}
+          {displayScore}
         </div>
         <div style={{ fontSize: 13, color: "var(--text-faint)", marginTop: 4 }}>
           out of 100

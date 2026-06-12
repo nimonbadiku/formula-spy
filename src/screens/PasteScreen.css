@@ -1,68 +1,109 @@
 .field-label {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--text-soft);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--text-soft);
 }
 
 .profile-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  border: 1px solid var(--hairline);
-  background: var(--surface-solid);
-  color: var(--text);
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 99px;
-  box-shadow: var(--shadow-card);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--hairline);
+    background: var(--surface-solid);
+    color: var(--text);
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 99px;
+    box-shadow: var(--shadow-card);
 }
 
 .profile-chip__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
 }
 
 .type-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.product-type-rail {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-inline: -18px;
+    padding-inline: 18px;
+    padding-bottom: 2px;
+    scroll-padding-inline: 18px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.product-type-rail::-webkit-scrollbar {
+    display: none;
 }
 
 .type-pill {
-  border: 1.5px solid var(--hairline);
-  background: var(--surface-solid);
-  color: var(--text-soft);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 10px 14px;
-  border-radius: 13px;
-  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+    flex: 0 0 auto;
+    border: 1.5px solid var(--hairline);
+    background: var(--surface-solid);
+    color: var(--text-soft);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 13px;
+    scroll-snap-align: start;
+    transition:
+        border-color 0.18s ease,
+        color 0.18s ease,
+        background 0.18s ease;
 }
 
-.type-pill--active {
-  border-color: var(--blue);
-  background: var(--blue-soft);
-  color: var(--blue);
+.type-grid .type-pill.type-pill--active,
+.type-grid .type-pill[aria-pressed="true"] {
+    border-color: var(--blue);
+    background: var(--blue-soft);
+    color: var(--blue);
+    box-shadow: 0 0 0 1px rgba(79, 141, 249, 0.12);
+}
+
+.product-name-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    border-radius: 22px;
+    background: transparent;
+    color: var(--text);
+    font-size: 15.5px;
+    font-family: inherit;
+    line-height: 1.4;
+}
+
+.product-name-input::placeholder {
+    color: var(--text-faint);
 }
 
 .inci-input {
-  width: 100%;
-  border: none;
-  outline: none;
-  resize: vertical;
-  min-height: 150px;
-  padding: 16px;
-  border-radius: 22px;
-  background: transparent;
-  color: var(--text);
-  font-size: 15.5px;
-  line-height: 1.6;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: vertical;
+    min-height: 150px;
+    padding: 16px;
+    border-radius: 22px;
+    background: transparent;
+    color: var(--text);
+    font-size: 15.5px;
+    line-height: 1.6;
 }
 
 .inci-input::placeholder {
-  color: var(--text-faint);
+    color: var(--text-faint);
 }

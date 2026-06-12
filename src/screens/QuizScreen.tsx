@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/Button";
 import { OptionCard } from "@/components/OptionCard";
 import { useAppStore } from "@/store/appStore";
@@ -24,6 +24,10 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
 
   const [draft, setDraft] = useState<QuizDraft>(() => draftFromProfile(profile));
   const [stepIndex, setStepIndex] = useState(0);
+  const [animDir, setAnimDir] = useState<"next" | "back">("next");
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [displayIndex, setDisplayIndex] = useState(0);
+  const timerRef = useRef(0);
 
   const step = QUIZ_STEPS[stepIndex];
   const isLast = stepIndex === QUIZ_STEPS.length - 1;
@@ -45,17 +49,32 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
   }
 
   function goNext() {
-    if (!canAdvance) return;
+    if (!canAdvance || isAnimating) return;
     if (!isLast) {
-      setStepIndex((i) => i + 1);
+      setAnimDir("next");
+      setIsAnimating(true);
+      clearTimeout(timerRef.current);
+      timerRef.current = window.setTimeout(() => {
+        setStepIndex((i) => i + 1);
+        setDisplayIndex((i) => i + 1);
+        setIsAnimating(false);
+      }, 180);
       return;
     }
     finish();
   }
 
   function goBack() {
+    if (isAnimating) return;
     if (stepIndex > 0) {
-      setStepIndex((i) => i - 1);
+      setAnimDir("back");
+      setIsAnimating(true);
+      clearTimeout(timerRef.current);
+      timerRef.current = window.setTimeout(() => {
+        setStepIndex((i) => i - 1);
+        setDisplayIndex((i) => i - 1);
+        setIsAnimating(false);
+      }, 180);
     } else if (onCancel) {
       onCancel();
     }
@@ -123,40 +142,69 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
         </div>
       </div>
 
-      <div className="stack-12">
-        <h1 className="screen-title">{step.title}</h1>
-        <p className="subtitle">{step.subtitle}</p>
-      </div>
+      <div
+        className={`quiz-step-content ${isAnimating ? (animDir === "next" ? "quiz-slide-out-left" : "quiz-slide-out-right") : ""}`}
+        style={{ position: "relative", minHeight: 200 }}
+      >
+        <div className="stack-12">
+          <h1 className="screen-title">{step.title}</h1>
+          <p className="subtitle">{step.subtitle}</p>
+        </div>
 
-      {step.kind === "choice" ? (
-        <div className="stack-12">
-          {step.options.map((opt) => (
-            <OptionCard
-              key={opt.value}
-              label={opt.label}
-              description={opt.description}
-              selected={choiceValue === opt.value}
-              onClick={() => selectChoice(step, opt.value)}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="stack-12">
-          {step.items.map((item) => (
-            <OptionCard
-              key={item.key}
-              label={item.label}
-              description={item.description}
-              selected={draft[item.key]}
-              onClick={() => toggle(item.key)}
-            />
-          ))}
-        </div>
-      )}
+        {step.kind === "choice" ? (
+          <div className="stack-12">
+            {step.options.map((opt) => (
+              <OptionCard
+                key={opt.value}
+                label={opt.label}
+                description={opt.description}
+                selected={choiceValue === opt.value}
+                onClick={() => selectChoice(step, opt.value)}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="stack-12">
+            {step.items.map((item) => (
+              <OptionCard
+                key={item.key}
+                label={item.label}
+                description={item.description}
+                selected={draft[item.key]}
+                onClick={() => toggle(item.key)}
+              />
+            ))}
+          </div>
+        )}
+      </div>
 
       <Button fullWidth onClick={goNext} disabled={!canAdvance}>
         {isLast ? "Save profile" : "Continue"}
       </Button>
+
+      <style>{`
+        .quiz-step-content {
+          animation: quiz-fade-in 0.2s ease forwards;
+        }
+        .quiz-slide-out-left {
+          animation: quiz-slide-left 0.18s ease forwards;
+        }
+        .quiz-slide-out-right {
+          animation: quiz-slide-right 0.18s ease forwards;
+        }
+        @keyframes quiz-fade-in {
+          from { opacity: 0; transform: translateX(20px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes quiz-slide-left {
+          from { opacity: 1; transform: translateX(0); }
+          to { opacity: 0; transform: translateX(-30px); }
+        }
+        @keyframes quiz-slide-right {
+          from { opacity: 1; transform: translateX(0); }
+          to { opacity: 0; transform: translateX(30px); }
+        }
+      `}</style>
     </div>
   );
 }

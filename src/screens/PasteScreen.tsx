@@ -7,13 +7,18 @@ import { countTokens } from "@engine/engine/index";
 import "./PasteScreen.css";
 
 interface PasteScreenProps {
-  readonly onAnalyze: (rawInci: string, productType: ProductType) => void;
+  readonly onAnalyze: (
+    rawInci: string,
+    productType: ProductType,
+    productName: string,
+  ) => void;
   readonly onEditProfile: () => void;
 }
 
 /** Lets the user pick a product type and paste one INCI list to analyze. */
 export function PasteScreen({ onAnalyze, onEditProfile }: PasteScreenProps) {
   const profile = useAppStore((s) => s.profile);
+  const [productName, setProductName] = useState("");
   const [productType, setProductType] = useState<ProductType>("shampoo");
   const [rawInci, setRawInci] = useState("");
 
@@ -47,17 +52,39 @@ export function PasteScreen({ onAnalyze, onEditProfile }: PasteScreenProps) {
 
       <div className="stack-12">
         <label className="field-label">Product type</label>
-        <div className="type-grid">
+        <div
+          className="type-grid product-type-rail"
+          aria-label="Product type options"
+        >
           {PRODUCT_TYPES.map((pt) => (
             <button
               key={pt.value}
+              type="button"
               className={`type-pill ${productType === pt.value ? "type-pill--active" : ""}`}
+              aria-pressed={productType === pt.value}
               onClick={() => setProductType(pt.value)}
             >
               {pt.label}
             </button>
           ))}
         </div>
+      </div>
+
+      <div className="stack-12">
+        <label className="field-label" htmlFor="product-name">
+          Product name
+        </label>
+        <GlassPanel padding={4}>
+          <input
+            id="product-name"
+            type="text"
+            className="product-name-input"
+            placeholder="e.g. OGX Argan Oil Shampoo"
+            value={productName}
+            onChange={(e) => setProductName(e.target.value)}
+            maxLength={80}
+          />
+        </GlassPanel>
       </div>
 
       <div className="stack-12">
@@ -87,7 +114,11 @@ export function PasteScreen({ onAnalyze, onEditProfile }: PasteScreenProps) {
         </p>
       </div>
 
-      <Button fullWidth disabled={!canAnalyze} onClick={() => onAnalyze(trimmed, productType)}>
+      <Button
+        fullWidth
+        disabled={!canAnalyze}
+        onClick={() => onAnalyze(trimmed, productType, productName.trim())}
+      >
         Analyze formula
       </Button>
     </div>

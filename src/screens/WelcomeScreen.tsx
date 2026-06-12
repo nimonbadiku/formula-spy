@@ -14,10 +14,11 @@ const STEPS = [
 /** First-run landing screen shown before the required hair quiz. */
 export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
   return (
-    <div className="stack-24" style={{ paddingTop: 24 }}>
+    <div className="stack-24 welcome-screen" style={{ paddingTop: 24 }}>
       <div style={{ textAlign: "center" }} className="stack-16">
         <div
           aria-hidden
+          className="welcome-icon"
           style={{
             width: 76,
             height: 76,
@@ -36,18 +37,18 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
           </svg>
         </div>
         <div className="stack-12">
-          <h1 className="screen-title" style={{ fontSize: 30 }}>
+          <h1 className="screen-title welcome-title" style={{ fontSize: 30 }}>
             Formula Spy
           </h1>
-          <p className="subtitle">
+          <p className="subtitle welcome-subtitle">
             Understand what's really in your hair care, scored for your hair.
           </p>
         </div>
       </div>
 
-      <GlassPanel className="stack-16">
-        {STEPS.map((step) => (
-          <div key={step.n} className="row" style={{ gap: 14, alignItems: "flex-start" }}>
+      <GlassPanel className="stack-16 welcome-steps">
+        {STEPS.map((step, i) => (
+          <div key={step.n} className="row welcome-step" style={{ gap: 14, alignItems: "flex-start", animationDelay: `${200 + i * 100}ms` }}>
             <div
               style={{
                 flexShrink: 0,
@@ -75,9 +76,43 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
         ))}
       </GlassPanel>
 
-      <Button fullWidth onClick={onStart}>
-        Build my hair profile
-      </Button>
+      <div className="welcome-cta">
+        <Button fullWidth onClick={onStart}>
+          Build my hair profile
+        </Button>
+      </div>
+
+      <style>{`
+        .welcome-icon {
+          opacity: 0;
+          animation: welcome-pop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards;
+        }
+        .welcome-title {
+          opacity: 0;
+          animation: welcome-fade-up 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+        }
+        .welcome-subtitle {
+          opacity: 0;
+          animation: welcome-fade-up 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+        }
+        .welcome-step {
+          opacity: 0;
+          animation: welcome-fade-up 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .welcome-cta {
+          opacity: 0;
+          animation: welcome-fade-up 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+        }
+        @keyframes welcome-pop {
+          0% { opacity: 0; transform: scale(0.6); }
+          60% { transform: scale(1.05); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes welcome-fade-up {
+          from { opacity: 0; transform: translateY(12px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }

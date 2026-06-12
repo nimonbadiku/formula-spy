@@ -1,20 +1,22 @@
+import { scoreBarColor } from "@/theme/tokens";
+
 interface ScoreBarProps {
   readonly label: string;
   readonly value: number;
   readonly hint?: string;
-  readonly color?: string;
 }
 
 /** Horizontal labelled meter for a single subscore in [0, 100]. */
-export function ScoreBar({ label, value, hint, color = "var(--blue)" }: ScoreBarProps) {
+export function ScoreBar({ label, value, hint }: ScoreBarProps) {
   const pct = Math.max(0, Math.min(100, value));
+  const color = scoreBarColor(pct);
   return (
     <div style={{ width: "100%" }}>
       <div className="spread" style={{ marginBottom: 7 }}>
         <span style={{ fontSize: 14, fontWeight: 600, color: "var(--text)" }}>
           {label}
         </span>
-        <span style={{ fontSize: 13, fontWeight: 600, color: "var(--text-soft)" }}>
+        <span style={{ fontSize: 13, fontWeight: 600, color }}>
           {Math.round(pct)}
         </span>
       </div>

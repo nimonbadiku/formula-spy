@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Formula Spy - History</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --bg: #f8f9fc;
+            --bg-soft: #f1f3f7;
+            --surface: rgba(255, 255, 255, 0.85);
+            --surface-solid: #ffffff;
+            --border: rgba(0, 0, 0, 0.06);
+            --hairline: rgba(0, 0, 0, 0.06);
+            --text: #1a1d26;
+            --text-soft: #5f6577;
+            --text-faint: #9098ab;
+            --blue: #3b6fee;
+            --blue-soft: #eef2fd;
+            --green: #2d9d78;
+            --green-soft: #e8f5ef;
+            --amber: #c5930a;
+            --amber-soft: #fdf4dc;
+            --red: #d94452;
+            --red-soft: #fde8ea;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --maxw: 480px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text);
+            background: 
+                radial-gradient(ellipse at 20% 90%, rgba(79, 141, 249, 0.2) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 85%, rgba(57, 194, 168, 0.18) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 70%, rgba(79, 141, 249, 0.08) 0%, transparent 50%),
+                var(--bg);
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .app-shell {
+            width: 100%;
+            max-width: var(--maxw);
+            min-height: 100vh;
+            min-height: 100dvh;
+            position: relative;
+            padding-bottom: 100px;
+        }
+
+        .app-main {
+            flex: 1;
+            padding: calc(env(safe-area-inset-top, 0px) + 16px) 18px 120px;
+            animation: fade-in 0.32s ease;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header */
+        .header {
+            padding: calc(env(safe-area-inset-top, 0px) + 16px) 18px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--blue);
+        }
+
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface-solid);
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--hairline);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: transform 0.15s ease;
+        }
+
+        .profile-btn:active {
+            transform: scale(0.97);
+        }
+
+        .profile-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        /* Page title */
+        .screen-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text);
+            padding: 24px 18px 28px;
+        }
+
+        /* Search bar */
+        .search-container {
+            padding: 0 18px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-faint);
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 16px 12px 44px;
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-md);
+            background: var(--surface-solid);
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-faint);
+        }
+
+        .search-input:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px var(--blue-soft);
+        }
+
+        /* Filter pills */
+        .filters {
+            display: flex;
+            gap: 10px;
+            padding: 0 18px 24px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .filters::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pill {
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1.5px solid var(--hairline);
+            background: var(--surface-solid);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-soft);
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .pill:active {
+            transform: scale(0.97);
+        }
+
+        .pill.active {
+            background: #eaf2ff;
+            border-color: #4f8df9;
+            color: #3b6fee;
+        }
+
+        /* Section headers */
+        .section {
+            padding: 0 18px;
+            margin-bottom: 24px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .section-count {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-faint);
+        }
+
+        /* History cards */
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .history-card {
+            background: var(--surface-solid);
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            box-shadow: var(--shadow-card);
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        .history-card:hover {
+            transform: translateY(-1px);
+        }
+
+        .history-card:active {
+            transform: scale(0.98);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .card-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-brand {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .card-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        .card-badge {
+            flex-shrink: 0;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .card-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .card-badge {
+            flex-shrink: 0;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-shampoo { background: linear-gradient(135deg, rgba(79,141,249,0.12) 0%, rgba(57,194,168,0.12) 130%); color: #3b6fee; }
+        .badge-cowash { background: linear-gradient(135deg, rgba(79,141,249,0.12) 0%, rgba(57,194,168,0.12) 130%); color: #3b6fee; }
+        .badge-conditioner { background: linear-gradient(135deg, rgba(79,141,249,0.12) 0%, rgba(57,194,168,0.12) 130%); color: #3b6fee; }
+        .badge-leavein { background: linear-gradient(135deg, rgba(79,141,249,0.12) 0%, rgba(57,194,168,0.12) 130%); color: #3b6fee; }
+        .badge-deep { background: linear-gradient(135deg, rgba(79,141,249,0.12) 0%, rgba(57,194,168,0.12) 130%); color: #3b6fee; }
+        .badge-oil { background: linear-gradient(135deg, rgba(79,141,249,0.12) 0%, rgba(57,194,168,0.12) 130%); color: #3b6fee; }
+        .badge-styling { background: linear-gradient(135deg, rgba(79,141,249,0.12) 0%, rgba(57,194,168,0.12) 130%); color: #3b6fee; }
+        .badge-treatment { background: linear-gradient(135deg, rgba(79,141,249,0.12) 0%, rgba(57,194,168,0.12) 130%); color: #3b6fee; }
+
+        /* Score bar */
+        .card-score {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .score-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-faint);
+            flex-shrink: 0;
+        }
+
+        .score-bar-track {
+            flex: 1;
+            height: 4px;
+            background: var(--hairline);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .score-value {
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            min-width: 24px;
+            text-align: right;
+        }
+
+        /* Score colors */
+        .score-0-20 .score-bar-fill { background: #b91c1c; }
+        .score-0-20 .score-value { color: #b91c1c; }
+        .score-21-40 .score-bar-fill { background: #dc2626; }
+        .score-21-40 .score-value { color: #dc2626; }
+        .score-41-49 .score-bar-fill { background: #ea580c; }
+        .score-41-49 .score-value { color: #ea580c; }
+        .score-50-59 .score-bar-fill { background: #f97316; }
+        .score-50-59 .score-value { color: #f97316; }
+        .score-60-69 .score-bar-fill { background: #eab308; }
+        .score-60-69 .score-value { color: #eab308; }
+        .score-70-80 .score-bar-fill { background: #65a30d; }
+        .score-70-80 .score-value { color: #65a30d; }
+        .score-81-89 .score-bar-fill { background: #22c55e; }
+        .score-81-89 .score-value { color: #22c55e; }
+        .score-90-plus .score-bar-fill { background: #16a34a; }
+        .score-90-plus .score-value { color: #16a34a; }
+            font-size: 13px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-good .progress { stroke: var(--green); }
+        .score-good .value { color: var(--green); }
+        .score-ok .progress { stroke: var(--amber); }
+        .score-ok .value { color: var(--amber); }
+        .score-bad .progress { stroke: var(--red); }
+        .score-bad .value { color: var(--red); }
+
+        /* Card ingredients */
+        .card-ingredients {
+            font-size: 14px;
+            color: var(--text-faint);
+            line-height: 1.5;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Card meta */
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-top: 10px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: var(--text-faint);
+        }
+
+        .meta-icon {
+            width: 14px;
+            height: 14px;
+            opacity: 0.5;
+        }
+
+        .meta-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--text-faint);
+            opacity: 0.4;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-faint);
+        }
+
+        .meta-icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
+        }
+
+        .meta-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-faint);
+            opacity: 0.4;
+        }
+
+        /* Bottom nav - Glassmorphism */
+        .bottom-nav {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            max-width: var(--maxw);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 6px 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 
+                0 8px 32px rgba(28, 53, 92, 0.12),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px 16px;
+            border-radius: 999px;
+            transition: all 0.15s ease;
+            text-decoration: none;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+        }
+
+        .nav-item:active {
+            transform: scale(0.97);
+        }
+
+        .nav-item.active {
+            background: rgba(79, 141, 249, 0.12);
+        }
+
+        .nav-item:active {
+            transform: scale(0.97);
+        }
+
+        .nav-item.active {
+            background: rgba(79, 141, 249, 0.12);
+        }
+
+        .nav-item:active {
+            transform: scale(0.97);
+        }
+
+        .nav-item.active {
+            background: rgba(79, 141, 249, 0.12);
+        }
+
+        .nav-item:active {
+            transform: scale(0.97);
+        }
+
+        .nav-item.active {
+            background: rgba(79, 141, 249, 0.12);
+        }
+
+        .nav-item:active {
+            transform: scale(0.97);
+        }
+
+        .nav-item.active {
+            background: rgba(79, 141, 249, 0.12);
+        }
+
+        .nav-item:active {
+            transform: scale(0.97);
+        }
+
+        .nav-item.active {
+            background: rgba(79, 141, 249, 0.12);
+        }
+
+        .nav-item:active {
+            transform: scale(0.97);
+        }
+
+        .nav-item.active {
+            background: rgba(79, 141, 249, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--text-faint);
+            transition: color 0.15s ease;
+        }
+
+        .nav-item.active .nav-icon {
+            color: var(--blue);
+        }
+
+        .nav-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-faint);
+            transition: color 0.15s ease;
+        }
+
+        .nav-item.active .nav-label {
+            color: var(--blue);
+        }
+
+        /* Swipe hint */
+        .swipe-hint {
+            text-align: center;
+            padding: 24px 18px 32px;
+            font-size: 13px;
+            color: var(--text-faint);
+            opacity: 0.5;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            body {
+                padding: 40px 20px;
+                background: #f0f1f5;
+            }
+            .app-shell {
+                border-radius: 20px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+                overflow: hidden;
+                min-height: calc(100vh - 80px);
+                background: var(--bg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-shell">
+        <div class="app-main">
+            <header class="header">
+                <div class="eyebrow">Formula Spy</div>
+                <button class="profile-btn" aria-label="Profile">
+                    <span class="profile-dot"></span>
+                    Profile
+                </button>
+            </header>
+
+            <h1 class="screen-title">Product History</h1>
+
+            <div class="search-container">
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="search" class="search-input" placeholder="Search products..." aria-label="Search products">
+                </div>
+            </div>
+
+            <div class="filters" role="group" aria-label="Filter by product type">
+                <button class="pill active" data-filter="all">All</button>
+                <button class="pill" data-filter="shampoo">Shampoo</button>
+                <button class="pill" data-filter="cowash">Co-wash</button>
+                <button class="pill" data-filter="conditioner">Conditioner</button>
+                <button class="pill" data-filter="leavein">Leave-in</button>
+                <button class="pill" data-filter="oil">Oil / Serum</button>
+                <button class="pill" data-filter="styling">Styling</button>
+                <button class="pill" data-filter="treatment">Treatment</button>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-title">Today</span>
+                    <span class="section-count">2</span>
+                </div>
+                <div class="history-list">
+                    <article class="history-card" data-type="deep" tabindex="0" role="button" aria-label="View SheaMoisture Curl Enhancing Smoothie analysis">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <div class="card-brand">SheaMoisture</div>
+                                <div class="card-name">Curl Enhancing Smoothie</div>
+                            </div>
+                            <span class="card-badge badge-deep">Deep Conditioner</span>
+                        </div>
+                        <div class="card-ingredients">Water, Cetearyl Alcohol, Butyrospermum Parkii Butter, Glycerin, Stearamidopropyl Dimethylamine</div>
+                        <div class="card-score score-81-89">
+                            <span class="score-label">Score</span>
+                            <div class="score-bar-track">
+                                <div class="score-bar-fill" style="width: 87%"></div>
+                            </div>
+                            <span class="score-value">87</span>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                                <span>2 hours ago</span>
+                            </div>
+                            <div class="meta-dot"></div>
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                                <span>26 ingredients</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="history-card" data-type="treatment" tabindex="0" role="button" aria-label="View Olaplex No. 3 Hair Perfector analysis">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <div class="card-brand">Olaplex</div>
+                                <div class="card-name">No. 3 Hair Perfector</div>
+                            </div>
+                            <span class="card-badge badge-treatment">Treatment</span>
+                        </div>
+                        <div class="card-ingredients">Water, Bis-Aminopropyl Diglycol Dimaleate, Propylene Glycol, Cetearyl Alcohol</div>
+                        <div class="card-score score-90-plus">
+                            <span class="score-label">Score</span>
+                            <div class="score-bar-track">
+                                <div class="score-bar-fill" style="width: 92%"></div>
+                            </div>
+                            <span class="score-value">92</span>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                                <span>5 hours ago</span>
+                            </div>
+                            <div class="meta-dot"></div>
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                                <span>18 ingredients</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-title">Yesterday</span>
+                    <span class="section-count">2</span>
+                </div>
+                <div class="history-list">
+                    <article class="history-card" data-type="shampoo" tabindex="0" role="button" aria-label="View OGX Argan Oil of Morocco Shampoo analysis">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <div class="card-brand">OGX</div>
+                                <div class="card-name">Argan Oil of Morocco Shampoo</div>
+                            </div>
+                            <span class="card-badge badge-shampoo">Shampoo</span>
+                        </div>
+                        <div class="card-ingredients">Water, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Sodium Chloride</div>
+                        <div class="card-score score-60-69">
+                            <span class="score-label">Score</span>
+                            <div class="score-bar-track">
+                                <div class="score-bar-fill" style="width: 64%"></div>
+                            </div>
+                            <span class="score-value">64</span>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                                <span>Yesterday, 3:42 PM</span>
+                            </div>
+                            <div class="meta-dot"></div>
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                                <span>14 ingredients</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="history-card" data-type="leavein" tabindex="0" role="button" aria-label="View Cantu Shea Butter Leave-In analysis">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <div class="card-brand">Cantu</div>
+                                <div class="card-name">Shea Butter Leave-In Conditioning Repair Cream</div>
+                            </div>
+                            <span class="card-badge badge-leavein">Leave-in</span>
+                        </div>
+                        <div class="card-ingredients">Water, Cetearyl Alcohol, Stearyl Alcohol, Canola Oil, Glycerin, Behentrimonium Chloride</div>
+                        <div class="card-score score-70-80">
+                            <span class="score-label">Score</span>
+                            <div class="score-bar-track">
+                                <div class="score-bar-fill" style="width: 81%"></div>
+                            </div>
+                            <span class="score-value">81</span>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                                <span>Yesterday, 11:15 AM</span>
+                            </div>
+                            <div class="meta-dot"></div>
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                                <span>22 ingredients</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-title">This Week</span>
+                    <span class="section-count">3</span>
+                </div>
+                <div class="history-list">
+                    <article class="history-card" data-type="styling" tabindex="0" role="button" aria-label="View Eco Styler Olive Oil Gel analysis">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <div class="card-brand">Eco Styler</div>
+                                <div class="card-name">Olive Oil Styling Gel</div>
+                            </div>
+                            <span class="card-badge badge-styling">Styling</span>
+                        </div>
+                        <div class="card-ingredients">Water, Carbomer, Aminomethyl Propanol, Olea Europaea Fruit Oil, PVP</div>
+                        <div class="card-score score-41-49">
+                            <span class="score-label">Score</span>
+                            <div class="score-bar-track">
+                                <div class="score-bar-fill" style="width: 42%"></div>
+                            </div>
+                            <span class="score-value">42</span>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                                <span>Jun 8, 2026</span>
+                            </div>
+                            <div class="meta-dot"></div>
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                                <span>8 ingredients</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="history-card" data-type="oil" tabindex="0" role="button" aria-label="View Moroccanoil Treatment analysis">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <div class="card-brand">Moroccanoil</div>
+                                <div class="card-name">Treatment Oil</div>
+                            </div>
+                            <span class="card-badge badge-oil">Oil / Serum</span>
+                        </div>
+                        <div class="card-ingredients">Cyclomethicone, Dimethicone, Argania Spinosa Kernel Oil, Linseed Seed Extract</div>
+                        <div class="card-score score-81-89">
+                            <span class="score-label">Score</span>
+                            <div class="score-bar-track">
+                                <div class="score-bar-fill" style="width: 89%"></div>
+                            </div>
+                            <span class="score-value">89</span>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                                <span>Jun 7, 2026</span>
+                            </div>
+                            <div class="meta-dot"></div>
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                                <span>11 ingredients</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="history-card" data-type="cowash" tabindex="0" role="button" aria-label="View As I Am CoWash analysis">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <div class="card-brand">As I Am</div>
+                                <div class="card-name">CoWash Cleansing Conditioner</div>
+                            </div>
+                            <span class="card-badge badge-cowash">Co-wash</span>
+                        </div>
+                        <div class="card-ingredients">Water, Cetyl Alcohol, Cetearyl Alcohol, Behentrimonium Chloride, Aloe Barbadensis Leaf Juice</div>
+                        <div class="card-score score-81-89">
+                            <span class="score-label">Score</span>
+                            <div class="score-bar-track">
+                                <div class="score-bar-fill" style="width: 85%"></div>
+                            </div>
+                            <span class="score-value">85</span>
+                        </div>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                                <span>Jun 6, 2026</span>
+                            </div>
+                            <div class="meta-dot"></div>
+                            <div class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                                <span>19 ingredients</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="swipe-hint">Swipe left to delete</div>
+        </div>
+
+        <nav class="bottom-nav" aria-label="Main navigation">
+            <a href="#" class="nav-item" aria-label="Analyze">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <span class="nav-label">Analyze</span>
+            </a>
+            <a href="#" class="nav-item active" aria-label="History" aria-current="page">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12,6 12,12 16,14"/>
+                </svg>
+                <span class="nav-label">History</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        const pills = document.querySelectorAll('.pill');
+        const cards = document.querySelectorAll('.history-card');
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                const filter = pill.dataset.filter;
+                cards.forEach(card => {
+                    card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none';
+                });
+                document.querySelectorAll('.section').forEach(section => {
+                    const visible = section.querySelectorAll('.history-card:not([style*="display: none"])').length;
+                    const countEl = section.querySelector('.section-count');
+                    if (countEl) countEl.textContent = visible;
+                    section.style.display = visible === 0 ? 'none' : '';
+                });
+            });
+        });
+
+        document.querySelector('.search-input').addEventListener('input', (e) => {
+            const q = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const name = card.querySelector('.card-name').textContent.toLowerCase();
+                const brand = card.querySelector('.card-brand').textContent.toLowerCase();
+                const badge = card.querySelector('.card-badge').textContent.toLowerCase();
+                card.style.display = (name.includes(q) || brand.includes(q) || badge.includes(q)) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
