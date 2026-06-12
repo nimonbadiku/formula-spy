@@ -1,20 +1,52 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/Button";
 import { OptionCard } from "@/components/OptionCard";
 import { useAppStore } from "@/store/appStore";
 import type { StoredHairProfile } from "@/store/types";
 import {
   QUIZ_STEPS,
+  BRANCH_SCREENS,
   draftFromProfile,
   type ChoiceStep,
   type QuizDraft,
   type ToggleStep,
 } from "@/lib/quiz";
+import { BranchScreen } from "./BranchScreen";
 
 interface QuizScreenProps {
   readonly onDone: () => void;
   readonly onCancel?: () => void;
 }
+
+const stepVariants = {
+  enter: (dir: number) => ({
+    x: dir > 0 ? 80 : -80,
+    opacity: 0,
+    filter: "blur(8px)",
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+  },
+  exit: (dir: number) => ({
+    x: dir > 0 ? -80 : 80,
+    opacity: 0,
+    filter: "blur(8px)",
+  }),
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.04, duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  }),
+};
+
+const BRANCH_EXCLUDED_KEYS = new Set(["curlPattern"]);
 
 export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
   const profile = useAppStore((s) => s.profile);
@@ -22,8 +54,8 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
 
   const [draft, setDraft] = useState<QuizDraft>(() => draftFromProfile(profile));
   const [stepIndex, setStepIndex] = useState(0);
-  const [animDir, setAnimDir] = useState<"out-left" | "in-right" | "out-right" | "in-left" | "">("");
-  const timerRef = useRef(0);
+  const [direction, setDirection] = useState(1);
+  const [branchFor, setBranchFor] = useState<ChoiceStep["key"] | null>(null);
 
   const step = QUIZ_STEPS[stepIndex];
   const isLast = stepIndex === QUIZ_STEPS.length - 1;
@@ -31,6 +63,11 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
 
   const choiceValue = step.kind === "choice" ? draft[step.key] : undefined;
   const canAdvance = step.kind === "toggles" || choiceValue !== undefined;
+
+  const showIDontKnow =
+    step.kind === "choice" &&
+    !BRANCH_EXCLUDED_KEYS.has(step.key) &&
+    BRANCH_SCREENS[step.key] !== undefined;
 
   function selectChoice(stepDef: ChoiceStep, value: string) {
     setDraft((d) => ({ ...d, [stepDef.key]: value }));
@@ -43,14 +80,8 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
   function goNext() {
     if (!canAdvance) return;
     if (!isLast) {
-      setAnimDir("out-left");
-      clearTimeout(timerRef.current);
-      timerRef.current = window.setTimeout(() => {
-        setStepIndex((i) => i + 1);
-        setAnimDir("in-right");
-        clearTimeout(timerRef.current);
-        timerRef.current = window.setTimeout(() => setAnimDir(""), 250);
-      }, 200);
+      setDirection(1);
+      setStepIndex((i) => i + 1);
       return;
     }
     finish();
@@ -58,17 +89,22 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
 
   function goBack() {
     if (stepIndex > 0) {
-      setAnimDir("out-right");
-      clearTimeout(timerRef.current);
-      timerRef.current = window.setTimeout(() => {
-        setStepIndex((i) => i - 1);
-        setAnimDir("in-left");
-        clearTimeout(timerRef.current);
-        timerRef.current = window.setTimeout(() => setAnimDir(""), 250);
-      }, 200);
+      setDirection(-1);
+      setStepIndex((i) => i - 1);
     } else if (onCancel) {
       onCancel();
     }
+  }
+
+  function enterBranch() {
+    if (step.kind !== "choice") return;
+    setDirection(1);
+    setBranchFor(step.key);
+  }
+
+  function exitBranch() {
+    setDirection(-1);
+    setBranchFor(null);
   }
 
   function finish() {
@@ -89,7 +125,24 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
     onDone();
   }
 
-  const animClass = animDir ? `quiz-${animDir}` : "";
+  const options =
+    step.kind === "choice"
+      ? step.options.map((opt) => ({
+          key: opt.value,
+          label: opt.label,
+          description: opt.description,
+          selected: choiceValue === opt.value,
+          onClick: () => selectChoice(step, opt.value),
+        }))
+      : step.items.map((item) => ({
+          key: item.key,
+          label: item.label,
+          description: item.description,
+          selected: draft[item.key],
+          onClick: () => toggle(item.key),
+        }));
+
+  const contentKey = branchFor ? `branch-${branchFor}` : `step-${stepIndex}`;
 
   return (
     <div className="stack-24">
@@ -98,13 +151,15 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
           <button
             className="btn btn--ghost"
             style={{ marginLeft: -14 }}
-            onClick={goBack}
+            onClick={branchFor ? exitBranch : goBack}
           >
-            {stepIndex === 0 && !onCancel ? "" : "← Back"}
+            {stepIndex === 0 && !onCancel && !branchFor ? "" : "← Back"}
           </button>
-          <span className="muted" style={{ fontSize: 13, fontWeight: 600 }}>
-            {stepIndex + 1} of {QUIZ_STEPS.length}
-          </span>
+          {!branchFor && (
+            <span className="muted" style={{ fontSize: 13, fontWeight: 600 }}>
+              {stepIndex + 1} of {QUIZ_STEPS.length}
+            </span>
+          )}
         </div>
         <div
           style={{
@@ -114,92 +169,93 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
             overflow: "hidden",
           }}
         >
-          <div
+          <motion.div
+            animate={{ width: `${progress}%` }}
+            transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
             style={{
-              width: `${progress}%`,
               height: "100%",
               borderRadius: 99,
               background: "linear-gradient(90deg, var(--blue), var(--green))",
-              transition: "width 0.35s ease",
             }}
           />
         </div>
       </div>
 
-      <div className={`quiz-step-content ${animClass}`}>
-        <div className="stack-12">
-          <h1 className="screen-title">{step.title}</h1>
-          <p className="subtitle" style={{ marginBottom: 20 }}>{step.subtitle}</p>
-        </div>
+      <div>
+        <AnimatePresence mode="wait" custom={direction}>
+          {branchFor ? (
+            <motion.div
+              key={contentKey}
+              custom={direction}
+              variants={stepVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <BranchScreen
+                branch={BRANCH_SCREENS[branchFor]!}
+                onDone={exitBranch}
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key={contentKey}
+              custom={direction}
+              variants={stepVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <div className="stack-12">
+                <h1 className="screen-title">{step.title}</h1>
+                <p className="subtitle" style={{ marginBottom: 20 }}>{step.subtitle}</p>
+              </div>
 
-        {step.kind === "choice" ? (
-          <div className="stack-12">
-            {step.options.map((opt) => (
-              <OptionCard
-                key={opt.value}
-                label={opt.label}
-                description={opt.description}
-                selected={choiceValue === opt.value}
-                onClick={() => selectChoice(step, opt.value)}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="stack-12">
-            {step.items.map((item) => (
-              <OptionCard
-                key={item.key}
-                label={item.label}
-                description={item.description}
-                selected={draft[item.key]}
-                onClick={() => toggle(item.key)}
-              />
-            ))}
-          </div>
-        )}
+              <div className="stack-12" style={{ minHeight: 404 }}>
+                {options.map((opt, i) => (
+                  <motion.div
+                    key={opt.key}
+                    custom={i}
+                    variants={cardVariants}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <OptionCard
+                      label={opt.label}
+                      description={opt.description}
+                      selected={opt.selected}
+                      onClick={opt.onClick}
+                    />
+                  </motion.div>
+                ))}
+                {showIDontKnow && (
+                  <motion.div
+                    custom={options.length}
+                    variants={cardVariants}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <OptionCard
+                      label="I don't know"
+                      description="Show me a quick self-test"
+                      selected={false}
+                      onClick={enterBranch}
+                    />
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      <Button fullWidth onClick={goNext} disabled={!canAdvance}>
-        {isLast ? "Save profile" : "Continue"}
-      </Button>
-
-      <style>{`
-        .quiz-step-content {
-          animation: quiz-fade-in 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .quiz-out-left {
-          animation: quiz-slide-out-left 0.2s ease forwards;
-        }
-        .quiz-in-right {
-          animation: quiz-slide-in-right 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .quiz-out-right {
-          animation: quiz-slide-out-right 0.2s ease forwards;
-        }
-        .quiz-in-left {
-          animation: quiz-slide-in-left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        @keyframes quiz-fade-in {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes quiz-slide-out-left {
-          from { opacity: 1; transform: translateX(0); }
-          to { opacity: 0; transform: translateX(-40px); }
-        }
-        @keyframes quiz-slide-in-right {
-          from { opacity: 0; transform: translateX(40px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes quiz-slide-out-right {
-          from { opacity: 1; transform: translateX(0); }
-          to { opacity: 0; transform: translateX(40px); }
-        }
-        @keyframes quiz-slide-in-left {
-          from { opacity: 0; transform: translateX(-40px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-      `}</style>
+      {!branchFor && (
+        <Button fullWidth onClick={goNext} disabled={!canAdvance}>
+          {isLast ? "Save profile" : "Continue"}
+        </Button>
+      )}
     </div>
   );
 }
