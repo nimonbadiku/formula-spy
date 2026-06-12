@@ -146,13 +146,15 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
         className={`quiz-step-content ${isAnimating ? (animDir === "next" ? "quiz-slide-out-left" : "quiz-slide-out-right") : ""}`}
         style={{ position: "relative", minHeight: 200 }}
       >
-        <div className="stack-12">
+        <div className="stack-16">
           <h1 className="screen-title">{step.title}</h1>
           <p className="subtitle">{step.subtitle}</p>
         </div>
 
+        <div style={{ height: 40 }} />
+
         {step.kind === "choice" ? (
-          <div className="stack-12">
+          <div className="stack-16">
             {step.options.map((opt) => (
               <OptionCard
                 key={opt.value}
@@ -164,7 +166,7 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
             ))}
           </div>
         ) : (
-          <div className="stack-12">
+          <div className="stack-16">
             {step.items.map((item) => (
               <OptionCard
                 key={item.key}
