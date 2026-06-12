@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/Button";
 import { OptionCard } from "@/components/OptionCard";
 import { useAppStore } from "@/store/appStore";
@@ -13,27 +13,23 @@ import {
 
 interface QuizScreenProps {
   readonly onDone: () => void;
-  /** Provided only when editing an existing profile (allows cancel). */
   readonly onCancel?: () => void;
 }
 
-/** Required multi-step hair quiz. Collects every field of the hair profile. */
 export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
   const profile = useAppStore((s) => s.profile);
   const saveProfile = useAppStore((s) => s.saveProfile);
 
   const [draft, setDraft] = useState<QuizDraft>(() => draftFromProfile(profile));
   const [stepIndex, setStepIndex] = useState(0);
+  const [animDir, setAnimDir] = useState<"out-left" | "in-right" | "out-right" | "in-left" | "">("");
+  const timerRef = useRef(0);
 
   const step = QUIZ_STEPS[stepIndex];
   const isLast = stepIndex === QUIZ_STEPS.length - 1;
   const progress = ((stepIndex + 1) / QUIZ_STEPS.length) * 100;
 
-  const choiceValue = useMemo(() => {
-    if (step.kind !== "choice") return undefined;
-    return draft[step.key];
-  }, [step, draft]);
-
+  const choiceValue = step.kind === "choice" ? draft[step.key] : undefined;
   const canAdvance = step.kind === "toggles" || choiceValue !== undefined;
 
   function selectChoice(stepDef: ChoiceStep, value: string) {
@@ -47,7 +43,14 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
   function goNext() {
     if (!canAdvance) return;
     if (!isLast) {
-      setStepIndex((i) => i + 1);
+      setAnimDir("out-left");
+      clearTimeout(timerRef.current);
+      timerRef.current = window.setTimeout(() => {
+        setStepIndex((i) => i + 1);
+        setAnimDir("in-right");
+        clearTimeout(timerRef.current);
+        timerRef.current = window.setTimeout(() => setAnimDir(""), 250);
+      }, 200);
       return;
     }
     finish();
@@ -55,23 +58,21 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
 
   function goBack() {
     if (stepIndex > 0) {
-      setStepIndex((i) => i - 1);
+      setAnimDir("out-right");
+      clearTimeout(timerRef.current);
+      timerRef.current = window.setTimeout(() => {
+        setStepIndex((i) => i - 1);
+        setAnimDir("in-left");
+        clearTimeout(timerRef.current);
+        timerRef.current = window.setTimeout(() => setAnimDir(""), 250);
+      }, 200);
     } else if (onCancel) {
       onCancel();
     }
   }
 
   function finish() {
-    // All choice fields are guaranteed set by the time we reach the last step.
-    if (
-      !draft.porosity ||
-      !draft.density ||
-      !draft.condition ||
-      !draft.oiliness ||
-      !draft.curlPattern
-    ) {
-      return;
-    }
+    if (!draft.porosity || !draft.density || !draft.condition || !draft.oiliness || !draft.curlPattern) return;
     const next: StoredHairProfile = {
       porosity: draft.porosity,
       density: draft.density,
@@ -87,6 +88,8 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
     saveProfile(next);
     onDone();
   }
+
+  const animClass = animDir ? `quiz-${animDir}` : "";
 
   return (
     <div className="stack-24">
@@ -123,40 +126,80 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
         </div>
       </div>
 
-      <div className="stack-12">
-        <h1 className="screen-title">{step.title}</h1>
-        <p className="subtitle" style={{ marginBottom: 40 }}>{step.subtitle}</p>
-      </div>
+      <div className={`quiz-step-content ${animClass}`}>
+        <div className="stack-12">
+          <h1 className="screen-title">{step.title}</h1>
+          <p className="subtitle" style={{ marginBottom: 20 }}>{step.subtitle}</p>
+        </div>
 
-      {step.kind === "choice" ? (
-        <div className="stack-12">
-          {step.options.map((opt) => (
-            <OptionCard
-              key={opt.value}
-              label={opt.label}
-              description={opt.description}
-              selected={choiceValue === opt.value}
-              onClick={() => selectChoice(step, opt.value)}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="stack-12">
-          {step.items.map((item) => (
-            <OptionCard
-              key={item.key}
-              label={item.label}
-              description={item.description}
-              selected={draft[item.key]}
-              onClick={() => toggle(item.key)}
-            />
-          ))}
-        </div>
-      )}
+        {step.kind === "choice" ? (
+          <div className="stack-12">
+            {step.options.map((opt) => (
+              <OptionCard
+                key={opt.value}
+                label={opt.label}
+                description={opt.description}
+                selected={choiceValue === opt.value}
+                onClick={() => selectChoice(step, opt.value)}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="stack-12">
+            {step.items.map((item) => (
+              <OptionCard
+                key={item.key}
+                label={item.label}
+                description={item.description}
+                selected={draft[item.key]}
+                onClick={() => toggle(item.key)}
+              />
+            ))}
+          </div>
+        )}
+      </div>
 
       <Button fullWidth onClick={goNext} disabled={!canAdvance}>
         {isLast ? "Save profile" : "Continue"}
       </Button>
+
+      <style>{`
+        .quiz-step-content {
+          animation: quiz-fade-in 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .quiz-out-left {
+          animation: quiz-slide-out-left 0.2s ease forwards;
+        }
+        .quiz-in-right {
+          animation: quiz-slide-in-right 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .quiz-out-right {
+          animation: quiz-slide-out-right 0.2s ease forwards;
+        }
+        .quiz-in-left {
+          animation: quiz-slide-in-left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        @keyframes quiz-fade-in {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes quiz-slide-out-left {
+          from { opacity: 1; transform: translateX(0); }
+          to { opacity: 0; transform: translateX(-40px); }
+        }
+        @keyframes quiz-slide-in-right {
+          from { opacity: 0; transform: translateX(40px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes quiz-slide-out-right {
+          from { opacity: 1; transform: translateX(0); }
+          to { opacity: 0; transform: translateX(40px); }
+        }
+        @keyframes quiz-slide-in-left {
+          from { opacity: 0; transform: translateX(-40px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+      `}</style>
     </div>
   );
 }
