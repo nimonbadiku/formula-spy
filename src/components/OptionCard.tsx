@@ -25,17 +25,6 @@ export function OptionCard({
       {description && (
         <span className="option-card__desc">{description}</span>
       )}
-      <span className="option-card__check" aria-hidden="true">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M5 12.5l4.5 4.5L19 7"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
     </button>
   );
 }

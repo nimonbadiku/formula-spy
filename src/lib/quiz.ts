@@ -99,8 +99,8 @@ export const QUIZ_STEPS: readonly QuizStep[] = [
   },
   {
     kind: "toggles",
-    title: "A few sensitivities",
-    subtitle: "Toggle anything that applies. You can leave them all off.",
+    title: "What's your hair like?",
+    subtitle: "Select everything that applies to you.",
     items: [
       {
         key: "scalpSensitivity",
