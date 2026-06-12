@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/Button";
 import { OptionCard } from "@/components/OptionCard";
 import { useAppStore } from "@/store/appStore";
@@ -22,8 +22,7 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
 
   const [draft, setDraft] = useState<QuizDraft>(() => draftFromProfile(profile));
   const [stepIndex, setStepIndex] = useState(0);
-  const [animDir, setAnimDir] = useState<"out-left" | "in-right" | "out-right" | "in-left" | "">("");
-  const timerRef = useRef(0);
+  const [animDir, setAnimDir] = useState<"next" | "back" | "">("");
 
   const step = QUIZ_STEPS[stepIndex];
   const isLast = stepIndex === QUIZ_STEPS.length - 1;
@@ -43,14 +42,8 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
   function goNext() {
     if (!canAdvance) return;
     if (!isLast) {
-      setAnimDir("out-left");
-      clearTimeout(timerRef.current);
-      timerRef.current = window.setTimeout(() => {
-        setStepIndex((i) => i + 1);
-        setAnimDir("in-right");
-        clearTimeout(timerRef.current);
-        timerRef.current = window.setTimeout(() => setAnimDir(""), 250);
-      }, 200);
+      setAnimDir("next");
+      setStepIndex((i) => i + 1);
       return;
     }
     finish();
@@ -58,14 +51,8 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
 
   function goBack() {
     if (stepIndex > 0) {
-      setAnimDir("out-right");
-      clearTimeout(timerRef.current);
-      timerRef.current = window.setTimeout(() => {
-        setStepIndex((i) => i - 1);
-        setAnimDir("in-left");
-        clearTimeout(timerRef.current);
-        timerRef.current = window.setTimeout(() => setAnimDir(""), 250);
-      }, 200);
+      setAnimDir("back");
+      setStepIndex((i) => i - 1);
     } else if (onCancel) {
       onCancel();
     }
@@ -89,7 +76,7 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
     onDone();
   }
 
-  const animClass = animDir ? `quiz-${animDir}` : "";
+  const enterClass = animDir === "next" ? "quiz-enter-right" : animDir === "back" ? "quiz-enter-left" : "";
 
   return (
     <div className="stack-24">
@@ -126,37 +113,39 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
         </div>
       </div>
 
-      <div className={`quiz-step-content ${animClass}`}>
-        <div className="stack-12">
-          <h1 className="screen-title">{step.title}</h1>
-          <p className="subtitle" style={{ marginBottom: 20 }}>{step.subtitle}</p>
-        </div>
+      <div style={{ overflow: "hidden" }}>
+        <div key={stepIndex} className={`quiz-step-content ${enterClass}`}>
+          <div className="stack-12">
+            <h1 className="screen-title">{step.title}</h1>
+            <p className="subtitle" style={{ marginBottom: 20 }}>{step.subtitle}</p>
+          </div>
 
-        {step.kind === "choice" ? (
-          <div className="stack-12">
-            {step.options.map((opt) => (
-              <OptionCard
-                key={opt.value}
-                label={opt.label}
-                description={opt.description}
-                selected={choiceValue === opt.value}
-                onClick={() => selectChoice(step, opt.value)}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="stack-12">
-            {step.items.map((item) => (
-              <OptionCard
-                key={item.key}
-                label={item.label}
-                description={item.description}
-                selected={draft[item.key]}
-                onClick={() => toggle(item.key)}
-              />
-            ))}
-          </div>
-        )}
+          {step.kind === "choice" ? (
+            <div className="stack-12">
+              {step.options.map((opt) => (
+                <OptionCard
+                  key={opt.value}
+                  label={opt.label}
+                  description={opt.description}
+                  selected={choiceValue === opt.value}
+                  onClick={() => selectChoice(step, opt.value)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="stack-12">
+              {step.items.map((item) => (
+                <OptionCard
+                  key={item.key}
+                  label={item.label}
+                  description={item.description}
+                  selected={draft[item.key]}
+                  onClick={() => toggle(item.key)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
       <Button fullWidth onClick={goNext} disabled={!canAdvance}>
@@ -165,39 +154,29 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
 
       <style>{`
         .quiz-step-content {
-          animation: quiz-fade-in 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+          animation: quiz-enter 0.22s ease-out forwards;
         }
-        .quiz-out-left {
-          animation: quiz-slide-out-left 0.2s ease forwards;
+        .quiz-exit-left {
+          animation: quiz-exit-left 0.18s ease-in forwards;
         }
-        .quiz-in-right {
-          animation: quiz-slide-in-right 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        .quiz-exit-right {
+          animation: quiz-exit-right 0.18s ease-in forwards;
         }
-        .quiz-out-right {
-          animation: quiz-slide-out-right 0.2s ease forwards;
+        @keyframes quiz-enter-right {
+          from { opacity: 0; transform: translateX(32px); }
+          to   { opacity: 1; transform: translateX(0); }
         }
-        .quiz-in-left {
-          animation: quiz-slide-in-left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        @keyframes quiz-enter-left {
+          from { opacity: 0; transform: translateX(-32px); }
+          to   { opacity: 1; transform: translateX(0); }
         }
-        @keyframes quiz-fade-in {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes quiz-slide-out-left {
+        @keyframes quiz-exit-left {
           from { opacity: 1; transform: translateX(0); }
-          to { opacity: 0; transform: translateX(-40px); }
+          to   { opacity: 0; transform: translateX(-32px); }
         }
-        @keyframes quiz-slide-in-right {
-          from { opacity: 0; transform: translateX(40px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes quiz-slide-out-right {
+        @keyframes quiz-exit-right {
           from { opacity: 1; transform: translateX(0); }
-          to { opacity: 0; transform: translateX(40px); }
-        }
-        @keyframes quiz-slide-in-left {
-          from { opacity: 0; transform: translateX(-40px); }
-          to { opacity: 1; transform: translateX(0); }
+          to   { opacity: 0; transform: translateX(32px); }
         }
       `}</style>
     </div>
