@@ -151,10 +151,8 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
           <p className="subtitle">{step.subtitle}</p>
         </div>
 
-        <div style={{ height: 40 }} />
-
         {step.kind === "choice" ? (
-          <div className="stack-16">
+          <div className="stack-16" style={{ marginTop: 24 }}>
             {step.options.map((opt) => (
               <OptionCard
                 key={opt.value}
@@ -166,7 +164,7 @@ export function QuizScreen({ onDone, onCancel }: QuizScreenProps) {
             ))}
           </div>
         ) : (
-          <div className="stack-16">
+          <div className="stack-16" style={{ marginTop: 24 }}>
             {step.items.map((item) => (
               <OptionCard
                 key={item.key}
