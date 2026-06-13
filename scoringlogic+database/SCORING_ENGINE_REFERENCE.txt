@@ -1,0 +1,549 @@
+FORMULA SPY SCORING ENGINE — COMPLETE REFERENCE
+=================================================
+
+This document describes every factor the scoring engine considers when evaluating a hair product.
+
+Last updated: 2026-06-13
+
+TABLE OF CONTENTS
+-----------------
+1. Per-Ingredient Scoring
+2. Position Weighting
+3. Profile Modifiers
+4. Molecular Weight Heuristics
+5. Buildup Analysis
+6. Humectant Environment
+7. Protein Balance
+8. Cleanser Harshness
+9. Advanced Profile Modifiers
+10. Formulation Balance
+11. Concentration Estimation
+12. Critical Signal Detection
+13. Evidence Engine
+14. Product Subtype Detection
+15. Formula Completeness
+16. Claim Validation
+17. Functional Efficacy Gate
+18. Calibration Layer
+19. Tag Reliability
+20. Profile-Product Gating
+21. Final Score Calculation
+
+
+1. PER-INGREDIENT SCORING
+=========================
+
+File: scoreIngredient.ts
+
+What it does:
+- Reads the base score from database product_roles[productType].score
+- Applies profile modifiers based on hair type flags
+
+Factors:
+- Base score: 0-100 from database (how good is this ingredient for this product type)
+- Profile modifier (Phase 2): binary flags g/b/n → multiplier 1.0/0.5/1.0
+- Profile modifier (Phase 3): compatibility scores [-1.0, +1.0] → multiplier [×0.85, ×1.15]
+- High porosity boost: humectants and emollients get extra multiplier (×1.15-1.22)
+- Emollient floor: oils/waxes on high-porosity conditioning products get minimum score 62
+
+Scoring formula:
+  finalScore = baseScore × profileModifier × highPorosityBoost
+
+
+2. POSITION WEIGHTING
+=====================
+
+File: positionWeighting.ts
+
+What it does:
+- Ingredients earlier in the INCI list have more influence
+- Uses geometric decay: position i gets weight = 0.85^i
+- Weights are normalized to sum to 1.0
+
+Factors:
+- Position 0: weight 1.0 (highest influence)
+- Each subsequent position: weight × 0.85
+- Normalization: all weights sum to 1.0
+
+Purpose: Prevents long INCI lists from diluting the score of key ingredients.
+
+
+3. PROFILE MODIFIERS
+====================
+
+File: scoreIngredient.ts
+
+What it does:
+- Adjusts ingredient scores based on user's hair profile
+
+Factors:
+- Porosity (low/med/high): affects how ingredients interact with hair
+- Density (fine/med/coarse): affects weight tolerance
+- Condition (healthy/normal/damaged): affects repair needs
+- Oiliness (dry/normal/oily): affects cleansing/moisture needs
+- Curl pattern (straight/wavy/curly/coily): affects styling needs
+- Scalp sensitivity: penalizes irritants
+- Protein sensitivity: penalizes proteins
+- Silicone sensitivity: penalizes silicones
+- Chemically treated: affects damage sensitivity
+
+Modifier values:
+- Bad flag: ×0.5 (penalty)
+- Neutral flag: ×1.0 (no change)
+- Compatibility score: ×0.85 to ×1.15 (subtle gradient)
+
+
+4. MOLECULAR WEIGHT HEURISTICS
+==============================
+
+File: molecularWeightHeuristics.ts
+
+What it does:
+- Classifies ingredients by molecular weight
+- Applies modifiers based on MW and product type
+
+Factors:
+- Low MW (<500 Da): penetrates hair cortex, better for treatments
+- Medium MW (500-1000 Da): surface-level conditioning
+- High MW (>1000 Da): film-forming, surface coating
+- Silicone classification: volatile vs non-volatile vs water-soluble
+
+Modifiers:
+- Low-MW protein on damaged hair: ×1.15 bonus
+- Heavy silicone on low-porosity: ×0.85 penalty
+- Volatile silicone: neutral (evaporates)
+
+
+5. BUILDUP ANALYSIS
+===================
+
+File: builtupAnalysis.ts
+
+What it does:
+- Detects ingredients that cause buildup over time
+- Applies penalties for buildup-prone ingredients
+
+Factors:
+- Silicone type: non-water-soluble causes buildup
+- Oil type: heavy oils cause buildup on low porosity
+- Film formers: some cause buildup
+- Frequency of use: leave-in vs rinse-off affects buildup risk
+
+Modifiers:
+- Buildup-prone ingredient: ×0.80 penalty
+- Low porosity + buildup ingredient: ×0.70 (amplified)
+- Rinse-off product: reduced buildup penalty
+
+
+6. HUMECTANT ENVIRONMENT
+========================
+
+File: humectantEnvironment.ts
+
+What it does:
+- Evaluates humectant effectiveness based on profile and product type
+
+Factors:
+- Dry scalp: humectants highly beneficial (+12%)
+- Oily scalp: humectants may compound oiliness (-12%)
+- Damaged hair: humectants critical for moisture (+10%)
+- Leave-in products: continuous effect (+8%)
+- Shampoo: counteracts stripping (+4%)
+
+Modifiers:
+- Dry scalp + humectant: ×1.12
+- Oily scalp + humectant: ×0.88
+- Damaged hair + humectant: ×1.10
+- Leave-in + humectant: ×1.08
+- Shampoo + humectant: ×1.04
+
+
+7. PROTEIN BALANCE
+==================
+
+File: proteinBalance.ts
+
+What it does:
+- Analyzes protein load and balance in the formulation
+- Applies bonuses for beneficial protein use
+- Applies penalties for protein overload or sensitivity
+
+Factors:
+- Damaged hair: protein beneficial (+20%)
+- Healthy hair: excess protein causes stiffness (-8%)
+- Protein-sensitive profile: penalty for each protein (-40%)
+- Multiple proteins: stacking risk (-12% per additional)
+- Low-MW proteins: better penetration, stronger bonus (+15%)
+- Protein + humectant: synergy bonus (+5%)
+
+Modifiers:
+- Damaged + protein: ×1.20
+- Healthy + protein: ×0.92
+- Protein-sensitive + protein: ×0.60
+- Stacking (2+ proteins): ×0.88 per additional
+- Low-MW protein + damaged: ×1.15 bonus
+- Protein + humectant synergy: ×1.05
+
+
+8. CLEANSER HARSHNESS
+=====================
+
+File: cleanserHarshness.ts
+
+What it does:
+- Classifies surfactants by harshness level
+- Applies profile-aware modifiers
+
+Harshness levels:
+- STRONG: Anionic sulfates (SLS, SLES) — strip sebum aggressively
+- MILD: Amphoteric surfactants (CAPB) — gentle cleansing
+- CONDITIONING: Cationic surfactants (quats) — condition while cleansing
+
+Profile interactions:
+- Strong + dry scalp: ×0.78 (over-stripping risk)
+- Strong + damaged hair: ×0.82 (further damage risk)
+- Strong + low porosity: ×1.05 (needed for buildup removal)
+- Mild + oily scalp: ×0.92 (may under-cleanse)
+- Conditioning + damaged hair: ×1.10 (repair while cleansing)
+- Mild + sensitive scalp: ×1.08 (gentle cleansing)
+
+Additional:
+- Multiple strong surfactants: stacking penalty per additional
+- Chemical treatment + strong surfactant: extra penalty
+
+
+9. ADVANCED PROFILE MODIFIERS
+=============================
+
+File: advancedProfileModifiers.ts
+
+What it does:
+- Applies complex profile-specific adjustments
+
+Factors:
+- Curly/coily hair: benefits from slip agents, proteins
+- Fine hair: penalizes heavy ingredients
+- Coarse hair: benefits from emollients
+- Color-treated hair: penalizes harsh surfactants
+- Heat-damaged hair: benefits from heat protectants
+
+
+10. FORMULATION BALANCE
+=======================
+
+File: formulationBalance.ts
+
+What it does:
+- Evaluates overall formulation balance
+- Detects over-cleansing, over-conditioning, low-support
+
+Conditions:
+- Over-cleansing: too many strong surfactants, insufficient conditioning
+- Over-conditioning: too many conditioning agents, insufficient cleansing
+- Low-support: very few functional ingredients for product type
+- Excessive layering: too many surface-layer ingredients
+
+Modifiers:
+- Over-cleansing: ×0.88
+- Over-conditioning: ×0.92
+- Low-support: ×0.90
+- Excessive layering: ×0.95 per excess ingredient
+
+
+11. CONCENTRATION ESTIMATION
+============================
+
+File: concentrationEstimation.ts
+
+What it does:
+- Estimates ingredient concentrations from INCI position
+- Uses cosmetic "1% line" heuristic
+
+Factors:
+- Position in INCI list (earlier = higher concentration)
+- Product type (different distribution models)
+- Ingredient category (preservatives typically <1%)
+
+Output per ingredient:
+- estimatedBand: dominant/primary/supporting/minor/trace/negligible
+- estimatedRelativeWeight: 0-1 (fraction of formula)
+- confidence: 0-100
+- isAbove1PctLine: boolean
+- scoringWeightModifier: 0.3-1.0
+
+Product type models:
+- Shampoo: 1% line at position 8
+- Conditioner: 1% line at position 9
+- Treatment: 1% line at position 5 (concentrated actives)
+- Leave-in: 1% line at position 11 (more even distribution)
+
+
+12. CRITICAL SIGNAL DETECTION
+=============================
+
+File: criticalSignalDetection.ts
+
+What it does:
+- Detects formulation-level compatibility/incompatibility signals
+- These are signals humans heavily overweight
+
+Signal types:
+- Sulfate-dominant shampoo for curly/damaged hair → incompatible
+- Heavy silicone leave-in for low-porosity hair → incompatible
+- Bond repair active for damaged hair → compatible (bonus)
+- Protein overload for protein-sensitive profile → incompatible
+
+Signal dominance:
+- dominant: 15-25 point impact
+- strong: 8-15 point impact
+- moderate: 4-8 point impact
+- soft: 1-4 point impact
+
+Combined modifier: product of all signal modifiers
+- Floor: 0.30 (prevents score collapse)
+- Ceiling: 1.60 (prevents score inflation)
+
+
+13. EVIDENCE ENGINE
+===================
+
+File: evidenceEngine.ts
+
+What it does:
+- Calculates evidence strength for functional dimensions
+- Uses scored ingredients × concentration × tag reliability
+
+Evidence dimensions:
+- cleansing, conditioning, moisture, repair, frizzControl
+- scalpHealth, volume, definition, shine, strength
+
+Calculation:
+  evidence = Σ (ingredient.finalScore × concentration.confidence × tagReliability × positionPenalty)
+
+Position penalty:
+- Above 1% line: 1.0 (full evidence)
+- Below 1% line: 0.3 (reduced evidence)
+
+Overall evidence: average of dimensions with contributors only
+
+
+14. PRODUCT SUBTYPE DETECTION
+=============================
+
+File: productSubtype.ts
+
+What it does:
+- Detects functional archetype before completeness evaluation
+
+Subtypes:
+- cleansing: dominant surfactant system
+- conditioning: dominant conditioning agents
+- treatment: dominant protein/bond/ceramide
+- sealing: dominant oils/silicones
+- styling: dominant film formers/polymers
+- hybrid: mixed functions
+- unknown: cannot determine
+
+Detection method:
+- Calculate category strength (weighted by concentration)
+- Find dominant category
+- Map to subtype
+
+
+15. FORMULA COMPLETENESS
+========================
+
+File: formulaCompleteness.ts
+
+What it does:
+- Evaluates function coverage, not ingredient count
+
+Required functions per subtype:
+- cleansing: surfactant
+- conditioning: conditioning agent
+- treatment: treatment active
+- sealing: sealant
+- styling: hold agent
+
+Completeness = (functions covered / functions required) × 100
+
+Grades:
+- empty: 0%
+- minimal: 1-49%
+- functional: 50-79%
+- complete: 80-99%
+- comprehensive: 100%
+
+
+16. CLAIM VALIDATION
+====================
+
+File: claimValidator.ts
+
+What it does:
+- Detects claims from product name
+- Validates claims against evidence
+- Detects contradictions
+
+Claims detected from product name:
+- repair, bondRepair, protein, scalpHealth
+- moisture, volume, frizzControl, definition
+- strength, shine, clarifying
+
+Verdicts:
+- supported: evidence supports claim (confidence > 60)
+- unsupported: no evidence for or against (20-60)
+- contradicted: evidence opposes claim (< 20)
+
+Contradiction examples:
+- Volume claim + heavy oils → contradicted
+- Moisture claim + drying alcohol → contradicted
+- Gentle claim + sulfate → contradicted
+
+
+17. FUNCTIONAL EFFICACY GATE
+============================
+
+File: functionalEfficacy.ts
+
+What it does:
+- Checks if product has minimum functional ingredients for category
+
+Requirements per category:
+- Shampoo/co-wash: must have cleansing surfactant
+- Conditioner/leave-in: must have conditioning/emollient/humectant
+- Mask: must have conditioning or treatment active
+- Serum: must have functional serum ingredient
+- Treatment: must have treatment active
+- Styler: must have styling/hold agent
+
+Penalties:
+- Missing required ingredient: -55 to -60 points
+
+
+18. CALIBRATION LAYER
+=====================
+
+File: calibrationLayer.ts
+
+What it does:
+- Final score calibration
+- Applies evidence-based scaling
+
+Evidence scaling curve:
+- Evidence < 20: ×0.4 (very low)
+- Evidence 20-30: ×0.5-0.6 (low)
+- Evidence 30-40: ×0.65-0.8 (moderate)
+- Evidence 40-50: ×0.85-1.0 (good)
+- Evidence > 50: ×1.0 (high)
+
+Additional calibrations:
+- Completeness multiplier: ×0.7-1.0 based on grade
+- Uncertainty penalty: -2% per uncertainty flag
+- Final clamp: 0-100
+
+
+19. TAG RELIABILITY
+===================
+
+File: tagReliability.ts
+
+What it does:
+- Assigns reliability weights to database tags
+
+Tiers:
+- Tier 1 (1.0): Scientific foundation (surfactant, protein, silicone)
+- Tier 2 (0.8): Generally accurate (damage-repair, conditioning-agent)
+- Tier 3 (0.5): Context-dependent (smoothing, volumizing)
+- Tier 4 (0.2): Marketing-heavy (botanical, natural)
+- Tier 5 (0.0): Pure marketing (luxury, premium, salon-quality)
+
+Unknown tags: surfaced for review, not silently scored
+
+
+20. PROFILE-PRODUCT GATING
+===========================
+
+File: profileProductGating.ts
+
+What it does:
+- Gates relevance of scoring stages per product type
+
+Gates:
+- isConditioningRelevant: false for shampoos/co-washes
+- isCleansingRelevant: false for leave-in products
+- isProteinRelevant: false for low-porosity (protein resists penetration)
+- isProteinDamageModifierRelevant: false for low-porosity and shampoos
+- isHumectantRelevant: always true (humectants always matter)
+- isBuildupPenaltyRelevant: true for low-porosity and silicone-sensitive
+- shouldWarnHarshCleanser: context-dependent based on surfactant count
+
+
+21. FINAL SCORE CALCULATION
+===========================
+
+File: engine/index.ts
+
+Pipeline:
+1. Parse INCI string into tokens
+2. Resolve tokens against database
+3. Score each ingredient (base + profile modifier)
+4. Compute position weights
+5. Apply heuristic modifiers (MW, humectant, protein, cleanser, balance)
+6. Run formulation-level analyses (buildup, protein, cleanser, balance)
+7. Apply per-ingredient modifiers
+8. Compute position-weighted formulation score
+9. Apply global modifier
+10. Apply critical signal modifier
+11. Apply functional efficacy gate
+12. Detect product subtype
+13. Calculate evidence profile
+14. Evaluate completeness
+15. Validate claims
+16. Calibrate score
+17. Return final score + confidence
+
+Score formula (simplified):
+  formulationScore = activeWeightedScore × globalModifier × criticalSignalModifier
+  calibratedScore = formulationScore × evidenceScaling × completenessMultiplier × claimPenalty
+
+
+SUMMARY OF ALL FACTORS
+=======================
+
+The scoring engine accounts for:
+
+PER-INGREDIENT:
+- Base score from database
+- Profile compatibility (porosity, density, condition, oiliness, curl)
+- Molecular weight classification
+- Position in INCI list (concentration proxy)
+- Ingredient category and tags
+- Tag reliability
+
+FORMULATION-LEVEL:
+- Product subtype detection
+- Formula completeness (function coverage)
+- Concentration estimation
+- Critical signal detection (compatibility/incompatibility)
+- Evidence strength calculation
+- Claim validation (support/contradiction)
+- Functional efficacy (minimum requirements)
+- Formulation balance (over-cleansing, over-conditioning)
+
+PROFILE-SPECIFIC:
+- Sensitivity protections (protein, silicone, scalp)
+- Hair type modifiers (curly, fine, coarse, damaged)
+- Scalp condition (dry, oily, sensitive)
+- Product type relevance (shampoo vs conditioner vs treatment)
+
+CALIBRATION:
+- Evidence-based scaling
+- Completeness multiplier
+- Uncertainty penalty
+- Final score bounds (0-100)
+
+The engine produces THREE scores:
+1. Formula Quality (0-100): How well is this product formulated?
+2. Profile Compatibility (0-100): How well does it fit this user?
+3. Recommendation Score (0-100): Should we recommend it?
