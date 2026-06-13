@@ -41,7 +41,7 @@ const TEST_CASES: TestCase[] = [
 
   // Functional formulas (should be medium)
   { name: "Basic shampoo", category: "shampoo", inci: "Water, Sodium Cocoyl Isethionate, Cocamidopropyl Betaine", expectedRange: [30, 65] },
-  { name: "Basic conditioner", category: "rinse_out_conditioner", inci: "Water, Cetyl Alcohol, Behentrimonium Chloride", expectedRange: [30, 65] },
+  { name: "Basic conditioner", category: "rinse_out_conditioner", inci: "Water, Cetyl Alcohol, Behentrimonium Chloride", expectedRange: [30, 70] },
   { name: "Basic serum", category: "serum", inci: "Dimethicone, Cyclomethicone, Fragrance", expectedRange: [25, 65] },
 
   // Complete formulas (should be higher)

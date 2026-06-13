@@ -41,13 +41,21 @@ const EVIDENCE_FLOOR_REDUCTION = 0.5; // Reduce by 50% when evidence is very low
 
 /**
  * Evidence scaling: scale score based on evidence level.
- * This is the primary mechanism for bounding scores.
+ * Uses a curve to differentiate between basic and complete formulas.
+ *
+ * The curve is steeper in the 25-35 range to separate basic from complete:
+ * - Very low evidence (< 20): 0.4x (non-functional)
+ * - Low evidence (20-30): 0.5-0.6x (basic)
+ * - Moderate evidence (30-40): 0.65-0.8x (functional)
+ * - Good evidence (40-50): 0.85-1.0x (complete/excellent)
  */
-const EVIDENCE_SCALING = {
-  low: { threshold: 30, multiplier: 0.4 },      // evidence < 30: 0.4x
-  moderate: { threshold: 50, multiplier: 0.65 }, // evidence 30-50: 0.65x
-  high: { threshold: 100, multiplier: 1.0 },     // evidence > 50: 1.0x
-};
+function getEvidenceMultiplier(evidence: number): number {
+  if (evidence < 20) return 0.4;
+  if (evidence < 30) return 0.5 + (evidence - 20) * 0.01; // 0.5 to 0.6
+  if (evidence < 40) return 0.65 + (evidence - 30) * 0.015; // 0.65 to 0.8
+  if (evidence < 50) return 0.85 + (evidence - 40) * 0.015; // 0.85 to 1.0
+  return 1.0;
+}
 
 /**
  * Completeness multiplier range.
@@ -95,17 +103,12 @@ export function calibrateScore(
     score = score * reduction;
     adjustments.push(`Evidence floor ×${reduction.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
   }
-  // 2. Evidence scaling: scale score based on evidence level
-  else if (evidence.overallEvidence < EVIDENCE_SCALING.low.threshold) {
-    const multiplier = EVIDENCE_SCALING.low.multiplier;
-    score = score * multiplier;
-    adjustments.push(`Evidence scaling ×${multiplier.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
-  } else if (evidence.overallEvidence < EVIDENCE_SCALING.moderate.threshold) {
-    const multiplier = EVIDENCE_SCALING.moderate.multiplier;
+  // 2. Evidence scaling: scale score based on evidence level using curve
+  else {
+    const multiplier = getEvidenceMultiplier(evidence.overallEvidence);
     score = score * multiplier;
     adjustments.push(`Evidence scaling ×${multiplier.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
   }
-  // High evidence: no reduction
 
   // 2. Completeness multiplier
   const completenessRange = COMPLETENESS_MAX_MULTIPLIER - COMPLETENESS_MIN_MULTIPLIER;
