@@ -232,8 +232,10 @@ export function calculateEvidence(
     ? Math.round(dimensionsWithContributors.reduce((sum, d) => sum + d.strength, 0) / dimensionsWithContributors.length)
     : 0;
 
+  // Only flag uncertainty for dimensions that have contributors but low confidence
+  // Don't flag dimensions with 0 contributors — they're not relevant
   const uncertaintyFlags = dimensions
-    .filter(d => d.confidence < 40)
+    .filter(d => d.contributorCount > 0 && d.confidence < 40)
     .map(d => `Low confidence for ${d.dimension} (${d.confidence}%)`);
 
   return { dimensions, overallEvidence, uncertaintyFlags };

@@ -33,11 +33,12 @@ export interface CalibrationResult {
 // ─── CALIBRATION RULES ───────────────────────────────────────────────────────
 
 /**
- * Evidence floor: if overall evidence < 20, cap score.
+ * Evidence floor: if overall evidence < 15, reduce score.
  * A formula with almost no evidence should not score high.
+ * But don't cap too aggressively — serums may have limited evidence dimensions.
  */
-const EVIDENCE_FLOOR_THRESHOLD = 20;
-const EVIDENCE_FLOOR_CAP = 25;
+const EVIDENCE_FLOOR_THRESHOLD = 15;
+const EVIDENCE_FLOOR_REDUCTION = 0.6; // Reduce by 40% when evidence is low
 
 /**
  * Completeness multiplier range.
@@ -79,12 +80,11 @@ export function calibrateScore(
   const adjustments: string[] = [];
   let score = rawScore;
 
-  // 1. Evidence floor: if overall evidence < 20, cap score
+  // 1. Evidence floor: if overall evidence < 15, reduce score
   if (evidence.overallEvidence < EVIDENCE_FLOOR_THRESHOLD) {
-    if (score > EVIDENCE_FLOOR_CAP) {
-      adjustments.push(`Evidence cap: ${score} → ${EVIDENCE_FLOOR_CAP} (evidence ${evidence.overallEvidence}%)`);
-      score = EVIDENCE_FLOOR_CAP;
-    }
+    const reduction = EVIDENCE_FLOOR_REDUCTION;
+    score = score * reduction;
+    adjustments.push(`Evidence reduction ×${reduction.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
   }
 
   // 2. Completeness multiplier
