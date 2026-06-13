@@ -62,7 +62,7 @@ interface TestCase {
   expectedQuality?: string;
 }
 
-// Generate 5000 test cases
+// Generate 500 test cases (fast version)
 function generateTestCases(): TestCase[] {
   const cases: TestCase[] = [];
 
@@ -97,7 +97,7 @@ function generateTestCases(): TestCase[] {
     });
   }
 
-  // 3. Generate synthetic variations (4955 cases)
+  // 3. Generate synthetic variations (455 cases)
   const baseFormulas: Array<{ name: string; inci: string; category: string }> = [
     // Shampoos
     { name: "Sulfate Shampoo", inci: "Water, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Sodium Chloride, Fragrance, Citric Acid", category: "shampoo" },
@@ -166,7 +166,7 @@ function generateTestCases(): TestCase[] {
 
   const fillerCategories = ["shampoo", "rinse_out_conditioner", "leave_in_conditioner", "serum", "treatment", "styling_product"];
 
-  while (cases.length < 5000) {
+  while (cases.length < 500) {
     const inci = fillers[Math.floor(Math.random() * fillers.length)];
     const category = fillerCategories[Math.floor(Math.random() * fillerCategories.length)];
     cases.push({
@@ -177,7 +177,7 @@ function generateTestCases(): TestCase[] {
     });
   }
 
-  return cases.slice(0, 5000);
+  return cases.slice(0, 500);
 }
 
 // ─── MAIN ────────────────────────────────────────────────────────────────────

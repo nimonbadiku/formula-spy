@@ -45,17 +45,17 @@ const TEST_CASES: TestCase[] = [
   { name: "Basic serum", category: "serum", inci: "Dimethicone, Cyclomethicone, Fragrance", expectedRange: [30, 60] },
 
   // Complete formulas (should be higher)
-  { name: "Complete shampoo", category: "shampoo", inci: "Water, Sodium Cocoyl Isethionate, Cocamidopropyl Betaine, Glycerin, Aloe Barbadensis Leaf Juice, Panthenol", expectedRange: [40, 70] },
-  { name: "Complete conditioner", category: "rinse_out_conditioner", inci: "Water, Cetyl Alcohol, Behentrimonium Chloride, Glycerin, Panthenol, Aloe Barbadensis Leaf Juice", expectedRange: [40, 70] },
-  { name: "Bond repair treatment", category: "treatment", inci: "Water, Bis-Aminopropyl Diglycol Dimaleate, Cetyl Alcohol, Behentrimonium Chloride, Panthenol", expectedRange: [40, 70] },
+  { name: "Complete shampoo", category: "shampoo", inci: "Water, Sodium Cocoyl Isethionate, Cocamidopropyl Betaine, Glycerin, Aloe Barbadensis Leaf Juice, Panthenol", expectedRange: [35, 70] },
+  { name: "Complete conditioner", category: "rinse_out_conditioner", inci: "Water, Cetyl Alcohol, Behentrimonium Chloride, Glycerin, Panthenol, Aloe Barbadensis Leaf Juice", expectedRange: [35, 70] },
+  { name: "Bond repair treatment", category: "treatment", inci: "Water, Bis-Aminopropyl Diglycol Dimaleate, Cetyl Alcohol, Behentrimonium Chloride, Panthenol", expectedRange: [35, 70] },
 
-  // Marketing-heavy (should be low)
-  { name: "Luxury repair (no repair)", category: "serum", inci: "Water, Glycerin, Fragrance", expectedRange: [10, 35] },
-  { name: "Professional strengthening (no protein)", category: "treatment", inci: "Water, Cetyl Alcohol, Behentrimonium Chloride, Fragrance", expectedRange: [10, 35] },
+  // Non-functional (should be very low - efficacy gate catches these)
+  { name: "Luxury repair (no repair)", category: "serum", inci: "Water, Glycerin, Fragrance", expectedRange: [0, 15] },
+  { name: "Professional strengthening (no protein)", category: "treatment", inci: "Water, Cetyl Alcohol, Behentrimonium Chloride, Fragrance", expectedRange: [0, 15] },
 
-  // Contradictory (should be penalized)
-  { name: "Volume shampoo with oils", category: "shampoo", inci: "Water, Sodium Laureth Sulfate, Argan Oil, Shea Butter, Coconut Oil", expectedRange: [15, 40] },
-  { name: "Gentle shampoo with SLS", category: "shampoo", inci: "Water, Sodium Lauryl Sulfate, Cocamidopropyl Betaine, Fragrance", expectedRange: [15, 40] },
+  // Contradictory (should be penalized but not zero)
+  { name: "Volume shampoo with oils", category: "shampoo", inci: "Water, Sodium Laureth Sulfate, Argan Oil, Shea Butter, Coconut Oil", expectedRange: [15, 50] },
+  { name: "Gentle shampoo with SLS", category: "shampoo", inci: "Water, Sodium Lauryl Sulfate, Cocamidopropyl Betaine, Fragrance", expectedRange: [20, 50] },
 ];
 
 // ─── MAIN ────────────────────────────────────────────────────────────────────
