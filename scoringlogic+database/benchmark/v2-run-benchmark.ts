@@ -170,9 +170,10 @@ function isMoisturisingProduct(name: string, ingredients: string): boolean {
 
 function isLightweightProduct(name: string, ingredients: string): boolean {
   const n = name.toLowerCase();
-  return n.includes("lightweight") || n.includes("spray") || n.includes("low-lather") ||
-    n.includes("gentle co-wash") || n.includes("protein-free co-wash") ||
-    hasIngredient(ingredients, "cyclopentasiloxane", "dimethiconol");
+  const hasNoHeavy = !hasHeavyButter(ingredients) && !hasHeavyOil(ingredients) && !hasEmollient(ingredients);
+  const nameMatch = n.includes("lightweight") || n.includes("spray");
+  const ingredientMatch = hasIngredient(ingredients, "cyclopentasiloxane", "dimethiconol");
+  return (nameMatch || ingredientMatch) && hasNoHeavy;
 }
 
 // ─── RULE ENGINE ─────────────────────────────────────────────────────────────
@@ -465,7 +466,8 @@ function applyRules(c: TestCase, rawScore: number): { finalScore: number; rules:
   // ── RULE 3: Strand thickness weight matching (applied AFTER all bonuses) ──
   // This ensures strand thickness mismatch is never masked by bonuses
   // Exclude serums - they're inherently lightweight and beneficial for all hair types
-  if (cat !== "serum") {
+  // Exclude products that failed efficacy check - strand mismatch is irrelevant for non-functional products
+  if (cat !== "serum" && efficacy.passed) {
     if (p.density === "fine") {
       if (hasHeavyButter(ing) || hasHeavyOil(ing)) {
         score = Math.round(score * 0.3);
@@ -713,15 +715,18 @@ function generateReport(scoredCases: ScoredCase[], iterations: number, allThresh
   report.push("\n## 5. Final Recommended Scoring Weight Table\n");
   report.push("| Rule | Condition | Adjustment | Notes |");
   report.push("|------|-----------|------------|-------|");
-  report.push("| Rule 1 | Hard sensitivity conflict | ×0.5 multiplier, cap at 45 | Protein/Silicone/Sulfate conflicts |");
+  report.push("| Rule 0 | Functional efficacy gate | -50 to -60 | No category-appropriate actives |");
+  report.push("| Rule 1 | Hard sensitivity conflict | ×0.4 multiplier, cap at 40 | Protein/Silicone/Sulfate conflicts |");
   report.push("| Rule 2 | Each stacked conflict beyond 1st | -10 per conflict | Additive after base, before Rule 1 |");
-  report.push("| Rule 3a | Fine strand + heavy butter/oil | -10 | Weight mismatch |");
-  report.push("| Rule 3b | Coarse strand + lightweight | -8 | Insufficient conditioning |");
-  report.push("| Rule 4a | Oily scalp + moisturising shampoo/co-wash | -10 | Scalp product mismatch |");
-  report.push("| Rule 4b | Dry scalp + clarifying/sulfate shampoo | -12 | Scalp stripping risk |");
-  report.push("| Rule 5 | Low porosity + silicone/butter | ×1.5 buildup penalty | Amplified buildup |");
-  report.push("| Rule 6a | Natural oil serum + high porosity/coarse | +5 | Beneficial seal |");
-  report.push("| Rule 6b | Protein/bond treatment + protein sensitive | Rule 1 applies | Hard conflict |");
+  report.push("| Rule 3a | Fine strand + heavy butter/oil (excl. serums) | ×0.3 multiplier | Weight mismatch |");
+  report.push("| Rule 3b | Coarse strand + lightweight (excl. serums) | ×0.4 multiplier | Insufficient conditioning |");
+  report.push("| Rule 4a | Oily scalp + moisturising shampoo/co-wash | -35 | Scalp product mismatch |");
+  report.push("| Rule 4b | Dry scalp + clarifying/sulfate shampoo | -38 | Scalp stripping risk |");
+  report.push("| Rule 5 | Low porosity + silicone/butter | ×1.5 buildup penalty (-8 effective) | Amplified buildup |");
+  report.push("| Rule 6a | Natural oil serum + high porosity/coarse | +45 | Beneficial seal |");
+  report.push("| Rule 6b | Natural oil serum + med porosity/thickness | +35 | Moderate seal benefit |");
+  report.push("| Rule 6c | Natural oil serum + other profiles | +25 | Baseline serum benefit |");
+  report.push("| Rule 6d | Protein/bond treatment + protein sensitive | Cap at 35 | Hard conflict |");
   report.push("| Rule 7a | Moisture goal + drying alcohol | -8 | Goal conflict |");
   report.push("| Rule 7b | Volume goal + heavy butters | -10 | Goal conflict |");
   report.push("| Rule 7c | Damage repair + no protein/bond/ceramide | -10 | Goal unmet |");
