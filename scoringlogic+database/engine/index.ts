@@ -17,8 +17,9 @@
 
 import { parseIngredients } from "./pipeline/parser";
 import { resolveIngredients } from "./pipeline/resolveIngredients";
-import { scoreFormulation } from "../scoring/index";
-import { detectInteractions } from "../interactions/index";
+import { scoreFormulation } from "../scoring/index.ts";
+import { detectInteractions } from "../interactions/index.ts";
+import { checkFunctionalEfficacy } from "../scoring/functionalEfficacy.ts";
 import { SchemaVersionError } from "./shared/errors";
 import type {
   HairProfile,
@@ -139,6 +140,21 @@ export function analyze(
   // 4. Scoring (Phase 5 full heuristic pipeline).
   //    All heuristic logic lives in scoring/ — pipeline orchestrates only.
   const formulation = scoreFormulation(resolved, profile);
+
+  // 4b. Functional efficacy gate.
+  //     Products lacking category-appropriate functional ingredients receive a
+  //     severe penalty regardless of how "safe" or "compatible" they are.
+  //     Applied after scoreFormulation so the full pipeline runs, but the
+  //     efficacy modifier overrides the final score.
+  const efficacyResult = checkFunctionalEfficacy(profile.productType, rawInci);
+  if (!efficacyResult.passed && formulation.ingredients.length > 0) {
+    // Apply efficacy penalty: blend the engine score with the efficacy modifier.
+    // The efficacy modifier is additive (negative), applied on top of the engine score.
+    formulation.formulationScore = Math.max(
+      0,
+      Math.round((formulation.formulationScore + efficacyResult.modifier) * 100) / 100
+    );
+  }
 
   // 5. Interaction detection.
   //    Evaluate declarative rules against the scored formulation.
