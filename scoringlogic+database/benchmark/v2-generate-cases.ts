@@ -84,6 +84,15 @@ const PRODUCT_TEMPLATES: ProductTemplate[] = [
   { category: "treatment", subcategory: "scalp", name: "Scalp Treatment", ingredients: "Water, Salicylic Acid, Tea Tree Oil, Peppermint Oil, Niacinamide, Caffeine, Aloe Barbadensis Leaf Juice, Glycerin, Citric Acid, Phenoxyethanol" },
   { category: "treatment", subcategory: "hot-oil", name: "Hot Oil Treatment", ingredients: "Argania Spinosa Kernel Oil, Simmondsia Chinensis Seed Oil, Coconut Oil, Castor Oil, Vitamin E, Rosemary Extract" },
   { category: "treatment", subcategory: "olaplex", name: "Olaplex Treatment", ingredients: "Water, Bis-Aminopropyl Diglycol Dimaleate, Propylene Glycol, Cetearyl Alcohol, Behentrimonium Chloride, Glycerin, Panthenol, Citric Acid, Phenoxyethanol" },
+
+  // ── WATER-ONLY PRODUCTS (efficacy edge cases) ──
+  { category: "shampoo", subcategory: "water-only", name: "Water-Only Shampoo", ingredients: "Water" },
+  { category: "rinse_out_conditioner", subcategory: "water-only", name: "Water-Only Conditioner", ingredients: "Water" },
+  { category: "deep_conditioner_mask", subcategory: "water-only", name: "Water-Only Mask", ingredients: "Water" },
+  { category: "serum", subcategory: "water-only", name: "Water-Only Serum", ingredients: "Water" },
+  { category: "treatment", subcategory: "water-only", name: "Water-Only Treatment", ingredients: "Water" },
+  { category: "leave_in_conditioner", subcategory: "water-only", name: "Water-Only Leave-In", ingredients: "Water" },
+  { category: "co_wash", subcategory: "water-only", name: "Water-Only Co-Wash", ingredients: "Water" },
 ];
 
 // ─── TEST CASE GENERATION ────────────────────────────────────────────────────
