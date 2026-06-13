@@ -50,15 +50,17 @@
 
 | Rule | Condition | Adjustment | Notes |
 |------|-----------|------------|-------|
-| Rule 1 | Hard sensitivity conflict | ×0.5 multiplier, cap at 45 | Protein/Silicone/Sulfate conflicts |
+| Rule 1 | Hard sensitivity conflict | ×0.4 multiplier, cap at 40 | Protein/Silicone/Sulfate conflicts |
 | Rule 2 | Each stacked conflict beyond 1st | -10 per conflict | Additive after base, before Rule 1 |
-| Rule 3a | Fine strand + heavy butter/oil | -10 | Weight mismatch |
-| Rule 3b | Coarse strand + lightweight | -8 | Insufficient conditioning |
-| Rule 4a | Oily scalp + moisturising shampoo/co-wash | -10 | Scalp product mismatch |
-| Rule 4b | Dry scalp + clarifying/sulfate shampoo | -12 | Scalp stripping risk |
-| Rule 5 | Low porosity + silicone/butter | ×1.5 buildup penalty | Amplified buildup |
-| Rule 6a | Natural oil serum + high porosity/coarse | +5 | Beneficial seal |
-| Rule 6b | Protein/bond treatment + protein sensitive | Rule 1 applies | Hard conflict |
+| Rule 3a | Fine strand + heavy butter/oil (excl. serums) | ×0.3 multiplier | Weight mismatch |
+| Rule 3b | Coarse strand + lightweight (excl. serums) | ×0.4 multiplier | Insufficient conditioning |
+| Rule 4a | Oily scalp + moisturising shampoo/co-wash | -35 | Scalp product mismatch |
+| Rule 4b | Dry scalp + clarifying/sulfate shampoo | -38 | Scalp stripping risk |
+| Rule 5 | Low porosity + silicone/butter | ×1.5 buildup penalty (-8 effective) | Amplified buildup |
+| Rule 6a | Natural oil serum + high porosity/coarse | +45 | Beneficial seal |
+| Rule 6b | Natural oil serum + med porosity/thickness | +35 | Moderate seal benefit |
+| Rule 6c | Natural oil serum + other profiles | +25 | Baseline serum benefit |
+| Rule 6d | Protein/bond treatment + protein sensitive | Cap at 35 | Hard conflict |
 | Rule 7a | Moisture goal + drying alcohol | -8 | Goal conflict |
 | Rule 7b | Volume goal + heavy butters | -10 | Goal conflict |
 | Rule 7c | Damage repair + no protein/bond/ceramide | -10 | Goal unmet |
