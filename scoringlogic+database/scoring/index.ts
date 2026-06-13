@@ -142,3 +142,10 @@ export {
   LEAVE_ON_PRODUCT_TYPES,
   PROTEIN_TREATMENT_PRODUCT_TYPES,
 } from "./profileProductGating";
+
+// ─── FUNCTIONAL EFFICACY ─────────────────────────────────────────────────────
+// Detects products lacking category-appropriate functional ingredients.
+// See scoring/functionalEfficacy.ts for full rationale.
+
+export { checkFunctionalEfficacy } from "./functionalEfficacy";
+export type { FunctionalEfficacyResult } from "./functionalEfficacy";
