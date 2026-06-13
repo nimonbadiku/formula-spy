@@ -158,6 +158,27 @@ const CONCENTRATION_MODELS: Record<string, ConcentrationModel> = {
     confidenceBase: 70,
     onePctLinePosition: 10,
   },
+  leave_in_conditioner: {
+    topShare: 0.65,
+    topWeights: [0.30, 0.13, 0.10, 0.08, 0.04],
+    tailDecay: 0.78,
+    confidenceBase: 74,
+    onePctLinePosition: 11,
+  },
+  hair_oil_serum: {
+    topShare: 0.85,
+    topWeights: [0.50, 0.18, 0.10, 0.05, 0.02],
+    tailDecay: 0.65,
+    confidenceBase: 78,
+    onePctLinePosition: 7,
+  },
+  treatment: {
+    topShare: 0.75,
+    topWeights: [0.42, 0.15, 0.10, 0.06, 0.02],
+    tailDecay: 0.70,
+    confidenceBase: 65,
+    onePctLinePosition: 5, // Treatment actives are typically concentrated
+  },
 };
 
 const DEFAULT_MODEL: ConcentrationModel = {

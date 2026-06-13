@@ -171,7 +171,7 @@ export function calculateEvidence(
   const dimensions: DimensionEvidence[] = [];
 
   for (const dim of allDimensions) {
-    const contributors: { name: string; score: number; confidence: number; tags: string[] }[] = [];
+    const contributors: { name: string; score: number; confidence: number; tags: string[]; positionPenalty: number }[] = [];
 
     for (const si of scored) {
       const record = si.ingredient?.record;
@@ -183,23 +183,25 @@ export function calculateEvidence(
 
       const concEst = concMap.get(record.name);
       const concConfidence = concEst ? concEst.confidence / 100 : 0.5;
+      const isAbove1Pct = concEst?.isAbove1PctLine ?? true;
 
-      // Evidence = finalScore × concentrationConfidence × dimWeight
-      // No invented weights — just existing scores × confidence
-      const evidence = si.finalScore * concConfidence * dimWeight;
+      // Reduce evidence for ingredients below the 1% line
+      // These ingredients exist but don't materially affect formulation performance
+      const positionPenalty = isAbove1Pct ? 1.0 : 0.3;
 
       contributors.push({
         name: record.name,
         score: si.finalScore,
         confidence: concConfidence,
         tags: tags.filter(t => TAG_DIMENSION_WEIGHTS[t]?.[dim] !== undefined),
+        positionPenalty,
       });
     }
 
     // Aggregate evidence
     const totalEvidence = contributors.reduce((sum, c) => {
       const dimW = getDimensionWeight(c.tags, dim);
-      return sum + c.score * c.confidence * dimW;
+      return sum + c.score * c.confidence * dimW * c.positionPenalty;
     }, 0);
 
     // Normalize: theoretical max = 100 (max score) × 1.0 (max confidence) × 1.0 (max weight) × contributorCount
