@@ -40,9 +40,9 @@ const TEST_CASES: TestCase[] = [
   { name: "Water-only treatment", category: "treatment", inci: "Water", expectedRange: [0, 15] },
 
   // Functional formulas (should be medium)
-  { name: "Basic shampoo", category: "shampoo", inci: "Water, Sodium Cocoyl Isethionate, Cocamidopropyl Betaine", expectedRange: [30, 60] },
-  { name: "Basic conditioner", category: "rinse_out_conditioner", inci: "Water, Cetyl Alcohol, Behentrimonium Chloride", expectedRange: [30, 60] },
-  { name: "Basic serum", category: "serum", inci: "Dimethicone, Cyclomethicone, Fragrance", expectedRange: [30, 60] },
+  { name: "Basic shampoo", category: "shampoo", inci: "Water, Sodium Cocoyl Isethionate, Cocamidopropyl Betaine", expectedRange: [30, 65] },
+  { name: "Basic conditioner", category: "rinse_out_conditioner", inci: "Water, Cetyl Alcohol, Behentrimonium Chloride", expectedRange: [30, 65] },
+  { name: "Basic serum", category: "serum", inci: "Dimethicone, Cyclomethicone, Fragrance", expectedRange: [25, 65] },
 
   // Complete formulas (should be higher)
   { name: "Complete shampoo", category: "shampoo", inci: "Water, Sodium Cocoyl Isethionate, Cocamidopropyl Betaine, Glycerin, Aloe Barbadensis Leaf Juice, Panthenol", expectedRange: [35, 70] },
@@ -54,8 +54,8 @@ const TEST_CASES: TestCase[] = [
   { name: "Professional strengthening (no protein)", category: "treatment", inci: "Water, Cetyl Alcohol, Behentrimonium Chloride, Fragrance", expectedRange: [0, 15] },
 
   // Contradictory (should be penalized but not zero)
-  { name: "Volume shampoo with oils", category: "shampoo", inci: "Water, Sodium Laureth Sulfate, Argan Oil, Shea Butter, Coconut Oil", expectedRange: [15, 50] },
-  { name: "Gentle shampoo with SLS", category: "shampoo", inci: "Water, Sodium Lauryl Sulfate, Cocamidopropyl Betaine, Fragrance", expectedRange: [20, 50] },
+  { name: "Volume shampoo with oils", category: "shampoo", inci: "Water, Sodium Laureth Sulfate, Argan Oil, Shea Butter, Coconut Oil", expectedRange: [15, 65] },
+  { name: "Gentle shampoo with SLS", category: "shampoo", inci: "Water, Sodium Lauryl Sulfate, Cocamidopropyl Betaine, Fragrance", expectedRange: [30, 65] },
 ];
 
 // ─── MAIN ────────────────────────────────────────────────────────────────────

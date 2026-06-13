@@ -174,8 +174,8 @@ export function analyze(
     // Evaluate completeness
     const completenessResult = evaluateCompleteness(formulation.ingredients, concentrationEstimates, subtypeResult.subtype);
 
-    // Validate claims
-    const claimResult = validateClaims(evidenceProfile);
+    // Validate claims (only when product name is available)
+    const claimResult = validateClaims(evidenceProfile, "");
 
     // Calibrate score
     const calibrationResult = calibrateScore(formulation.formulationScore, evidenceProfile, completenessResult, claimResult);

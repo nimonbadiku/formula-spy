@@ -33,12 +33,21 @@ export interface CalibrationResult {
 // ─── CALIBRATION RULES ───────────────────────────────────────────────────────
 
 /**
- * Evidence floor: if overall evidence < 15, reduce score.
+ * Evidence floor: if overall evidence < 15, reduce score significantly.
  * A formula with almost no evidence should not score high.
- * But don't cap too aggressively — serums may have limited evidence dimensions.
  */
 const EVIDENCE_FLOOR_THRESHOLD = 15;
-const EVIDENCE_FLOOR_REDUCTION = 0.6; // Reduce by 40% when evidence is low
+const EVIDENCE_FLOOR_REDUCTION = 0.5; // Reduce by 50% when evidence is very low
+
+/**
+ * Evidence scaling: scale score based on evidence level.
+ * This is the primary mechanism for bounding scores.
+ */
+const EVIDENCE_SCALING = {
+  low: { threshold: 30, multiplier: 0.4 },      // evidence < 30: 0.4x
+  moderate: { threshold: 50, multiplier: 0.65 }, // evidence 30-50: 0.65x
+  high: { threshold: 100, multiplier: 1.0 },     // evidence > 50: 1.0x
+};
 
 /**
  * Completeness multiplier range.
@@ -80,12 +89,23 @@ export function calibrateScore(
   const adjustments: string[] = [];
   let score = rawScore;
 
-  // 1. Evidence floor: if overall evidence < 15, reduce score
+  // 1. Evidence floor: if overall evidence < 15, reduce score significantly
   if (evidence.overallEvidence < EVIDENCE_FLOOR_THRESHOLD) {
     const reduction = EVIDENCE_FLOOR_REDUCTION;
     score = score * reduction;
-    adjustments.push(`Evidence reduction ×${reduction.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
+    adjustments.push(`Evidence floor ×${reduction.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
   }
+  // 2. Evidence scaling: scale score based on evidence level
+  else if (evidence.overallEvidence < EVIDENCE_SCALING.low.threshold) {
+    const multiplier = EVIDENCE_SCALING.low.multiplier;
+    score = score * multiplier;
+    adjustments.push(`Evidence scaling ×${multiplier.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
+  } else if (evidence.overallEvidence < EVIDENCE_SCALING.moderate.threshold) {
+    const multiplier = EVIDENCE_SCALING.moderate.multiplier;
+    score = score * multiplier;
+    adjustments.push(`Evidence scaling ×${multiplier.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
+  }
+  // High evidence: no reduction
 
   // 2. Completeness multiplier
   const completenessRange = COMPLETENESS_MAX_MULTIPLIER - COMPLETENESS_MIN_MULTIPLIER;

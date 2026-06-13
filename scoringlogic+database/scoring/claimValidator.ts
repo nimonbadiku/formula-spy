@@ -156,16 +156,30 @@ const CLAIM_PATTERNS: Array<{
  * Validates claims against evidence profile.
  *
  * @param evidenceProfile - Evidence profile from evidenceEngine
+ * @param productName - Product name to detect claims from (optional)
  * @returns Claim validation result with verdicts and penalties
  */
 export function validateClaims(
-  evidenceProfile: EvidenceProfile
+  evidenceProfile: EvidenceProfile,
+  productName: string = ""
 ): ClaimValidationResult {
   const claims: ClaimAnalysis[] = [];
   let totalWeight = 0;
   let weightedConfidence = 0;
 
+  // If no product name, skip claim validation entirely
+  if (!productName || productName.length < 3) {
+    return {
+      claims: [],
+      overallConfidence: 50,
+      contradictionPenalty: 1.0,
+      reason: "No product name provided — skipping claim validation",
+    };
+  }
+
   for (const pattern of CLAIM_PATTERNS) {
+    // Only detect claims from the product name, not from INCI list
+    if (!pattern.pattern.test(productName)) continue;
     // Calculate evidence confidence for this claim
     const supportStrength = pattern.supportDimensions.reduce((sum, dim) => {
       const evidence = evidenceProfile.dimensions.find(d => d.dimension === dim);
