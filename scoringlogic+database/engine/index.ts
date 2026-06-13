@@ -17,9 +17,14 @@
 
 import { parseIngredients } from "./pipeline/parser";
 import { resolveIngredients } from "./pipeline/resolveIngredients";
-import { scoreFormulation } from "../scoring/index.ts";
+import { scoreFormulation, estimateFormulationConcentrations } from "../scoring/index.ts";
 import { detectInteractions } from "../interactions/index.ts";
 import { checkFunctionalEfficacy } from "../scoring/functionalEfficacy.ts";
+import { detectSubtype } from "../scoring/productSubtype.ts";
+import { calculateEvidence } from "../scoring/evidenceEngine.ts";
+import { evaluateCompleteness } from "../scoring/formulaCompleteness.ts";
+import { validateClaims } from "../scoring/claimValidator.ts";
+import { calibrateScore } from "../scoring/calibrationLayer.ts";
 import { SchemaVersionError } from "./shared/errors";
 import type {
   HairProfile,
@@ -141,19 +146,40 @@ export function analyze(
   //    All heuristic logic lives in scoring/ — pipeline orchestrates only.
   const formulation = scoreFormulation(resolved, profile);
 
-  // 4b. Functional efficacy gate.
-  //     Products lacking category-appropriate functional ingredients receive a
-  //     severe penalty regardless of how "safe" or "compatible" they are.
-  //     Applied after scoreFormulation so the full pipeline runs, but the
-  //     efficacy modifier overrides the final score.
+  // 4b. Functional efficacy gate (legacy, kept for backward compatibility).
   const efficacyResult = checkFunctionalEfficacy(profile.productType, rawInci);
   if (!efficacyResult.passed && formulation.ingredients.length > 0) {
-    // Apply efficacy penalty: blend the engine score with the efficacy modifier.
-    // The efficacy modifier is additive (negative), applied on top of the engine score.
     formulation.formulationScore = Math.max(
       0,
       Math.round((formulation.formulationScore + efficacyResult.modifier) * 100) / 100
     );
+  }
+
+  // 4c. Evidence-based scoring pipeline (new v3.2 system).
+  //     Uses scored ingredients, concentration estimates, and database tags.
+  //     No manually invented weights — derives evidence from existing data.
+  if (formulation.ingredients.length > 0) {
+    // Estimate concentrations
+    const concentrationEstimates = estimateFormulationConcentrations(
+      formulation.ingredients.map(si => si.ingredient),
+      profile.productType
+    );
+
+    // Detect product subtype
+    const subtypeResult = detectSubtype(formulation.ingredients, concentrationEstimates);
+
+    // Calculate evidence profile
+    const evidenceProfile = calculateEvidence(formulation.ingredients, concentrationEstimates, profile);
+
+    // Evaluate completeness
+    const completenessResult = evaluateCompleteness(formulation.ingredients, concentrationEstimates, subtypeResult.subtype);
+
+    // Validate claims
+    const claimResult = validateClaims(evidenceProfile);
+
+    // Calibrate score
+    const calibrationResult = calibrateScore(formulation.formulationScore, evidenceProfile, completenessResult, claimResult);
+    formulation.formulationScore = calibrationResult.calibratedScore;
   }
 
   // 5. Interaction detection.

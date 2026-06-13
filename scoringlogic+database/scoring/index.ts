@@ -149,3 +149,38 @@ export {
 
 export { checkFunctionalEfficacy } from "./functionalEfficacy";
 export type { FunctionalEfficacyResult } from "./functionalEfficacy";
+
+// ─── TAG RELIABILITY ─────────────────────────────────────────────────────────
+// Reliability scoring for database tags.
+
+export { getTagReliability, getTagTier, filterReliableTags } from "./tagReliability";
+
+// ─── EVIDENCE ENGINE ─────────────────────────────────────────────────────────
+// Evidence-based scoring using scored ingredients + concentration + tags.
+
+export { calculateEvidence } from "./evidenceEngine";
+export type { EvidenceProfile, DimensionEvidence, EvidenceDimension } from "./evidenceEngine";
+
+// ─── PRODUCT SUBTYPE ─────────────────────────────────────────────────────────
+// Detects functional subtype before completeness evaluation.
+
+export { detectSubtype } from "./productSubtype";
+export type { SubtypeResult, ProductSubtype } from "./productSubtype";
+
+// ─── FORMULA COMPLETENESS ────────────────────────────────────────────────────
+// Function-coverage completeness (not ingredient count).
+
+export { evaluateCompleteness } from "./formulaCompleteness";
+export type { CompletenessResult, FunctionalRole } from "./formulaCompleteness";
+
+// ─── CLAIM VALIDATOR ─────────────────────────────────────────────────────────
+// Claim detection + support/contradiction/confidence.
+
+export { validateClaims } from "./claimValidator";
+export type { ClaimValidationResult, ClaimAnalysis, ClaimVerdict } from "./claimValidator";
+
+// ─── CALIBRATION LAYER ───────────────────────────────────────────────────────
+// Final score calibration + confidence reporting.
+
+export { calibrateScore } from "./calibrationLayer";
+export type { CalibrationResult } from "./calibrationLayer";
