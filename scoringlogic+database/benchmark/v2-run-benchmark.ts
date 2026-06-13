@@ -192,6 +192,25 @@ function applyRules(c: TestCase, rawScore: number): { finalScore: number; rules:
   const name = c.product.name;
   const cat = c.product.category;
 
+  // ── RULE 0: Functional efficacy gate ──
+  const efficacy = checkFunctionalEfficacy(cat, ing);
+  if (!efficacy.passed) {
+    score += efficacy.penalty;
+    rules.push({
+      rule: "Rule 0: Functional efficacy",
+      applied: true,
+      penalty: efficacy.penalty,
+      reason: efficacy.reason,
+    });
+  } else {
+    rules.push({
+      rule: "Rule 0: Functional efficacy",
+      applied: false,
+      penalty: 0,
+      reason: efficacy.reason,
+    });
+  }
+
   // ── RULE 1: Hard sensitivity multiplier ──
   let hasHardConflict = false;
   let conflictReason = "";
