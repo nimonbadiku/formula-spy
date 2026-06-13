@@ -77,6 +77,89 @@ function hasEmollient(ingredients: string): boolean {
     "argania spinosa", "vitamin e", "tocopheryl");
 }
 
+// ─── FUNCTIONAL EFFICACY HELPERS ─────────────────────────────────────────────
+
+function hasCleansingSurfactant(ingredients: string): boolean {
+  return hasIngredient(ingredients,
+    "sodium cocoyl isethionate", "cocamidopropyl betaine", "sodium laureth sulfate",
+    "sodium lauryl sulfate", "coco-glucoside", "decyl glucoside", "sodium cocoyl glutamate",
+    "disodium cocoyl glutamate", "lauryl glucoside", "sodium lauryl sulfoacetate",
+    "cocamidopropyl hydroxysultaine", "sodium cocamphoacetate");
+}
+
+function hasConditioningAgent(ingredients: string): boolean {
+  return hasIngredient(ingredients,
+    "behentrimonium chloride", "cetearyl alcohol", "cetyl alcohol", "stearyl alcohol",
+    "polyquaternium-10", "polyquaternium-11", "guar hydroxypropyltrimonium chloride");
+}
+
+function hasTreatmentActive(ingredients: string): boolean {
+  return hasProtein(ingredients) || hasBondBuilder(ingredients) || hasCeramide(ingredients) ||
+    hasIngredient(ingredients, "amino acid", "panthenol", "niacinamide", "salicylic acid",
+      "tea tree", "biotin", "caffeine", "peppermint");
+}
+
+function hasFunctionalSerumIngredient(ingredients: string): boolean {
+  return hasIngredient(ingredients,
+    "simmondsia chinensis", "argania spinosa", "coconut oil", "castor oil",
+    "dimethicone", "cyclomethicone", "phenyl trimethicone", "dimethiconol",
+    "amodimethicone", "jojoba oil", "argan oil", "marula oil", "vitamin e",
+    "tocopheryl", "squalane");
+}
+
+interface EfficacyResult {
+  passed: boolean;
+  penalty: number;
+  reason: string;
+}
+
+function checkFunctionalEfficacy(cat: string, ingredients: string): EfficacyResult {
+  switch (cat) {
+    case "shampoo":
+    case "co_wash": {
+      if (!hasCleansingSurfactant(ingredients)) {
+        return { passed: false, penalty: -60, reason: "no cleansing surfactant detected" };
+      }
+      return { passed: true, penalty: 0, reason: "surfactant present" };
+    }
+    case "rinse_out_conditioner":
+    case "leave_in_conditioner": {
+      if (!hasConditioningAgent(ingredients) && !hasEmollient(ingredients) && !hasHumectant(ingredients)) {
+        return { passed: false, penalty: -55, reason: "no conditioning/emollient/humectant agent detected" };
+      }
+      return { passed: true, penalty: 0, reason: "conditioning agents present" };
+    }
+    case "deep_conditioner_mask":
+    case "mask": {
+      if (!hasConditioningAgent(ingredients) && !hasEmollient(ingredients) && !hasTreatmentActive(ingredients)) {
+        return { passed: false, penalty: -55, reason: "no conditioning/treatment active detected" };
+      }
+      return { passed: true, penalty: 0, reason: "active agents present" };
+    }
+    case "serum": {
+      if (!hasFunctionalSerumIngredient(ingredients)) {
+        return { passed: false, penalty: -60, reason: "no functional serum ingredient detected" };
+      }
+      return { passed: true, penalty: 0, reason: "functional ingredients present" };
+    }
+    case "treatment": {
+      if (!hasTreatmentActive(ingredients)) {
+        return { passed: false, penalty: -60, reason: "no treatment active detected" };
+      }
+      return { passed: true, penalty: 0, reason: "treatment actives present" };
+    }
+    case "styling_product": {
+      if (!hasIngredient(ingredients, "polyquaternium", "pvp", "carbomer",
+        "peg-40", "cetearyl alcohol", "behentrimonium")) {
+        return { passed: false, penalty: -50, reason: "no styling agent detected" };
+      }
+      return { passed: true, penalty: 0, reason: "styling agents present" };
+    }
+    default:
+      return { passed: true, penalty: 0, reason: "unknown category, no check" };
+  }
+}
+
 function isClarifyingShampoo(name: string, ingredients: string): boolean {
   return name.toLowerCase().includes("clarifying") || hasSulfate(ingredients);
 }
@@ -86,8 +169,10 @@ function isMoisturisingProduct(name: string, ingredients: string): boolean {
 }
 
 function isLightweightProduct(name: string, ingredients: string): boolean {
-  const hasNoHeavy = !hasHeavyButter(ingredients) && !hasHeavyOil(ingredients) && !hasEmollient(ingredients);
-  return (name.toLowerCase().includes("lightweight") || name.toLowerCase().includes("spray")) && hasNoHeavy;
+  const n = name.toLowerCase();
+  return n.includes("lightweight") || n.includes("spray") || n.includes("low-lather") ||
+    n.includes("gentle co-wash") || n.includes("protein-free co-wash") ||
+    hasIngredient(ingredients, "cyclopentasiloxane", "dimethiconol");
 }
 
 // ─── RULE ENGINE ─────────────────────────────────────────────────────────────
