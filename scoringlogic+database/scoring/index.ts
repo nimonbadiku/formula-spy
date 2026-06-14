@@ -67,6 +67,7 @@ export {
   analyzeSurfactantLoad,
   applyChemicalTreatmentCleanserModifier,
   applyCoWashCleansingAdequacy,
+  computeFormulationHarshnessModifier,
 } from "./cleanserHarshness";
 
 // ─── FORMULATION BALANCE ──────────────────────────────────────────────────────

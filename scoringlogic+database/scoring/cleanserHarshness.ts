@@ -318,81 +318,10 @@ export function applyCleanserHarshnessModifier(
   record: IngredientRecord,
   profile: HairProfile
 ): { multiplier: number; trace: readonly ScoreTraceEntry[] } {
-  const harshness = classifySurfactantHarshness(record);
-  if (harshness === "none") return { multiplier: 1.0, trace: [] };
-
-  const trace: ScoreTraceEntry[] = [];
-  let multiplier = 1.0;
-  const name = record.name;
-
-  if (harshness === "strong") {
-    if (profile.oiliness === "dry") {
-      multiplier *= STRONG_DRY_SCALP_PENALTY;
-      trace.push({
-        stage: "cleanser_harshness",
-        value: STRONG_DRY_SCALP_PENALTY,
-        explanation: `${name}: strong surfactant + dry scalp → penalty ×${STRONG_DRY_SCALP_PENALTY}`,
-        sourceIngredient: name,
-        modifier: STRONG_DRY_SCALP_PENALTY,
-      });
-    }
-    if (profile.condition === "damaged") {
-      multiplier *= STRONG_DAMAGED_PENALTY;
-      trace.push({
-        stage: "cleanser_harshness",
-        value: STRONG_DAMAGED_PENALTY,
-        explanation: `${name}: strong surfactant + damaged hair → penalty ×${STRONG_DAMAGED_PENALTY}`,
-        sourceIngredient: name,
-        modifier: STRONG_DAMAGED_PENALTY,
-      });
-    }
-    if (profile.porosity === "low") {
-      multiplier *= STRONG_LOW_POROSITY_BONUS;
-      trace.push({
-        stage: "cleanser_harshness",
-        value: STRONG_LOW_POROSITY_BONUS,
-        explanation: `${name}: strong surfactant + low-porosity → bonus ×${STRONG_LOW_POROSITY_BONUS}`,
-        sourceIngredient: name,
-        modifier: STRONG_LOW_POROSITY_BONUS,
-      });
-    }
-  }
-
-  if (harshness === "mild") {
-    if (profile.oiliness === "oily") {
-      multiplier *= MILD_OILY_SCALP_PENALTY;
-      trace.push({
-        stage: "cleanser_harshness",
-        value: MILD_OILY_SCALP_PENALTY,
-        explanation: `${name}: mild surfactant + oily scalp → penalty ×${MILD_OILY_SCALP_PENALTY}`,
-        sourceIngredient: name,
-        modifier: MILD_OILY_SCALP_PENALTY,
-      });
-    }
-    if (profile.scalpSensitivity === true) {
-      multiplier *= MILD_SENSITIVE_SCALP_BONUS;
-      trace.push({
-        stage: "cleanser_harshness",
-        value: MILD_SENSITIVE_SCALP_BONUS,
-        explanation: `${name}: mild surfactant + sensitive scalp → bonus ×${MILD_SENSITIVE_SCALP_BONUS}`,
-        sourceIngredient: name,
-        modifier: MILD_SENSITIVE_SCALP_BONUS,
-      });
-    }
-  }
-
-  if (harshness === "conditioning" && profile.condition === "damaged") {
-    multiplier *= CONDITIONING_DAMAGED_BONUS;
-    trace.push({
-      stage: "cleanser_harshness",
-      value: CONDITIONING_DAMAGED_BONUS,
-      explanation: `${name}: conditioning surfactant + damaged hair → bonus ×${CONDITIONING_DAMAGED_BONUS}`,
-      sourceIngredient: name,
-      modifier: CONDITIONING_DAMAGED_BONUS,
-    });
-  }
-
-  return { multiplier, trace };
+  // FIX 4: Per-ingredient harshness penalties have been moved to formulation level.
+  // This function now returns 1.0 for all ingredients. The harshness modifier
+  // is applied once via computeFormulationHarshnessModifier() at formulation level.
+  return { multiplier: 1.0, trace: [] };
 }
 
 // ─── PHASE 8: NEW FACTOR FUNCTIONS ───────────────────────────────────────────
@@ -588,4 +517,127 @@ export function applyCoWashCleansingAdequacy(
       },
     ],
   };
+}
+
+// ─── FIX 4: FORMULATION-LEVEL HARSHNESS ─────────────────────────────────────
+
+/**
+ * Determines the formulation's harshness tier (the harshest surfactant present)
+ * and returns a single multiplier to be applied once at formulation level.
+ *
+ * This replaces the per-ingredient harshness penalty system. The formulation's
+ * harshness is determined by its harshest component, which is penalised once.
+ * This prevents double-counting when a shampoo has SLS + SLES.
+ *
+ * @param scoredIngredients - All scored ingredients in the formulation.
+ * @param profile           - The user's hair profile.
+ * @returns                 - Single multiplier and trace entries for formulation-level harshness.
+ *
+ * @pure No side effects. Same inputs always produce identical outputs.
+ */
+export function computeFormulationHarshnessModifier(
+  scoredIngredients: readonly ScoredIngredient[],
+  profile: HairProfile
+): { multiplier: number; trace: readonly ScoreTraceEntry[] } {
+  const trace: ScoreTraceEntry[] = [];
+
+  // Find all surfactant ingredients and classify their harshness
+  const surfactantTiers: { name: string; harshness: SurfactantHarshness }[] = [];
+  for (const si of scoredIngredients) {
+    const harshness = classifySurfactantHarshness(si.ingredient.record);
+    if (harshness !== "none") {
+      surfactantTiers.push({ name: si.ingredient.record.name, harshness });
+    }
+  }
+
+  if (surfactantTiers.length === 0) return { multiplier: 1.0, trace: [] };
+
+  // Determine the harshest tier present (STRONG > MILD > CONDITIONING)
+  const tierOrder: Record<SurfactantHarshness, number> = {
+    "strong": 3,
+    "mild": 2,
+    "conditioning": 1,
+    "none": 0,
+  };
+
+  let harshestTier: SurfactantHarshness = "none";
+  let harshestName = "";
+  for (const tier of surfactantTiers) {
+    if (tierOrder[tier.harshness] > tierOrder[harshestTier]) {
+      harshestTier = tier.harshness;
+      harshestName = tier.name;
+    }
+  }
+
+  // Compute single formulation-level harshness modifier
+  let multiplier = 1.0;
+
+  if (harshestTier === "strong") {
+    if (profile.oiliness === "dry") {
+      multiplier *= STRONG_DRY_SCALP_PENALTY;
+      trace.push({
+        stage: "formulation_harshness",
+        value: STRONG_DRY_SCALP_PENALTY,
+        explanation: `Formulation-level: strongest surfactant (${harshestName}) is strong + dry scalp → penalty ×${STRONG_DRY_SCALP_PENALTY} (applied once, not per-ingredient)`,
+        sourceIngredient: harshestName,
+        modifier: STRONG_DRY_SCALP_PENALTY,
+      });
+    }
+    if (profile.condition === "damaged") {
+      multiplier *= STRONG_DAMAGED_PENALTY;
+      trace.push({
+        stage: "formulation_harshness",
+        value: STRONG_DAMAGED_PENALTY,
+        explanation: `Formulation-level: strongest surfactant (${harshestName}) is strong + damaged hair → penalty ×${STRONG_DAMAGED_PENALTY} (applied once, not per-ingredient)`,
+        sourceIngredient: harshestName,
+        modifier: STRONG_DAMAGED_PENALTY,
+      });
+    }
+    if (profile.porosity === "low") {
+      multiplier *= STRONG_LOW_POROSITY_BONUS;
+      trace.push({
+        stage: "formulation_harshness",
+        value: STRONG_LOW_POROSITY_BONUS,
+        explanation: `Formulation-level: strongest surfactant (${harshestName}) is strong + low-porosity → bonus ×${STRONG_LOW_POROSITY_BONUS} (applied once, not per-ingredient)`,
+        sourceIngredient: harshestName,
+        modifier: STRONG_LOW_POROSITY_BONUS,
+      });
+    }
+  }
+
+  if (harshestTier === "mild") {
+    if (profile.oiliness === "oily") {
+      multiplier *= MILD_OILY_SCALP_PENALTY;
+      trace.push({
+        stage: "formulation_harshness",
+        value: MILD_OILY_SCALP_PENALTY,
+        explanation: `Formulation-level: strongest surfactant (${harshestName}) is mild + oily scalp → penalty ×${MILD_OILY_SCALP_PENALTY} (applied once, not per-ingredient)`,
+        sourceIngredient: harshestName,
+        modifier: MILD_OILY_SCALP_PENALTY,
+      });
+    }
+    if (profile.scalpSensitivity === true) {
+      multiplier *= MILD_SENSITIVE_SCALP_BONUS;
+      trace.push({
+        stage: "formulation_harshness",
+        value: MILD_SENSITIVE_SCALP_BONUS,
+        explanation: `Formulation-level: strongest surfactant (${harshestName}) is mild + sensitive scalp → bonus ×${MILD_SENSITIVE_SCALP_BONUS} (applied once, not per-ingredient)`,
+        sourceIngredient: harshestName,
+        modifier: MILD_SENSITIVE_SCALP_BONUS,
+      });
+    }
+  }
+
+  if (harshestTier === "conditioning" && profile.condition === "damaged") {
+    multiplier *= CONDITIONING_DAMAGED_BONUS;
+    trace.push({
+      stage: "formulation_harshness",
+      value: CONDITIONING_DAMAGED_BONUS,
+      explanation: `Formulation-level: strongest surfactant (${harshestName}) is conditioning + damaged hair → bonus ×${CONDITIONING_DAMAGED_BONUS} (applied once, not per-ingredient)`,
+      sourceIngredient: harshestName,
+      modifier: CONDITIONING_DAMAGED_BONUS,
+    });
+  }
+
+  return { multiplier, trace };
 }

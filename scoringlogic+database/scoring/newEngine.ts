@@ -761,7 +761,7 @@ function calculateGoalAlignment(
   const bonuses: ScoreChange[] = [];
   let premiumBonus = 0;
 
-  const goalRaw = (profile as Record<string, unknown>)["goal"] as string | undefined;
+  const goalRaw = profile.goal;
   const goal = goalRaw ?? inferGoal(profile);
 
   // Only score ingredients that are functional for this product type
@@ -1050,7 +1050,7 @@ function calculateInteractionEffects(
   }
 
   // INTERACTION 9 — Goal misalignment: product ingredients serve a different goal
-  const goalRaw2 = (profile as Record<string, unknown>)["goal"] as string | undefined;
+  const goalRaw2 = profile.goal;
   const activeGoal = goalRaw2 ?? inferGoal(profile);
   if (activeGoal === "moisture" || activeGoal === "frizz-control") {
     const scalpActiveCount = hits.filter(h => {
@@ -1244,13 +1244,13 @@ function calculateCategoryAdjustments(
   if (profile.productType === "leave_in_conditioner" &&
     profile.density === "fine" &&
     (hasClass("heavy-emollient") || hasTag("butter") || hasTag("heavy-oil"))) {
-    const volumeGoalPenalty = (profile as Record<string, unknown>)["goal"] === "volume" ? -28 : -18;
+    const volumeGoalPenalty = profile.goal === "volume" ? -28 : -18;
     penalties.push({ reason: "Heavy leave-in weighs down fine hair", impact: volumeGoalPenalty });
   }
 
   // Heavy leave-in on medium/low porosity — too heavy to absorb, sits on surface
   if (profile.productType === "leave_in_conditioner" &&
-    (profile.porosity === "low" || profile.porosity === "medium") &&
+    (profile.porosity === "low" || profile.porosity === "med") &&
     profile.density !== "fine" &&
     (hasClass("heavy-emollient") || hasTag("butter") || hasTag("heavy-oil"))) {
     const heavyCount = hits.filter(h => {
@@ -1278,7 +1278,7 @@ function calculateCategoryAdjustments(
     if (hasGel) {
       penalties.push({ reason: "Gel styler not ideal for straight hair", impact: -30 });
     } else if (hasMousse) {
-      const goalRaw = (profile as Record<string, unknown>)["goal"] as string | undefined;
+      const goalRaw = profile.goal;
       const mousseGoal = goalRaw ?? inferGoal(profile);
       if (mousseGoal === "volume") {
         penalties.push({ reason: "Mousse functional for volume on straight hair", impact: -3 });

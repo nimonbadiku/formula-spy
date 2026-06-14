@@ -29,6 +29,7 @@ export type ProductSubtype =
   | "treatment"        // dominant protein/bond/ceramide
   | "sealing"          // dominant oils/silicones
   | "styling"          // dominant film formers/polymers
+  | "moisture"         // dominant humectants/hydrators
   | "hybrid"           // mixed functions, no dominant archetype
   | "unknown";         // cannot determine
 
@@ -121,6 +122,7 @@ export function detectSubtype(
     treatment: 0,
     sealing: 0,
     styling: 0,
+    moisture: 0,
     hybrid: 0,
     unknown: 0,
   };

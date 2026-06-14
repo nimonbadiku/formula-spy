@@ -502,7 +502,9 @@ function detectSiliconeSignals(
 
   // Signal 3: Silicones for silicone-avoiding profile
   if (profile.siliconeSensitivity === true) {
-    const modifier = siliconeCount >= 3 ? 0.55 : siliconeCount >= 2 ? 0.65 : 0.72;
+    // FIX: Much stronger modifiers — silicone avoidance is a primary rejection criterion.
+    // A single silicone in a conditioner should tank the score, not just reduce it by 28%.
+    const modifier = siliconeCount >= 3 ? 0.35 : siliconeCount >= 2 ? 0.40 : 0.25;
     signals.push({
       id: "silicone_incompatible_silicone_avoiding",
       description: `${siliconeCount} silicone(s) for silicone-avoiding profile`,
@@ -534,13 +536,16 @@ function detectProteinSignals(
   const proteinCount = proteins.length;
 
   // Signal 1: Protein overload for protein-sensitive profile
-  if (profile.proteinSensitivity === true && proteinCount >= 2) {
-    const modifier = proteinCount >= 3 ? 0.50 : 0.62;
+  // FIX C: Fire with just 1 protein (not 2). A single protein on a
+  // protein-sensitive profile is already a hard conflict.
+  // FIX C2: Much stronger modifiers — protein sensitivity is a primary rejection criterion.
+  if (profile.proteinSensitivity === true && proteinCount >= 1) {
+    const modifier = proteinCount >= 3 ? 0.25 : proteinCount >= 2 ? 0.35 : 0.30;
     signals.push({
       id: "protein_overload_incompatible_sensitive",
-      description: `${proteinCount} protein ingredients for protein-sensitive profile`,
-      rationale: "Protein-sensitive users experience stiffness, brittleness, and breakage from protein-containing products. Multiple proteins compound the effect dramatically. This is a primary rejection criterion for protein-sensitive users.",
-      dominance: "dominant",
+      description: `${proteinCount} protein ingredient(s) for protein-sensitive profile`,
+      rationale: "Protein-sensitive users experience stiffness, brittleness, and breakage from protein-containing products. Even a single protein can trigger adverse reactions. This is a primary rejection criterion for protein-sensitive users.",
+      dominance: proteinCount >= 2 ? "dominant" : "strong",
       direction: "incompatible",
       proposedModifier: modifier,
       triggerIngredients: proteinNames,
@@ -643,13 +648,18 @@ function detectBondRepairSignals(
 
   const bondRepairNames = bondRepairIngredients.map(si => si.ingredient?.record?.name);
 
+  // FIX: When protein-sensitive, bond repair benefit is reduced because
+  // protein-sensitive users cannot tolerate the protein component of many
+  // bond repair systems. The compatible signal is weakened or suppressed.
+  const bondModifier = profile.proteinSensitivity === true ? 0.85 : 1.15;
+
   signals.push({
     id: "bond_repair_compatible_damaged",
     description: `Bond repair active(s) for damaged/chemically treated hair`,
     rationale: "Bond repair actives (e.g., Bis-Aminopropyl Diglycol Dimaleate) directly address structural damage at the disulfide bond level. This is the highest-value repair mechanism for chemically damaged hair. Users who have used bond repair products experience measurable improvement in strength and elasticity.",
     dominance: "dominant",
     direction: "compatible",
-    proposedModifier: 1.15,
+    proposedModifier: bondModifier,
     triggerIngredients: bondRepairNames,
   });
 
@@ -856,6 +866,11 @@ function detectProteinFreeSignals(
 
   const proteins = ingredients.filter(si => isProtein(si.ingredient.record));
   if (proteins.length > 0) return signals; // Only fires when zero proteins present
+
+  // FIX: Don't boost when bond repair is present — bond repair already provides
+  // structural support, so protein-free bonus is redundant and misleading.
+  const bondRepairCount = ingredients.filter(si => isBondRepairActive(si.ingredient.record)).length;
+  if (bondRepairCount > 0) return signals;
 
   const allIngredientNames = ingredients.map(si => si.ingredient?.record?.name);
 
@@ -1483,7 +1498,9 @@ function detectMoistureOnlyNoRepairSignals(
   if (bondRepairCount > 0) return signals;
 
   const proteins = ingredients.filter((si) => isProtein(si.ingredient.record));
-  if (proteins.length >= 2) return signals;
+  // FIX: If there's at least 1 protein, the product has some repair support.
+  // Only penalise when there are ZERO proteins (pure moisture with no structural support).
+  if (proteins.length >= 1) return signals;
 
   const humectants = ingredients.filter((si) => {
     const cat = getCategory(si.ingredient.record);
@@ -1829,6 +1846,177 @@ function detectSulfateFreeMildShampooSignals(
   return signals;
 }
 
+// ─── PHASE 6: HEAVY LIPID ON FINE/LOW-POROSITY HAIR ──────────────────────────
+
+/**
+ * Detects heavy lipid/butter incompatibility for fine or low-porosity hair.
+ * Heavy ingredients (butters, thick oils) cause buildup, limpness, and
+ * weight on fine/low-porosity hair. This is a primary rejection criterion.
+ */
+function detectHeavyLipidFineHairSignals(
+  ingredients: readonly ScoredIngredient[],
+  profile: HairProfile
+): CriticalSignal[] {
+  const signals: CriticalSignal[] = [];
+
+  if (profile.density !== "fine" && profile.porosity !== "low") return signals;
+
+  const HEAVY_LIPID_CATEGORIES = new Set(["Lipid", "Wax", "Oil", "Emollient"]);
+  const heavyLipids = ingredients.filter(si => {
+    const cat = si.ingredient?.record?.category ?? "";
+    return HEAVY_LIPID_CATEGORIES.has(cat);
+  });
+
+  if (heavyLipids.length === 0) return signals;
+
+  const lipidNames = heavyLipids.map(si => si.ingredient?.record?.name ?? "");
+  const isLeaveOn = profile.productType === "leave_in_conditioner" ||
+                    profile.productType === "hair_oil_serum" ||
+                    profile.productType === "styling_product" ||
+                    profile.productType === "co_wash";
+
+  if (isLeaveOn && heavyLipids.length >= 2) {
+    const isCowash = profile.productType === "co_wash";
+    signals.push({
+      id: "heavy_lipid_incompatible_fine_leave_on",
+      description: `${heavyLipids.length} heavy lipids in leave-on product for fine/low-porosity hair`,
+      rationale: "Fine/low-porosity hair cannot support heavy lipids. Multiple butters and thick oils cause severe buildup, limpness, and weight. Leave-on format compounds the problem — no rinse to remove accumulation.",
+      dominance: "dominant",
+      direction: "incompatible",
+      proposedModifier: isCowash
+        ? (heavyLipids.length >= 4 ? 0.25 : heavyLipids.length >= 3 ? 0.30 : 0.40)
+        : (heavyLipids.length >= 4 ? 0.35 : heavyLipids.length >= 3 ? 0.45 : 0.55),
+      triggerIngredients: lipidNames,
+    });
+  } else if (heavyLipids.length >= 2) {
+    signals.push({
+      id: "heavy_lipid_incompatible_fine_rinse",
+      description: `${heavyLipids.length} heavy lipids in rinse-out product for fine/low-porosity hair`,
+      rationale: "Fine/low-porosity hair is easily weighed down by heavy lipids. Multiple butters and thick oils cause buildup even in rinse-out format.",
+      dominance: "strong",
+      direction: "incompatible",
+      proposedModifier: heavyLipids.length >= 4 ? 0.40 : heavyLipids.length >= 3 ? 0.50 : 0.60,
+      triggerIngredients: lipidNames,
+    });
+  }
+
+  return signals;
+}
+
+// ─── PHASE 6: SCALP ACTIVES IN SERUM FORMAT ──────────────────────────────────
+
+/**
+ * Detects scalp-active ingredients in serum format for oily/scalp-health profiles.
+ * Niacinamide, Zinc PCA, Salicylic Acid, etc. in serum format are highly
+ * compatible with scalp health goals.
+ */
+function detectScalpActiveSerumSignals(
+  ingredients: readonly ScoredIngredient[],
+  profile: HairProfile
+): CriticalSignal[] {
+  const signals: CriticalSignal[] = [];
+
+  if (profile.productType !== "hair_oil_serum") return signals;
+  if (!profile.scalpSensitivity && profile.oiliness !== "oily") return signals;
+
+  const scalpActives = ingredients.filter(si => {
+    const tags = si.ingredient?.record?.tags ?? [];
+    const cat = (si.ingredient?.record?.category ?? "").toLowerCase();
+    return tags.includes("scalp-active") || cat.includes("scalp") ||
+           cat.includes("vitamin") || cat.includes("mineral");
+  });
+
+  if (scalpActives.length === 0) return signals;
+
+  const names = scalpActives.map(si => si.ingredient?.record?.name ?? "");
+  signals.push({
+    id: "scalp_active_compatible_serum",
+    description: `${scalpActives.length} scalp-active ingredient(s) in serum format`,
+    rationale: "Scalp-active ingredients (niacinamide, zinc PCA, salicylic acid) in serum format directly serve scalp health goals. Leave-on format allows extended contact time for maximum efficacy.",
+    dominance: "strong",
+    direction: "compatible",
+    proposedModifier: scalpActives.length >= 2 ? 1.35 : 1.20,
+    triggerIngredients: names,
+  });
+
+  return signals;
+}
+
+// ─── PHASE 6: SCALP ACTIVES OVERRIDE SULFATE/FRAGRANCE PENALTY ───────────────
+
+/**
+ * When a shampoo has scalp-active ingredients AND the profile has scalpSensitivity
+ * or oily scalp with scalp health goal, the sulfate/fragrance penalties should be
+ * reduced. The scalp actives directly serve the goal, making the harsh surfactants
+ * acceptable in context.
+ */
+function detectScalpActiveOverrideSignals(
+  ingredients: readonly ScoredIngredient[],
+  profile: HairProfile
+): CriticalSignal[] {
+  const signals: CriticalSignal[] = [];
+
+  if (profile.productType !== "shampoo") return signals;
+  if (!profile.scalpSensitivity && profile.oiliness !== "oily") return signals;
+
+  const scalpActives = ingredients.filter(si => {
+    const tags = si.ingredient?.record?.tags ?? [];
+    return tags.includes("scalp-active") || tags.includes("scalp-support");
+  });
+
+  if (scalpActives.length === 0) return signals;
+
+  // Scalp actives present: reduce the sulfate/fragrance penalties
+  // by providing a compatible modifier that partially offsets them
+  const names = scalpActives.map(si => si.ingredient?.record?.name ?? "");
+  signals.push({
+    id: "scalp_active_overrides_sulfate_penalty",
+    description: `Scalp-active ingredients present — sulfate/fragrance penalties reduced`,
+    rationale: "When scalp-active ingredients (salicylic acid, zinc pyrithione, niacinamide) are present, they directly serve the scalp health goal. The harsh surfactants are acceptable in this context because the actives compensate. Fragrance penalties are also reduced because the actives address the underlying concern.",
+    dominance: "moderate",
+    direction: "compatible",
+    proposedModifier: scalpActives.length >= 2 ? 1.40 : 1.25,
+    triggerIngredients: names,
+  });
+
+  return signals;
+}
+
+// ─── PHASE 6: BOND REPAIR ON HEALTHY HAIR ────────────────────────────────────
+
+/**
+ * Detects bond repair actives on healthy (non-damaged) hair.
+ * Bond repair provides limited benefit for healthy hair and should be
+ * penalised more strongly than the per-ingredient modifier alone achieves.
+ */
+function detectBondRepairHealthySignals(
+  ingredients: readonly ScoredIngredient[],
+  profile: HairProfile
+): CriticalSignal[] {
+  const signals: CriticalSignal[] = [];
+
+  if (profile.condition === "damaged" || profile.chemicallyTreated) return signals;
+
+  const bondRepair = ingredients.filter(si =>
+    isBondRepairActive(si.ingredient.record)
+  );
+
+  if (bondRepair.length === 0) return signals;
+
+  const names = bondRepair.map(si => si.ingredient?.record?.name ?? "");
+  signals.push({
+    id: "bond_repair_incompatible_healthy",
+    description: `Bond repair active(s) on healthy hair`,
+    rationale: "Bond repair actives are designed for damaged hair with broken disulfide bonds. On healthy hair, they provide minimal benefit and may disrupt the natural bond structure. This is a product-mismatch signal.",
+    dominance: "strong",
+    direction: "incompatible",
+    proposedModifier: 0.55,
+    triggerIngredients: names,
+  });
+
+  return signals;
+}
+
 // ─── MODIFIER COMPOSITION ─────────────────────────────────────────────────────
 
 /**
@@ -1917,6 +2105,14 @@ export function detectCriticalSignals(
     ...detectHeavyPolymerCoilyStylerSignals(scoredIngredients, profile),
     // Phase 5: sulfate-free mild shampoo compatibility for curly/dry-scalp profiles
     ...detectSulfateFreeMildShampooSignals(scoredIngredients, profile),
+    // Phase 6: heavy lipid incompatibility for fine/low-porosity hair
+    ...detectHeavyLipidFineHairSignals(scoredIngredients, profile),
+    // Phase 6: scalp-active compatibility for serum format
+    ...detectScalpActiveSerumSignals(scoredIngredients, profile),
+    // Phase 6: bond repair incompatibility for healthy hair
+    ...detectBondRepairHealthySignals(scoredIngredients, profile),
+    // Phase 6: scalp actives override sulfate/fragrance penalties
+    ...detectScalpActiveOverrideSignals(scoredIngredients, profile),
   ];
 
   const incompatibleSignals = allSignals.filter(s => s.direction === "incompatible");

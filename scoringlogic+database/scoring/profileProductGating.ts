@@ -58,7 +58,6 @@ import type { HairProfile, ProductType } from "../engine/shared/types";
  */
 export const CLEANSING_PRODUCT_TYPES = new Set<ProductType>([
   "shampoo",
-  "co_wash",
 ]);
 
 /**

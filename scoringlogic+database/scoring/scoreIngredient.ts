@@ -67,17 +67,15 @@ const NEUTRAL_MULTIPLIER = 1.0;
 /**
  * Scale factor for Phase 3 profile_compatibility scores.
  * Maps [-1.0, +1.0] → [×0.85, ×1.15] multiplier range.
- * -1.0 → ×0.85 (strong avoid), 0.0 → ×1.0 (neutral), +1.0 → ×1.15 (strongly beneficial)
+ * -1.0 → ×0.70 (strong avoid), 0.0 → ×1.0 (neutral), +1.0 → ×1.30 (strongly beneficial)
  *
- * Calibration note: 0.15 is conservative — it adds gradient without overriding
- * the CSDS formulation-level signals which carry the dominant scoring weight.
- * The per-ingredient gradient is intentionally subtle (max ±15%) to preserve
- * the existing calibration of all benchmark scores.
+ * Calibration note: 0.30 provides meaningful profile-aware differentiation
+ * while preserving the existing calibration of benchmark scores.
  */
-const COMPAT_SCALE = 0.15;
+const COMPAT_SCALE = 0.30;
 
 /** Stronger porosity_high gradient — high-porosity hair benefits more from humectants/oils. */
-const HIGH_POROSITY_COMPAT_SCALE = 0.22;
+const HIGH_POROSITY_COMPAT_SCALE = 0.40;
 
 /** Additional multiplier for sealing lipids/oils on high-porosity conditioning products. */
 const HIGH_POROSITY_EMOLLIENT_BOOST = 1.2;
@@ -361,7 +359,7 @@ export function scoreIngredient(
 
   // ── Step 3: Final score ──────────────────────────────────────────────────
   const rawFinal = baseScore * profileModifier;
-  const finalScore = Math.round(rawFinal * 100) / 100;
+  const finalScore = Math.min(100, Math.max(0, Math.round(rawFinal * 100) / 100));
 
   return {
     ingredient: hit,

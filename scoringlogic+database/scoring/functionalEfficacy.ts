@@ -35,9 +35,13 @@ function textMatch(haystack: string, ...needles: string[]): boolean {
 function hasCleansingSurfactant(ingredients: string): boolean {
   return textMatch(ingredients,
     "sodium cocoyl isethionate", "cocamidopropyl betaine", "sodium laureth sulfate",
-    "sodium lauryl sulfate", "coco-glucoside", "decyl glucoside", "sodium cocoyl glutamate",
-    "disodium cocoyl glutamate", "lauryl glucoside", "sodium lauryl sulfoacetate",
-    "cocamidopropyl hydroxysultaine", "sodium cocamphoacetate");
+    "sodium lauryl sulfate", "coco-glucoside", "coco glucoside", "decyl glucoside",
+    "sodium cocoyl glutamate", "disodium cocoyl glutamate", "lauryl glucoside",
+    "sodium lauryl sulfoacetate", "cocamidopropyl hydroxysultaine", "sodium cocamphoacetate",
+    "disodium laureth sulfosuccinate", "sodium c14-16 olefin sulfonate",
+    "ammonium lauryl sulfate", "ammonium laureth sulfate", "tea-lauryl sulfate",
+    "disodium cocoamphodiacetate", "sodium lauroyl sarcosinate",
+    "potassium cocoate", "sodium cocoate", "sodium palm kernelate");
 }
 
 function hasConditioningAgent(ingredients: string): boolean {
@@ -87,13 +91,19 @@ function hasFunctionalSerumIngredient(ingredients: string): boolean {
     "simmondsia chinensis", "argania spinosa", "coconut oil", "castor oil",
     "dimethicone", "cyclomethicone", "phenyl trimethicone", "dimethiconol",
     "amodimethicone", "jojoba oil", "argan oil", "marula oil", "vitamin e",
-    "tocopheryl", "squalane");
+    "tocopheryl", "squalane",
+    // FIX: Scalp-active ingredients are functional in serum format
+    "niacinamide", "zinc pca", "salicylic acid", "tea tree",
+    "panthenol", "hyaluronic acid", "retinol", "vitamin c",
+    "azelaic acid", "glycolic acid");
 }
 
 function hasStylingAgent(ingredients: string): boolean {
   return textMatch(ingredients,
     "polyquaternium", "pvp", "carbomer", "peg-40", "cetearyl alcohol",
-    "behentrimonium");
+    "behentrimonium", "hydroxyethylcellulose", "hydroxypropylcellulose",
+    "acrylates", "vp/va copolymer", "polyvinylpyrrolidone",
+    "sodium polyacrylate", "carbopol", "xanthan");
 }
 
 // ─── EFFICACY RESULT TYPE ────────────────────────────────────────────────────
@@ -107,6 +117,8 @@ export interface FunctionalEfficacyResult {
   readonly reason: string;
   /** The product category that was checked. */
   readonly productType: ProductType;
+  /** If set, cap the final score to this value (tiered cap system). */
+  readonly capScore?: number | null;
 }
 
 // ─── MAIN GATE FUNCTION ──────────────────────────────────────────────────────
@@ -125,17 +137,33 @@ export function checkFunctionalEfficacy(
   ingredients: string
 ): FunctionalEfficacyResult {
   switch (productType) {
-    case "shampoo":
-    case "co_wash": {
+    case "shampoo": {
       if (!hasCleansingSurfactant(ingredients)) {
         return {
           passed: false,
-          modifier: -60,
+          modifier: 0,
           reason: "no cleansing surfactant detected — product cannot cleanse",
           productType,
+          capScore: 30,
         };
       }
-      return { passed: true, modifier: 0, reason: "surfactant present", productType };
+      return { passed: true, modifier: 0, reason: "surfactant present", productType, capScore: null };
+    }
+
+    case "co_wash": {
+      // Co-wash uses conditioning agents (BTMC, cetearyl alcohol) for mild cleansing.
+      // It does NOT need traditional surfactants.
+      const hasAny = hasConditioningAgent(ingredients) || hasEmollient(ingredients) || hasHumectant(ingredients);
+      if (!hasAny) {
+        return {
+          passed: false,
+          modifier: 0,
+          reason: "no conditioning, emollient, or humectant agent detected — co-wash cannot cleanse",
+          productType,
+          capScore: 30,
+        };
+      }
+      return { passed: true, modifier: 0, reason: "conditioning agents present for co-wash cleansing", productType, capScore: null };
     }
 
     case "rinse_out_conditioner":
@@ -144,12 +172,13 @@ export function checkFunctionalEfficacy(
       if (!hasAny) {
         return {
           passed: false,
-          modifier: -55,
+          modifier: 0,
           reason: "no conditioning, emollient, or humectant agent detected — product cannot condition",
           productType,
+          capScore: 30,
         };
       }
-      return { passed: true, modifier: 0, reason: "conditioning agents present", productType };
+      return { passed: true, modifier: 0, reason: "conditioning agents present", productType, capScore: null };
     }
 
     case "deep_conditioner_mask":
@@ -158,63 +187,68 @@ export function checkFunctionalEfficacy(
       if (!hasAny) {
         return {
           passed: false,
-          modifier: -55,
+          modifier: 0,
           reason: "no conditioning or treatment active detected — product cannot treat or condition",
           productType,
+          capScore: 30,
         };
       }
-      return { passed: true, modifier: 0, reason: "active agents present", productType };
+      return { passed: true, modifier: 0, reason: "active agents present", productType, capScore: null };
     }
 
     case "serum": {
       if (!hasFunctionalSerumIngredient(ingredients)) {
         return {
           passed: false,
-          modifier: -60,
+          modifier: 0,
           reason: "no functional serum ingredient detected — product has no sealing or treatment function",
           productType,
+          capScore: 30,
         };
       }
-      return { passed: true, modifier: 0, reason: "functional ingredients present", productType };
+      return { passed: true, modifier: 0, reason: "functional ingredients present", productType, capScore: null };
     }
 
     case "treatment": {
       if (!hasTreatmentActive(ingredients)) {
         return {
           passed: false,
-          modifier: -60,
+          modifier: 0,
           reason: "no treatment active detected — product has no repair, protein, or treatment function",
           productType,
+          capScore: 30,
         };
       }
-      return { passed: true, modifier: 0, reason: "treatment actives present", productType };
+      return { passed: true, modifier: 0, reason: "treatment actives present", productType, capScore: null };
     }
 
     case "styling_product": {
       if (!hasStylingAgent(ingredients)) {
         return {
           passed: false,
-          modifier: -50,
+          modifier: 0,
           reason: "no styling agent detected — product has no hold or styling function",
           productType,
+          capScore: 30,
         };
       }
-      return { passed: true, modifier: 0, reason: "styling agents present", productType };
+      return { passed: true, modifier: 0, reason: "styling agents present", productType, capScore: null };
     }
 
     case "hair_oil_serum": {
       if (!hasEmollient(ingredients) && !hasFunctionalSerumIngredient(ingredients)) {
         return {
           passed: false,
-          modifier: -55,
+          modifier: 0,
           reason: "no oil or emollient detected — product has no sealing function",
           productType,
+          capScore: 30,
         };
       }
-      return { passed: true, modifier: 0, reason: "oil/emollient present", productType };
+      return { passed: true, modifier: 0, reason: "oil/emollient present", productType, capScore: null };
     }
 
     default:
-      return { passed: true, modifier: 0, reason: "unknown product type — no efficacy check", productType };
+      return { passed: true, modifier: 0, reason: "unknown product type — no efficacy check", productType, capScore: null };
   }
 }

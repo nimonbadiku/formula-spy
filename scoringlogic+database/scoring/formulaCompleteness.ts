@@ -52,6 +52,7 @@ const SUBTYPE_FUNCTIONAL_ROLES: Record<ProductSubtype, readonly string[]> = {
   treatment: ["treatment-active"],
   sealing: ["sealant"],
   styling: ["hold"],
+  moisture: ["humectant"],
   hybrid: [],
   unknown: [],
 };

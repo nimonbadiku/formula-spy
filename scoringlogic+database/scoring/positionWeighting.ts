@@ -31,6 +31,14 @@
  */
 const DECAY_FACTOR = 0.85;
 
+/**
+ * FIX 8: Slower decay rate for short formulas (≤8 ingredients).
+ * The 0.85 decay was calibrated for long INCI lists. For shampoos with 5-7
+ * ingredients, positions 4-6 lose too much influence. The 0.92 decay retains
+ * meaningful contribution from all ingredients in short formulas.
+ */
+const DECAY_FACTOR_SHORT = 0.92;
+
 // ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
 /**
@@ -69,16 +77,19 @@ export function computePositionWeights(count: number): readonly number[] {
   if (count <= 0) return [];
   if (count === 1) return [1.0];
 
-  // Use precomputed if within bounds (O(1) access)
-  if (count < PRECOMPUTED_WEIGHTS.length) {
+  // FIX 8: Use adaptive decay rate based on formula length
+  const decayFactor = count <= 8 ? DECAY_FACTOR_SHORT : DECAY_FACTOR;
+
+  // Use precomputed if within bounds and using standard decay (O(1) access)
+  if (count < PRECOMPUTED_WEIGHTS.length && decayFactor === DECAY_FACTOR) {
     return PRECOMPUTED_WEIGHTS[count];
   }
 
-  // Compute raw geometric decay weights for lengths > 150
+  // Compute raw geometric decay weights with appropriate decay factor
   const raw: number[] = new Array(count);
   let sum = 0;
   for (let i = 0; i < count; i++) {
-    const val = Math.pow(DECAY_FACTOR, i);
+    const val = Math.pow(decayFactor, i);
     raw[i] = val;
     sum += val;
   }

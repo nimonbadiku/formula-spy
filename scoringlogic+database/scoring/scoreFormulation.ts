@@ -53,7 +53,7 @@ import { applyHumectantEnvironment } from "./humectantEnvironment";
 import { applyProteinModifier } from "./proteinBalance";
 import { analyzeProteinBalance } from "./proteinBalance";
 import { applyProteinLoadIntensity, applyHumectantSynergyBonus, analyzeFilmFormingProtein } from "./proteinBalance";
-import { applyCleanserHarshnessModifier, analyzeCleanserHarshness } from "./cleanserHarshness";
+import { applyCleanserHarshnessModifier, analyzeCleanserHarshness, computeFormulationHarshnessModifier } from "./cleanserHarshness";
 import { analyzeSurfactantLoad, applyChemicalTreatmentCleanserModifier, applyCoWashCleansingAdequacy } from "./cleanserHarshness";
 import { applyAdvancedProfileModifiers } from "./advancedProfileModifiers";
 import { analyzeFormulationBalance, computeSubscores } from "./formulationBalance";
@@ -92,20 +92,40 @@ function averageScores(scores: readonly number[]): number {
  * Active-weighted formulation base score.
  * Top actives drive the score; trace/support ingredients contribute a smaller tail.
  * Prevents long INCI lists from collapsing excellent humectants/proteins via dilution.
+ *
+ * FIX 9: Exclude inert carrier ingredients (Water, Aqua, Solvents) from the top-5
+ * active average. Water at position 0 drags down the average significantly for
+ * short formulas. Also adjust weighting to give more weight to the best active.
  */
+const INERT_CARRIER_NAMES = new Set(["water", "aqua", "eau"]);
+const INERT_CARRIER_CATEGORIES = new Set(["Solvent", "pH Adjuster"]);
+
 function computeActiveWeightedScore(scored: readonly ScoredIngredient[]): number {
   if (scored.length === 0) return 0;
 
   const sorted = [...scored].sort((a, b) => b.finalScore - a.finalScore);
-  const scores = sorted.map((si) => si.finalScore);
+
+  // FIX 9: Exclude inert carriers from the active average
+  const activeIngredients = sorted.filter(si => {
+    const name = (si.ingredient?.record?.name ?? "").toLowerCase();
+    const category = si.ingredient?.record?.category ?? "";
+    return !INERT_CARRIER_NAMES.has(name) && !INERT_CARRIER_CATEGORIES.has(category);
+  });
+
+  const scores = activeIngredients.map((si) => si.finalScore);
 
   const topActive = scores[0] ?? 0;
-  const topFiveAvg = averageScores(scores.slice(0, Math.min(5, scores.length)));
+  const topFiveActive = scores.slice(0, Math.min(5, scores.length));
+  const topFiveAvg = topFiveActive.length > 0
+    ? averageScores(topFiveActive)
+    : 0;
+
   const supportScores = scores.slice(5);
   const supportAvg =
     supportScores.length > 0 ? averageScores(supportScores) : topFiveAvg;
 
-  return topActive * 0.4 + topFiveAvg * 0.4 + supportAvg * 0.2;
+  // FIX 9: Adjusted weighting — more weight to best active, less dilution from inert carriers
+  return topActive * 0.45 + topFiveAvg * 0.35 + supportAvg * 0.20;
 }
 
 // ─── CALIBRATION CONSTANTS ───────────────────────────────────────────────────
@@ -216,6 +236,10 @@ export function scoreFormulation(
   const cleanserResult = analyzeCleanserHarshness(initialScored, mappedProfile);
   const surfactantLoadResult = analyzeSurfactantLoad(initialScored, mappedProfile);
   const filmFormingProteinResult = analyzeFilmFormingProtein(initialScored, mappedProfile);
+
+  // FIX 4: Compute formulation-level harshness modifier once.
+  // This replaces per-ingredient harshness penalties to prevent double-counting.
+  const formulationHarshnessResult = computeFormulationHarshnessModifier(initialScored, mappedProfile);
 
   // ── Step 5: Apply per-ingredient heuristic modifiers ────────────────────
   const finalScored: ScoredIngredient[] = initialScored.map((si, index) => {
@@ -336,7 +360,7 @@ export function scoreFormulation(
       });
     }
 
-    const adjustedFinalScore = round2(si.finalScore * heuristicMultiplier);
+    const adjustedFinalScore = Math.min(100, Math.max(0, round2(si.finalScore * heuristicMultiplier)));
 
     const fullTrace: readonly ScoreTraceEntry[] = [
       ...si.scoreTrace,
@@ -383,6 +407,11 @@ export function scoreFormulation(
 
     // Apply global balance modifier to active-weighted base (not position-diluted average).
     formulationScore = activeWeightedBase * balanceResult.globalModifier;
+
+    // FIX 4: Apply formulation-level harshness modifier (once, not per-ingredient).
+    if (formulationHarshnessResult.multiplier !== 1.0) {
+      formulationScore = formulationScore * formulationHarshnessResult.multiplier;
+    }
 
     // Phase 7: Apply surfactant system score modifier (additive, scaled).
     if (surfactantSystemResult.scoreModifier !== 0) {
@@ -437,6 +466,17 @@ export function scoreFormulation(
         `${coherenceResult.totalScoreModifier.toFixed(4)} (scaled additive) ` +
         `applied to formulationScore (not per-ingredient)`,
       modifier: coherenceResult.totalScoreModifier,
+    });
+  }
+
+  if (formulationHarshnessResult.multiplier !== 1.0) {
+    formulationLevelTraceEntries.push({
+      stage: "formulation_level_modifier",
+      value: formulationHarshnessResult.multiplier,
+      explanation:
+        `formulation_harshness ×${formulationHarshnessResult.multiplier.toFixed(4)} ` +
+        `applied to formulationScore (formulation-level, not per-ingredient)`,
+      modifier: formulationHarshnessResult.multiplier,
     });
   }
 

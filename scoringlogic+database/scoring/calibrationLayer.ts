@@ -41,27 +41,34 @@ const EVIDENCE_FLOOR_REDUCTION = 0.5; // Reduce by 50% when evidence is very low
 
 /**
  * Evidence scaling: scale score based on evidence level.
- * Uses a curve to differentiate between basic and complete formulas.
+ * FIX B: Gentler curve — only penalise genuinely sparse evidence.
+ * Previous curve destroyed scores for simple functional formulas (conditioners,
+ * leave-ins) that have strong evidence in their relevant dimensions.
  *
- * The curve is steeper in the 25-35 range to separate basic from complete:
- * - Very low evidence (< 20): 0.4x (non-functional)
- * - Low evidence (20-30): 0.5-0.6x (basic)
- * - Moderate evidence (30-40): 0.65-0.8x (functional)
- * - Good evidence (40-50): 0.85-1.0x (complete/excellent)
+ * New curve:
+ * - Very low evidence (< 15): 0.5x (non-functional / empty formula)
+ * - Low evidence (15-30): 0.7x (basic but functional)
+ * - Moderate evidence (30-50): 0.85x (functional)
+ * - Good evidence (50-70): 0.95x (complete)
+ * - Excellent evidence (>= 70): 1.0x
  */
-function getEvidenceMultiplier(evidence: number): number {
-  if (evidence < 20) return 0.4;
-  if (evidence < 30) return 0.5 + (evidence - 20) * 0.01; // 0.5 to 0.6
-  if (evidence < 40) return 0.65 + (evidence - 30) * 0.015; // 0.65 to 0.8
-  if (evidence < 50) return 0.85 + (evidence - 40) * 0.015; // 0.85 to 1.0
+function getEvidenceMultiplier(evidence: number, dimensions?: readonly { strength: number; contributorCount: number }[]): number {
+  // Restored: evidence multiplier provides necessary suppression for simple formulas.
+  if (evidence < 15) return 0.50;
+  if (evidence < 30) return 0.70;
+  if (evidence < 50) return 0.85;
+  if (evidence < 70) return 0.95;
   return 1.0;
 }
 
+
 /**
  * Completeness multiplier range.
- * Empty formulas get 0.7x, comprehensive get 1.0x.
+ * Empty formulas get 0.8x, comprehensive get 1.0x.
+ * FIX 1: Minimum raised from 0.7 to 0.8 — no functional product should
+ * lose more than 20% from completeness alone.
  */
-const COMPLETENESS_MIN_MULTIPLIER = 0.7;
+const COMPLETENESS_MIN_MULTIPLIER = 0.8;
 const COMPLETENESS_MAX_MULTIPLIER = 1.0;
 
 /**
@@ -86,28 +93,35 @@ const UNCERTAINTY_MIN_MULTIPLIER = 0.8;
  * @param evidence - Evidence profile
  * @param completeness - Completeness result
  * @param claims - Claim validation result
+ * @param functionalEvidenceFloor - FIX 7: If set, apply minimum evidence floor for functional products
  * @returns Calibrated score with confidence
  */
 export function calibrateScore(
   rawScore: number,
   evidence: EvidenceProfile,
   completeness: CompletenessResult,
-  claims: ClaimValidationResult
+  claims: ClaimValidationResult,
+  functionalEvidenceFloor?: number
 ): CalibrationResult {
   const adjustments: string[] = [];
   let score = rawScore;
 
+  // FIX 7: Apply functional evidence floor if provided
+  const effectiveEvidence = functionalEvidenceFloor !== undefined
+    ? Math.max(evidence.overallEvidence, functionalEvidenceFloor)
+    : evidence.overallEvidence;
+
   // 1. Evidence floor: if overall evidence < 15, reduce score significantly
-  if (evidence.overallEvidence < EVIDENCE_FLOOR_THRESHOLD) {
+  if (effectiveEvidence < EVIDENCE_FLOOR_THRESHOLD) {
     const reduction = EVIDENCE_FLOOR_REDUCTION;
     score = score * reduction;
-    adjustments.push(`Evidence floor ×${reduction.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
+    adjustments.push(`Evidence floor ×${reduction.toFixed(2)} (evidence ${effectiveEvidence}%)`);
   }
-  // 2. Evidence scaling: scale score based on evidence level using curve
+  // 2. Evidence scaling: scale score based on evidence level using max dimension
   else {
-    const multiplier = getEvidenceMultiplier(evidence.overallEvidence);
+    const multiplier = getEvidenceMultiplier(effectiveEvidence, evidence.dimensions);
     score = score * multiplier;
-    adjustments.push(`Evidence scaling ×${multiplier.toFixed(2)} (evidence ${evidence.overallEvidence}%)`);
+    adjustments.push(`Evidence scaling ×${multiplier.toFixed(2)} (evidence ${effectiveEvidence}%)`);
   }
 
   // 2. Completeness multiplier
@@ -131,6 +145,16 @@ export function calibrateScore(
     );
     score = score * uncertaintyPenalty;
     adjustments.push(`Uncertainty ×${uncertaintyPenalty.toFixed(2)} (${uncertaintyCount} flags)`);
+  }
+
+  // FIX 1: Multiplier stacking floor
+  // No product should lose more than 55% of its score from calibration-layer
+  // multipliers alone. Calculate the combined multiplier and clamp to 0.45 floor.
+  const rawCombinedMultiplier = rawScore > 0 ? score / rawScore : 1.0;
+  const COMBINED_MULTIPLIER_FLOOR = 0.45;
+  if (rawCombinedMultiplier < COMBINED_MULTIPLIER_FLOOR) {
+    score = rawScore * COMBINED_MULTIPLIER_FLOOR;
+    adjustments.push(`Multiplier stacking floor ×${COMBINED_MULTIPLIER_FLOOR} (combined multiplier was ${rawCombinedMultiplier.toFixed(2)})`);
   }
 
   // 5. Final clamp

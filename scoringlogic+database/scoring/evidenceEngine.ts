@@ -39,6 +39,27 @@ export type EvidenceDimension =
   | "shine"
   | "strength";
 
+// ─── FIX 2: CATEGORY-AWARE DIMENSION MAP ─────────────────────────────────────
+
+/**
+ * Maps product categories to their relevant evidence dimensions.
+ * Only dimensions relevant to the product category are evaluated.
+ * A shampoo should never have its score reduced because it lacks repair,
+ * definition, or strength evidence.
+ */
+const CATEGORY_DIMENSION_MAP: Record<string, EvidenceDimension[]> = {
+  shampoo: ["cleansing", "scalpHealth", "moisture"],
+  co_wash: ["cleansing", "conditioning", "moisture"],
+  rinse_out_conditioner: ["conditioning", "moisture"],
+  leave_in_conditioner: ["conditioning", "moisture"],
+  deep_conditioner_mask: ["conditioning", "moisture", "repair"],
+  mask: ["conditioning", "moisture", "repair"],
+  treatment: ["repair", "strength"],
+  serum: ["moisture", "shine"],
+  hair_oil_serum: ["moisture", "shine", "scalpHealth"],
+  styling_product: ["definition", "frizzControl", "volume", "moisture"],
+};
+
 // ─── TAG → DIMENSION MAPPING ─────────────────────────────────────────────────
 
 /**
@@ -81,9 +102,10 @@ const TAG_DIMENSION_WEIGHTS: Record<string, Partial<Record<EvidenceDimension, nu
   "film-forming": { frizzControl: 0.8, definition: 0.6 },
 
   // Scalp health
-  "scalp-active": { scalpHealth: 1.0 },
-  "scalp-support": { scalpHealth: 0.7 },
-  "oily-scalp-friendly": { scalpHealth: 0.5 },
+  "scalp-active": { scalpHealth: 1.0, moisture: 0.4 },
+  "scalp-support": { scalpHealth: 0.8, moisture: 0.3 },
+  "oily-scalp-friendly": { scalpHealth: 0.6, moisture: 0.2 },
+  "treatment": { scalpHealth: 0.5, repair: 0.3 },
 
   // Volume
   "volumizing": { volume: 1.0 },
@@ -94,6 +116,8 @@ const TAG_DIMENSION_WEIGHTS: Record<string, Partial<Record<EvidenceDimension, nu
   "styling": { definition: 0.7 },
   "texturizer": { definition: 0.6 },
   "curl-support": { definition: 0.7 },
+  "structurant": { definition: 0.8 },
+  "film-former": { definition: 0.6, frizzControl: 0.8 },
 
   // Shine
   "shine": { shine: 1.0 },
@@ -168,9 +192,13 @@ export function calculateEvidence(
     "scalpHealth", "volume", "definition", "shine", "strength",
   ];
 
+  // FIX 2: Category-aware dimension filter
+  // Only evaluate dimensions relevant to the product category
+  const relevantDimensions = CATEGORY_DIMENSION_MAP[_profile.productType] ?? allDimensions;
+
   const dimensions: DimensionEvidence[] = [];
 
-  for (const dim of allDimensions) {
+  for (const dim of relevantDimensions) {
     const contributors: { name: string; score: number; confidence: number; tags: string[]; positionPenalty: number }[] = [];
 
     for (const si of scored) {
@@ -204,10 +232,19 @@ export function calculateEvidence(
       return sum + c.score * c.confidence * dimW * c.positionPenalty;
     }, 0);
 
-    // Normalize: theoretical max = 100 (max score) × 1.0 (max confidence) × 1.0 (max weight) × contributorCount
-    const maxPossible = contributors.length * 100;
-    const strength = maxPossible > 0
-      ? Math.min(100, (totalEvidence / maxPossible) * 100)
+    // FIX: Use average contributor score as strength, not contributor-count normalization.
+    // The old formula (totalEvidence / (contributors.length * 100)) capped evidence at
+    // contributors.length * 100 / (contributors.length * 100) = 100% only when ALL
+    // contributors had perfect scores AND 100% confidence. With 0.5 default confidence,
+    // a 2-contributor dimension could only reach 50% strength — making it structurally
+    // impossible for simple formulas to pass the evidence threshold.
+    // New formula: strength = avg(contributor_score × confidence × weight × positionPenalty)
+    // This measures the QUALITY of evidence, not the QUANTITY of contributors.
+    const strength = contributors.length > 0
+      ? Math.min(100, contributors.reduce((sum, c) => {
+          const dimW = getDimensionWeight(c.tags, dim);
+          return sum + c.score * c.confidence * dimW * c.positionPenalty;
+        }, 0) / contributors.length)
       : 0;
 
     // Confidence based on contributor count and avg concentration confidence
@@ -227,12 +264,21 @@ export function calculateEvidence(
     });
   }
 
-  // Only consider dimensions with contributors for overall evidence
-  // A shampoo with only cleansing evidence should not be penalized for lacking volume evidence
+  // FIX A: Overall evidence uses the TOP dimension strength (not average).
+  // A conditioner with 100% moisture evidence and 47% conditioning evidence
+  // should not be dragged down to 73% by averaging. The best evidence
+  // dimension represents the product's primary functional contribution.
+  // Also boost: if any single dimension reaches 80+, overall evidence floors at 70.
   const dimensionsWithContributors = dimensions.filter(d => d.contributorCount > 0);
-  const overallEvidence = dimensionsWithContributors.length > 0
-    ? Math.round(dimensionsWithContributors.reduce((sum, d) => sum + d.strength, 0) / dimensionsWithContributors.length)
-    : 0;
+  let overallEvidence = 0;
+  if (dimensionsWithContributors.length > 0) {
+    const topStrength = Math.max(...dimensionsWithContributors.map(d => d.strength));
+    const avgStrength = dimensionsWithContributors.reduce((sum, d) => sum + d.strength, 0) / dimensionsWithContributors.length;
+    // Use 70% top + 30% average to reward strong single-dimension evidence
+    overallEvidence = Math.round(topStrength * 0.7 + avgStrength * 0.3);
+    // Floor: if any dimension is excellent, overall evidence is at least 70
+    if (topStrength >= 80) overallEvidence = Math.max(overallEvidence, 70);
+  }
 
   // Only flag uncertainty for dimensions that have contributors but low confidence
   // Don't flag dimensions with 0 contributors — they're not relevant

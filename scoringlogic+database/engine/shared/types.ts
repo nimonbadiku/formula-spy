@@ -112,6 +112,7 @@ export interface HairProfile {
   readonly proteinSensitivity?: boolean;
   readonly siliconeSensitivity?: boolean;
   readonly chemicallyTreated?: boolean;
+  readonly goal?: string;
 }
 
 // ─── SCORE TRACE ─────────────────────────────────────────────────────────────

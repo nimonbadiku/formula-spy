@@ -58,6 +58,9 @@ const CONDITIONING_CATEGORIES = new Set([
   "Oil",
   "Polymer",
   "Protein",
+  "Emollient",
+  "Quat",
+  "Lipid",
 ]);
 
 const CLEANSING_CATEGORIES = new Set(["Surfactant"]);
@@ -366,23 +369,21 @@ export function analyzeFormulationBalance(
   const conditioners = scoredIngredients.filter((si) => CONDITIONING_CATEGORIES.has(readCategory(si)));
   const surfaceLayers = scoredIngredients.filter(isSurfaceLayer);
 
-  const isCleansingProduct = profile.productType === "shampoo" || profile.productType === "co_wash";
+  const isCleansingProduct = profile.productType === "shampoo";
   const isLeaveInProduct =
     profile.productType === "leave_in_conditioner" ||
     profile.productType === "hair_oil_serum" ||
     profile.productType === "styling_product";
 
   // ── Check 1: Over-cleansing ──────────────────────────────────────────────
-  // FIX: Only count STRONG (sulfate) surfactants for over-cleansing detection.
-  // Previously counted ALL surfactants, causing mild-surfactant shampoos with
-  // 3+ gentle cleansers (Lauryl Glucoside, Disodium Cocoyl Glutamate, etc.)
-  // to trigger a false over-cleansing penalty. A shampoo with 3 mild surfactants
-  // and no sulfates is NOT over-cleansing — it is a well-formulated gentle cleanser.
-  // Over-cleansing only applies when STRONG sulfates dominate the surfactant system.
+  // FIX 5: Shampoos are cleansers by design. A high ratio of surfactants to
+  // conditioning agents is expected and correct. Skip over-cleansing penalty
+  // for cleansing products (shampoo, co_wash).
   const strongSurfactantsForBalance = surfactants.filter(
     (si) => si.ingredient?.record ? classifySurfactantHarshness(si.ingredient.record) === "strong" : false
   );
   if (
+    !isCleansingProduct &&
     strongSurfactantsForBalance.length >= OVER_CLEANSING_SURFACTANT_THRESHOLD &&
     conditioners.length < 2
   ) {
