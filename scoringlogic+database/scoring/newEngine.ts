@@ -68,6 +68,200 @@ const MAX_BASE_SCORE = 64;
 /** Absolute ceiling for final score (93-100 reserved for truly exceptional). */
 const ABSOLUTE_CEILING = 84;
 
+/** Hard cap for formulas that fail product-type qualification. */
+const DISQUALIFICATION_CAP = 22;
+
+// ─── PRODUCT QUALIFICATION ──────────────────────────────────────────────────
+// Hard gate: if a formula doesn't contain the minimum qualifying ingredients
+// for its product type, it cannot score above DISQUALIFICATION_CAP.
+// This runs BEFORE all other scoring logic.
+
+interface QualificationResult {
+  readonly qualified: boolean;
+  readonly reason: string;
+}
+
+function checkProductQualification(
+  hits: readonly ResolvedHit[],
+  productType: string
+): QualificationResult {
+  const hasTag = (tag: string): boolean =>
+    hits.some(h => getTags(h.record).includes(tag));
+
+  const hasNameContaining = (substr: string): boolean =>
+    hits.some(h => getName(h.record).includes(substr));
+
+  const hasCategory = (cat: string): boolean =>
+    hits.some(h => getCategory(h.record) === cat);
+
+  switch (productType) {
+    case "shampoo": {
+      // Must have a surfactant / cleansing agent
+      const hasSurfactantTag = hasTag("surfactant") || hasTag("gentle-surfactant") ||
+        hasTag("strong-surfactant") || hasTag("cleansing-agent");
+      // Name-based detection: look for surfactant keywords, but exclude conditioning quats
+      // that happen to contain "sulfate" (e.g., Behentrimonium Methosulfate)
+      const hasSurfactantName = hits.some(h => {
+        const n = getName(h.record);
+        const isConditioningQuat = n.includes("behentrimonium") || n.includes("cetrimonium") ||
+          n.includes("quaternium") || n.includes("stearamidopropyl");
+        if (isConditioningQuat) return false;
+        return n.includes("sulfate") || n.includes("glucoside") ||
+          n.includes("isethionate") || n.includes("sarcosinate") ||
+          n.includes("sulfosuccinate");
+      });
+      // "betaine" is only a surfactant when it's Cocamidopropyl Betaine (a specific surfactant),
+      // not Betaine (a humectant). Check category = Surfactant for betaine.
+      const hasBetaineSurfactant = hits.some(h => {
+        const n = getName(h.record);
+        const cat = getCategory(h.record);
+        return n.includes("betaine") && cat === "Surfactant";
+      });
+      const hasSurfactantCategory = hasCategory("Surfactant");
+      if (hasSurfactantTag || hasSurfactantName || hasBetaineSurfactant || hasSurfactantCategory) {
+        return { qualified: true, reason: "" };
+      }
+      return {
+        qualified: false,
+        reason: "No cleansing agent detected — this formula does not function as a shampoo",
+      };
+    }
+
+    case "co_wash": {
+      // Co-wash uses conditioning agents as cleansers — same qualification as conditioner
+      const hasCondTag = hasTag("conditioning-agent") || hasTag("fatty-alcohol") ||
+        hasTag("anti-static") || hasTag("detangling");
+      const hasCondName = hasNameContaining("behentrimonium") || hasNameContaining("cetrimonium") ||
+        hasNameContaining("quaternium") || hasNameContaining("cetyl alcohol") ||
+        hasNameContaining("stearyl alcohol") || hasNameContaining("cetearyl alcohol") ||
+        hasNameContaining("behenyl alcohol");
+      const hasCondCategory = hasCategory("Quat");
+      const hasFattyAlcohol = hits.some(h => {
+        const n = getName(h.record);
+        const isDrying = n.includes("alcohol denat") || n.includes("isopropyl alcohol") ||
+          n.includes("sd alcohol") || n.includes("denatured alcohol");
+        return !isDrying && (n.includes("cetyl alcohol") || n.includes("stearyl alcohol") ||
+          n.includes("cetearyl alcohol") || n.includes("behenyl alcohol"));
+      });
+      if (hasCondTag || hasCondName || hasCondCategory || hasFattyAlcohol) {
+        return { qualified: true, reason: "" };
+      }
+      return {
+        qualified: false,
+        reason: "No conditioning agent detected — this formula does not function as a co-wash",
+      };
+    }
+
+    case "rinse_out_conditioner":
+    case "deep_conditioner_mask":
+    case "mask": {
+      // Must have a conditioning agent (fatty alcohol or quat)
+      const hasCondTag = hasTag("conditioning-agent") || hasTag("fatty-alcohol") ||
+        hasTag("anti-static") || hasTag("detangling");
+      const hasCondName = hasNameContaining("behentrimonium") || hasNameContaining("cetrimonium") ||
+        hasNameContaining("quaternium") || hasNameContaining("cetyl alcohol") ||
+        hasNameContaining("stearyl alcohol") || hasNameContaining("cetearyl alcohol") ||
+        hasNameContaining("behenyl alcohol");
+      const hasCondCategory = hasCategory("Quat");
+      // Fatty alcohol check: name contains "alcohol" but NOT drying alcohols
+      const hasFattyAlcohol = hits.some(h => {
+        const n = getName(h.record);
+        const isDrying = n.includes("alcohol denat") || n.includes("isopropyl alcohol") ||
+          n.includes("sd alcohol") || n.includes("denatured alcohol");
+        return !isDrying && (n.includes("cetyl alcohol") || n.includes("stearyl alcohol") ||
+          n.includes("cetearyl alcohol") || n.includes("behenyl alcohol"));
+      });
+      if (hasCondTag || hasCondName || hasCondCategory || hasFattyAlcohol) {
+        return { qualified: true, reason: "" };
+      }
+      return {
+        qualified: false,
+        reason: "No conditioning agent detected — this formula does not function as a conditioner",
+      };
+    }
+
+    case "leave_in_conditioner": {
+      // Broader qualification: humectant, lightweight emollient, or conditioning agent
+      const hasHumectant = hasTag("humectant") || hasTag("hydrating") ||
+        hasNameContaining("glycerin") || hasNameContaining("aloe") ||
+        hasNameContaining("panthenol") || hasNameContaining("hyaluronic") ||
+        hasNameContaining("sodium pca");
+      const hasEmollient = hasTag("lightweight-emollient") || hasTag("emollient") ||
+        hasNameContaining("argan") || hasNameContaining("jojoba") ||
+        hasNameContaining("almond");
+      const hasCondAgent = hasTag("conditioning-agent") || hasTag("fatty-alcohol") ||
+        hasNameContaining("behentrimonium") || hasNameContaining("cetrimonium") ||
+        hasNameContaining("cetyl alcohol") || hasNameContaining("cetearyl alcohol");
+      if (hasHumectant || hasEmollient || hasCondAgent) {
+        return { qualified: true, reason: "" };
+      }
+      return {
+        qualified: false,
+        reason: "No moisturising agent detected — this formula does not function as a leave-in",
+      };
+    }
+
+    case "hair_oil_serum":
+    case "serum": {
+      // Must have an oil, silicone, or active
+      const hasOil = hasTag("emollient") || hasTag("silicone") || hasTag("scalp-active") ||
+        hasNameContaining("oil") || hasNameContaining("butter") ||
+        hasNameContaining("dimethicone") || hasNameContaining("silicone") ||
+        hasNameContaining("cyclomethicone") || hasNameContaining("squalane") ||
+        hasNameContaining("squalene") || hasNameContaining("glyceride");
+      const hasActive = hasNameContaining("niacinamide") || hasNameContaining("salicylic") ||
+        hasNameContaining("zinc pca") || hasNameContaining("retinol");
+      if (hasOil || hasActive) {
+        return { qualified: true, reason: "" };
+      }
+      return {
+        qualified: false,
+        reason: "No active or emollient detected — this formula does not function as a serum",
+      };
+    }
+
+    case "styling_product": {
+      // Must have a hold/defining agent
+      const hasHoldTag = hasTag("film-former") || hasTag("hold-agent") || hasTag("structurant");
+      const hasHoldName = hasNameContaining("carbomer") || hasNameContaining("pvp") ||
+        hasNameContaining("polyvinylpyrrolidone") || hasNameContaining("hydroxyethylcellulose") ||
+        hasNameContaining("hydroxypropyl methylcellulose") || hasNameContaining("polyquaternium") ||
+        hasNameContaining("acrylate") || hasNameContaining("wax") || hasNameContaining("cera");
+      const hasButter = hasNameContaining("shea butter") || hasNameContaining("mango butter");
+      if (hasHoldTag || hasHoldName || hasButter) {
+        return { qualified: true, reason: "" };
+      }
+      return {
+        qualified: false,
+        reason: "No hold or defining agent detected — this formula does not function as a styler",
+      };
+    }
+
+    case "treatment": {
+      // Must have a treatment active: protein, bond builder, ceramide, scalp active, or heavy emollient
+      const hasTreatmentTag = hasTag("bond-builder") || hasTag("protein") || hasTag("scalp-active");
+      const hasTreatmentName = hasNameContaining("hydrolyzed") || hasNameContaining("keratin") ||
+        hasNameContaining("ceramide") || hasNameContaining("salicylic") ||
+        hasNameContaining("zinc pyrithione") || hasNameContaining("ketoconazole") ||
+        hasNameContaining("niacinamide") || hasNameContaining("maleic acid") ||
+        hasNameContaining("mineral oil") || hasNameContaining("petrolatum") ||
+        hasNameContaining("shea butter");
+      const hasProtein = hasCategory("Protein") || hasCategory("Bond Repair");
+      if (hasTreatmentTag || hasTreatmentName || hasProtein) {
+        return { qualified: true, reason: "" };
+      }
+      return {
+        qualified: false,
+        reason: "No treatment active detected — this formula does not function as a treatment",
+      };
+    }
+
+    default:
+      // Unknown product type — no qualification gate
+      return { qualified: true, reason: "" };
+  }
+}
+
 // ─── INGREDIENT CLASSIFICATION ──────────────────────────────────────────────
 
 function getTags(record: IngredientRecord): readonly string[] {
@@ -1262,6 +1456,9 @@ export function scoreFormulationNew(
     }
   }
 
+  // ── Step 0: Product qualification gate (HARD CAP) ────────────────────────
+  const qualification = checkProductQualification(hits, profile.productType);
+
   // ── Step 1: Functional efficacy check ──────────────────────────────────
   const efficacy = checkFunctionalEfficacy(hits, profile);
 
@@ -1349,6 +1546,13 @@ export function scoreFormulationNew(
     }
   }
 
+  // ── Step 10b: Product qualification cap (HARD — overrides everything) ────
+  if (!qualification.qualified) {
+    // Treatment gets a higher cap (28) since conditioning ingredients are borderline
+    const qualCap = profile.productType === "treatment" ? 28 : DISQUALIFICATION_CAP;
+    finalScore = Math.min(finalScore, qualCap);
+  }
+
   // Clamp
   finalScore = Math.max(0, Math.min(ABSOLUTE_CEILING, Math.round(finalScore)));
 
@@ -1421,6 +1625,10 @@ export function scoreFormulationNew(
       unresolvedRatio: hits.length + misses.length > 0
         ? misses.length / (hits.length + misses.length) : 0,
     },
+    ...(qualification.qualified ? {} : {
+      disqualified: true,
+      disqualificationReason: qualification.reason,
+    }),
   };
 }
 

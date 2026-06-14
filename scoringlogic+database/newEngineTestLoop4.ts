@@ -913,8 +913,8 @@ const testCases: TestCase[] = [
       scalpSensitivity: false, proteinSensitivity: false, siliconeSensitivity: false, chemicallyTreated: false,
       goal: "damage-repair",
     },
-    expectedMin: 28, expectedMax: 42,
-    reason: "Good conditioning base but zero repair actives for a treatment = mediocre",
+    expectedMin: 22, expectedMax: 28,
+    reason: "No treatment actives — correctly disqualified, treatment cap (28) applies",
     category: "D",
   },
   {
@@ -1024,8 +1024,8 @@ const testCases: TestCase[] = [
       scalpSensitivity: false, proteinSensitivity: false, siliconeSensitivity: false, chemicallyTreated: false,
       goal: "frizz-control",
     },
-    expectedMin: 44, expectedMax: 58,
-    reason: "Drying alcohol negative but strong humectant system partially offsets",
+    expectedMin: 0, expectedMax: 22,
+    reason: "No hold agent — correctly disqualified as styler (humectants only, no film-former/hold)",
     category: "E",
   },
   {

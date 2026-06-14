@@ -126,13 +126,19 @@ export function analyzeFormulationCoherence(
     profile.productType === "hair_oil_serum" ||
     profile.productType === "styling_product";
   const isCleansing =
-    profile.productType === "shampoo" || profile.productType === "co_wash";
+    profile.productType === "shampoo";
   const isTreatment =
     profile.productType === "deep_conditioner_mask" ||
     profile.productType === "rinse_out_conditioner";
 
   // ── Silicone-Heavy Without Cleansing ─────────────────────────────────────
-  if (silicones.length >= 3 && sulfateSurfactants.length === 0) {
+  // Only fires for leave-in/styling (not serum — silicone serums are a valid standalone category)
+  // and not when profile has avoid-silicones (the hard conflict message is more useful)
+  const isLeaveInOrStyling =
+    profile.productType === "leave_in_conditioner" ||
+    profile.productType === "styling_product";
+  if (isLeaveInOrStyling && !profile.siliconeSensitivity &&
+    silicones.length >= 3 && sulfateSurfactants.length === 0) {
     const names = silicones.map((si) => si.ingredient?.record?.name);
     const penalty = -0.05;
     const hw: HeuristicWarning = {

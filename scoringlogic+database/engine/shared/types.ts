@@ -179,7 +179,9 @@ export interface ScoreTraceEntry {
     | "protein_load_intensity"
     | "humectant_synergy"
     | "surfactant_load"
-    | "chemical_treatment_cleanser";
+    | "chemical_treatment_cleanser"
+    // FIX 4: formulation-level harshness (applied once, not per-ingredient)
+    | "formulation_harshness";
   readonly value: number;
   readonly explanation: string;
   /** Optional: the source ingredient name that triggered this trace entry. */
@@ -401,6 +403,10 @@ export interface ScoredFormulation {
     readonly confidence: "LOW" | "MEDIUM" | "HIGH";
     readonly unresolvedRatio: number;
   };
+  /** Product qualification: formula failed minimum ingredient check for this product type. */
+  readonly disqualified?: boolean;
+  /** Reason why the formula was disqualified. */
+  readonly disqualificationReason?: string;
 }
 
 // ─── INTERACTION FLAG ─────────────────────────────────────────────────────────
