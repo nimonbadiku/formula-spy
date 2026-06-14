@@ -98,7 +98,7 @@ export function PasteScreen({ onAnalyze, onEditProfile }: PasteScreenProps) {
             </span>
           )}
         </div>
-        <GlassPanel padding={4}>
+        <GlassPanel padding={4} className="inci-glow-wrap">
           <textarea
             id="inci"
             className="inci-input"

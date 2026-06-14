@@ -6,7 +6,7 @@
   gap: 10px;
   width: 100%;
   text-align: left;
-  padding: 22px 48px 22px 18px;
+  padding: 22px 18px;
   border-radius: var(--radius-md);
   background: var(--surface-solid);
   border: 1.5px solid var(--hairline);
@@ -33,27 +33,4 @@
   font-size: 13px;
   color: var(--text-soft);
   line-height: 1.4;
-}
-
-.option-card__check {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  background: var(--blue);
-  opacity: 0;
-  transform: translateY(-50%) scale(0.6);
-  transition: opacity 0.18s ease, transform 0.18s ease;
-}
-
-.option-card--selected .option-card__check {
-  opacity: 1;
-  transform: translateY(-50%) scale(1);
 }

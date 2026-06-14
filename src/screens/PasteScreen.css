@@ -107,3 +107,26 @@
 .inci-input::placeholder {
     color: var(--text-faint);
 }
+
+.inci-glow-wrap {
+    transition: box-shadow 0.4s ease;
+}
+
+.inci-glow-wrap:focus-within {
+    animation: inci-glow-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes inci-glow-pulse {
+    0%, 100% {
+        box-shadow:
+            0 0 10px rgba(79, 141, 249, 0.4),
+            0 0 24px rgba(79, 141, 249, 0.2),
+            0 0 44px rgba(57, 194, 168, 0.1) !important;
+    }
+    50% {
+        box-shadow:
+            0 0 18px rgba(79, 141, 249, 0.6),
+            0 0 40px rgba(79, 141, 249, 0.3),
+            0 0 60px rgba(57, 194, 168, 0.15) !important;
+    }
+}
